@@ -1,0 +1,4671 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- Primary Meta Tags -->
+    <title>Hundetricks - Professionelles Trainingskompendium</title>
+    <meta name="title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta name="description" content="Umfassende Trick-Datenbank für progressives Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
+    <meta name="keywords" content="Hundetraining, Hundetricks, Dog Training, Tricks, PWA, Offline, Sprachausgabe, TTS">
+    <meta name="author" content="Hundetricks App">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3ea876" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#2d7a5e" media="(prefers-color-scheme: dark)">
+    <meta name="background-color" content="#1a1a1a">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./icons/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./icons/icon-120x120.png">
+    
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Hundetricks">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- MS Tile -->
+    <meta name="msapplication-TileColor" content="#3ea876">
+    <meta name="msapplication-TileImage" content="./icons/icon-144x144.png">
+    <meta name="msapplication-config" content="./browserconfig.xml">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="./icons/favicon.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hundetricks.app/">
+    <meta property="og:title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta property="og:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="og:image" content="./icons/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hundetricks.app/">
+    <meta property="twitter:title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta property="twitter:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="twitter:image" content="./icons/twitter-image.png">
+    
+    <!-- Security -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    <!-- Google Fonts mit Fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            --gradient-primary: linear-gradient(135deg, #2d7a5e 0%, #1e5a42 100%);
+            --gradient-success: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
+            --gradient-accent: linear-gradient(135deg, #52c593 0%, #3ea876 100%);
+            --bg-main: #f8f9fd;
+            --bg-secondary: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --header-bg: #ffffff;
+            --input-bg: #ffffff;
+            --input-border: #e2e8f0;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #1a202c;
+            --bg-secondary: #2d3748;
+            --text-primary: #ffffff;
+            --text-secondary: #f0f4f8;
+            --card-bg: #2d3748;
+            --border-color: #4a5568;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.5);
+            --header-bg: #2d3748;
+            --input-bg: #1a202c;
+            --input-border: #4a5568;
+        }
+
+        * { 
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+            background: var(--bg-main);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            padding-top: 160px;
+            padding-bottom: 60px;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* === STICKY HEADER === */
+        .app-header {
+            background: var(--card-bg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .app-header.header-hidden {
+            transform: translateY(-100%);
+            box-shadow: none;
+        }
+
+        .app-header.collapsed {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 12px 16px;
+            transition: all 0.3s ease;
+        }
+
+        .app-header.collapsed .header-content {
+            padding: 8px 16px;
+        }
+
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .app-header.collapsed .title-row {
+            margin-bottom: 0;
+        }
+
+        h1 { 
+            margin: 0; 
+            font-size: 1.5rem; 
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+            line-height: 1.2;
+        }
+
+        .app-header.collapsed h1 {
+            font-size: 1.2rem;
+        }
+
+        .header-collapsible {
+            max-height: 500px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+            opacity: 1;
+        }
+
+        .app-header.collapsed .header-collapsible {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+        }
+
+        .collapse-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 8px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .collapse-toggle:hover {
+            background: var(--bg-main);
+            color: var(--text-primary);
+        }
+
+        .collapse-toggle .arrow {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .app-header.collapsed .collapse-toggle .arrow {
+            transform: rotate(180deg);
+        }
+
+        .progress-compact {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .app-header.collapsed .progress-compact {
+            display: flex;
+        }
+
+        .progress-mini-bar {
+            width: 60px;
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-mini-fill {
+            height: 100%;
+            background: var(--gradient-success);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: linear-gradient(135deg, #3ea87615, #2d7a5e15);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn {
+            width: auto;
+            padding: 0 16px;
+            border-radius: var(--radius-lg);
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .icon-btn:hover {
+            background: linear-gradient(135deg, #3ea87625, #2d7a5e25);
+            transform: scale(1.1);
+        }
+
+        /* === BURGER MENU === */
+        .burger-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2500;
+            transition: left 0.3s ease;
+        }
+
+        .burger-menu-overlay.show {
+            left: 0;
+        }
+
+        .burger-menu {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 320px;
+            height: 100%;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-lg);
+            z-index: 2600;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .burger-menu.show {
+            left: 0;
+        }
+
+        .burger-header {
+            padding: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .burger-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .burger-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .burger-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .burger-content {
+            padding: 20px;
+        }
+
+        .nav-category {
+            margin-bottom: 16px;
+        }
+
+        .nav-category-header {
+            padding: 12px 16px;
+            background: var(--bg-main);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-category-header:hover {
+            background: var(--bg-secondary);
+            transform: translateX(4px);
+        }
+
+        .nav-category-header.active {
+            background: var(--bg-secondary);
+        }
+
+        .nav-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-category-header.active .nav-arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav-tricks {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-left: 12px;
+        }
+
+        .nav-tricks.open {
+            max-height: 2000px;
+            padding-top: 8px;
+        }
+
+        .nav-trick-item {
+            padding: 10px 16px;
+            margin: 4px 0;
+            background: var(--bg-main);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-primary);
+            border-left: 3px solid transparent;
+        }
+
+        .nav-trick-item:hover {
+            background: var(--bg-secondary);
+            border-left-color: var(--category-color);
+            transform: translateX(4px);
+        }
+
+        .nav-trick-title {
+            font-size: 0.9rem;
+        }
+
+        .nav-trick-id {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+
+        /* === MODAL === */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 2px solid #f1f3f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.4;
+            padding: 2px 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #f1f3f9;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .setting-group {
+            margin-bottom: 32px;
+        }
+
+        .setting-label {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            display: block;
+            color: var(--text-primary);
+            word-wrap: break-word;
+            line-height: 1.5;
+        }
+
+        .setting-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            white-space: normal;
+            word-wrap: break-word;
+            min-height: 44px;
+            line-height: 1.4;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 122, 94, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-accent);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(82, 197, 147, 0.3);
+        }
+
+        .btn-success {
+            background: var(--gradient-success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(62, 168, 118, 0.3);
+        }
+
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--input-border);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+            background: var(--input-bg);
+            color: var(--text-primary);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #3ea876;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .textarea-field {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        select.input-field {
+            background: var(--input-bg);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        select.input-field option {
+            background: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 24px 0;
+        }
+        
+        /* Button Grid Layout */
+        .button-grid {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .button-grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .stats-badge {
+            background: linear-gradient(135deg, #3ea87620, #2d7a5e20);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #3ea876;
+            border: 1px solid #3ea87630;
+        }
+
+        [data-theme="dark"] .stats-badge {
+            background: linear-gradient(135deg, #3ea87630, #2d7a5e30);
+            border-color: #3ea87650;
+            color: #52c593;
+        }
+
+        /* === SEARCH === */
+        .search-box {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border-radius: var(--radius-lg);
+            border: 2px solid transparent;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: var(--input-bg);
+            border-color: #3ea876;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        /* === PROGRESS === */
+        .progress-section {
+            background: linear-gradient(135deg, #3ea87615, #2d7a5e15);
+            padding: 16px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 8px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .progress-track {
+            background: var(--border-color);
+            height: 8px;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        [data-theme="dark"] .progress-track {
+            background: #4a5568;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-success);
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(62, 168, 118, 0.3);
+        }
+
+        /* === CONTENT AREA === */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        /* === CATEGORIES === */
+        .category-wrapper {
+            margin-bottom: 24px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .category-wrapper:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .cat-header {
+            padding: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .cat-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: var(--category-color, var(--border-color));
+            transition: width 0.3s ease;
+        }
+
+        .cat-header:hover::before {
+            width: 8px;
+        }
+
+        .cat-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cat-count {
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .arrow { 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.2rem;
+        }
+
+        .cat-header.active .arrow { 
+            transform: rotate(180deg);
+        }
+
+        .cat-body {
+            display: none;
+            background: var(--bg-main);
+        }
+
+        .cat-body.open { 
+            display: block;
+        }
+
+        /* === TRICK CARD === */
+        .trick-card {
+            background: var(--card-bg);
+            margin: 16px;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid #e8eaf0;
+        }
+
+        .trick-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #3ea87630;
+        }
+
+        .trick-card.learned {
+            opacity: 0.75;
+            background: #e8e8e8; /* Deutlich grauer Hintergrund im Light Mode */
+            border-color: #d0d0d0;
+        }
+
+        [data-theme="dark"] .trick-card.learned {
+            opacity: 0.5;
+            background: var(--bg-main);
+        }
+
+        .trick-card.learned .trick-title { 
+            text-decoration: line-through; 
+            color: var(--text-secondary);
+        }
+
+        .trick-card.hidden {
+            display: none;
+        }
+
+        /* === TTS (Text-to-Speech) BUTTONS === */
+        .tts-btn {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            min-height: 40px;
+        }
+
+        .tts-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .tts-btn:active {
+            transform: scale(0.95);
+        }
+
+        .tts-btn.speaking {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            animation: pulse-tts 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-tts {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+
+        .tts-btn-small {
+            padding: 6px 10px;
+            font-size: 1rem;
+            min-width: 36px;
+            min-height: 36px;
+        }
+
+        .tts-btn-inline {
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 768px) {
+            .tts-btn {
+                min-width: 36px;
+                min-height: 36px;
+                padding: 6px 10px;
+                font-size: 1.1rem;
+            }
+            .tts-btn-small {
+                min-width: 32px;
+                min-height: 32px;
+                padding: 4px 8px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .custom-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #52c593 0%, #3ea876 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            z-index: 10;
+        }
+
+        .delete-custom-btn {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+
+        .delete-custom-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f1f3f9;
+        }
+
+        .trick-title { 
+            margin: 0; 
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .trick-id { 
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #3ea876;
+            background: linear-gradient(135deg, #3ea87615, #2d7a5e15);
+            padding: 6px 12px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        [data-theme="dark"] .trick-id {
+            color: #52c593;
+            background: linear-gradient(135deg, #3ea87630, #2d7a5e30);
+        }
+
+        /* === INFO BLOCKS === */
+        .info-block {
+            margin-bottom: 20px;
+        }
+
+        .block-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .block-icon {
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            background: var(--bg-main);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .text-short {
+            font-size: 1rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 400;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .text-long {
+            display: none;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            background: var(--bg-main);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            margin-top: 12px;
+            border-left: 4px solid #3ea876;
+            line-height: 1.7;
+            animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        [data-theme="dark"] .text-long {
+            border-left-color: #52c593;
+        }
+
+        .text-long.show { 
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .toggle-btn {
+            border: 2px solid transparent;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 16px;
+            margin-top: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .toggle-btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.8;
+        }
+
+        .toggle-btn:active {
+            transform: translateY(0);
+        }
+
+        /* === VARIATIONS === */
+        .variation-container {
+            margin-top: 24px;
+            background: linear-gradient(135deg, #e8f5f0, #d4ede3);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 2px solid #a8d5c3;
+        }
+
+        [data-theme="dark"] .variation-container {
+            background: linear-gradient(135deg, #1e3d32, #2a5142);
+            border-color: #3a6b54;
+        }
+
+        .variation-title {
+            color: #2d7a5e;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        [data-theme="dark"] .variation-title {
+            color: #52c593;
+        }
+
+        /* === CHECKBOX/TOGGLE === */
+        .card-footer {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 2px dashed var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .check-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            user-select: none;
+            padding: 10px 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .check-wrapper:hover {
+            background: var(--bg-secondary);
+        }
+
+        .check-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .check-wrapper.active .check-label {
+            color: #11998e;
+        }
+
+        .switch {
+            position: relative;
+            width: 52px;
+            height: 28px;
+            background: var(--border-color);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] .switch {
+            background: #4a5568;
+        }
+
+        .check-wrapper.active .switch {
+            background: var(--gradient-success);
+            box-shadow: 0 2px 8px rgba(62, 168, 118, 0.3);
+        }
+
+        .knob {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .check-wrapper.active .knob {
+            transform: translateX(24px);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 600px) {
+            body {
+                padding-top: 140px;
+            }
+            
+            h1 { 
+                font-size: 1.3rem;
+                line-height: 1.1;
+            }
+            
+            .app-header.collapsed h1 {
+                font-size: 1.1rem;
+            }
+            
+            .trick-card { padding: 16px; }
+            .container { padding: 12px; }
+            .header-content { padding: 10px 12px; }
+            
+            .app-header.collapsed .header-content {
+                padding: 6px 12px;
+            }
+            
+            .title-row {
+                margin-bottom: 10px;
+            }
+            
+            .icon-btn {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+            }
+            
+            .stats-badge {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            
+            .search-box {
+                margin-bottom: 10px;
+            }
+            
+            .search-input {
+                padding: 10px 12px 10px 40px;
+                font-size: 0.9rem;
+            }
+            
+            .progress-section {
+                padding: 10px;
+            }
+            
+            .progress-label {
+                font-size: 0.8rem;
+            }
+            
+            .trick-card {
+                margin: 10px;
+                padding: 14px;
+            }
+            
+            .trick-title {
+                font-size: 1.1rem;
+            }
+            
+            .trick-id {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+            
+            /* Modal Improvements */
+            .modal {
+                max-width: 100%;
+                margin: 0;
+                border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+                max-height: 95vh;
+            }
+            
+            .modal-overlay {
+                padding: 0 8px;
+                align-items: flex-end;
+            }
+            
+            .modal-header {
+                padding: 24px 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.25rem;
+                word-break: break-word;
+                line-height: 1.3;
+            }
+            
+            .modal-body {
+                padding: 20px 16px;
+                overflow-x: hidden;
+            }
+            
+            .setting-group {
+                margin-bottom: 24px;
+            }
+            
+            /* Input Fields */
+            .input-field {
+                font-size: 16px; /* Verhindert Auto-Zoom auf iOS */
+                padding: 12px;
+                word-break: break-all;
+            }
+            
+            /* Button Grid - Single Column on Mobile */
+            .button-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Buttons */
+            .btn {
+                font-size: 0.9rem;
+                padding: 12px 16px;
+                min-height: 48px;
+            }
+            
+            .textarea-field {
+                min-height: 120px;
+            }
+            
+            /* Buttons */
+            .btn-primary, .btn-secondary, .btn-success {
+                padding: 14px 20px;
+                font-size: 1rem;
+                white-space: normal;
+                min-height: 48px;
+            }
+            
+            /* Burger Menu */
+            .burger-menu {
+                width: 85%;
+                max-width: 320px;
+            }
+            
+            /* Settings speziell */
+            .setting-label {
+                font-size: 0.95rem;
+            }
+            
+            .setting-description {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .modal-title {
+                font-size: 1.1rem;
+            }
+            
+            .btn-primary, .btn-secondary, .btn-success {
+                font-size: 0.9rem;
+                padding: 12px 16px;
+            }
+            
+            .input-field {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* === UTILITIES === */
+        .app-footer {
+            background: var(--card-bg);
+            padding: 32px 20px;
+            margin-top: 60px;
+            border-top: 2px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        
+        .footer-link {
+            color: #3ea876;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-link:hover {
+            color: #2d7a5e;
+            transform: translateY(-2px);
+        }
+        
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 20px 0;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-header" id="appHeader">
+        <div class="header-content">
+            <div class="title-row">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <button class="icon-btn burger-btn" onclick="toggleBurgerMenu()" title="Navigation öffnen">
+                        ☰ Menü
+                    </button>
+                    <h1>🐾 Trick Training</h1>
+                    <div class="progress-compact">
+                        <div class="progress-mini-bar">
+                            <div class="progress-mini-fill" id="progressMini"></div>
+                        </div>
+                        <span id="statsCompact">0/0</span>
+                    </div>
+                </div>
+                <div class="header-buttons">
+                    <button class="collapse-toggle" onclick="toggleHeaderCollapse()" title="Header ein-/ausklappen">
+                        <span class="arrow">▼</span>
+                    </button>
+                    <span class="stats-badge" id="statsInfo">0 / 0</span>
+                    <button class="icon-btn" onclick="toggleDarkMode()" id="darkModeBtn" title="Dark Mode">🌙</button>
+                    <button class="icon-btn" onclick="openSettings()" title="Einstellungen">⚙️</button>
+                    <button class="icon-btn" onclick="openAddTrick()" title="Neuer Trick">➕</button>
+                </div>
+            </div>
+
+            <div class="header-collapsible">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" 
+                           class="search-input" 
+                           placeholder="Trick suchen..." 
+                           id="searchInput"
+                           oninput="handleSearch(event)">
+                </div>
+
+                <div class="progress-section">
+                    <div class="progress-label" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                        <div style="flex:1;">
+                            <span>Dein Fortschritt</span>
+                            <span id="progressLabel">0% Komplett</span>
+                        </div>
+                        <button class="tts-btn tts-btn-small" 
+                                onclick="speakProgress()"
+                                aria-label="Fortschritt vorlesen"
+                                title="Fortschritt vorlesen">
+                            🔊
+                        </button>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressBar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === BURGER MENU === -->
+    <div class="burger-menu-overlay" id="burgerOverlay" onclick="closeBurgerMenu()"></div>
+    <div class="burger-menu" id="burgerMenu">
+        <div class="burger-header">
+            <h3 class="burger-title">📑 Navigation</h3>
+            <button class="burger-close" onclick="closeBurgerMenu()">✕</button>
+        </div>
+        <div class="burger-content" id="burgerContent">
+            <!-- Dynamisch generiert -->
+        </div>
+    </div>
+
+    <div class="container" id="tricksContainer">
+        <!-- Dynamisch befüllt -->
+    </div>
+    
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/Digid0t/DigiDot_9" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    GitHub Repository
+                </a>
+                <a href="https://raw.githubusercontent.com/Digid0t/DigiDot_9/main/Hundetricks.json" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    📥 JSON Datei
+                </a>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-text">
+                Hundetricks Datenbank v2.0 | Made with 💜 for dog training
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Spacer für vollständiges Scrollen -->
+    <div style="height: 40px;"></div>
+
+    <!-- === SETTINGS MODAL === -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">⚙️ Einstellungen</h2>
+                <button class="modal-close" onclick="closeSettings()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label class="setting-label">📥 JSON laden</label>
+                    <p class="setting-description">Lade Tricks aus einer JSON-Datei oder per URL</p>
+                    
+                    <div class="button-grid button-grid-2" style="margin-bottom: 16px;">
+                        <div class="file-input-wrapper">
+                            <label class="btn btn-success btn-full">
+                                📁 Vom Gerät
+                                <input type="file" accept=".json" onchange="loadJSONFile(event)">
+                            </label>
+                        </div>
+                        
+                        <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip" 
+                           download 
+                           class="btn btn-secondary btn-full" 
+                           style="text-decoration:none; display:flex;">
+                            📦 ZIP Download
+                        </a>
+                    </div>
+                    
+                    <div style="text-align:center; margin:12px 0 16px 0;">
+                        <span style="color:var(--text-secondary); font-size:0.85rem; font-weight: 600;">Von URL laden:</span>
+                        <p style="margin:4px 0 0 0; font-size:0.75rem; color:var(--text-secondary);">
+                            💡 Bei GitHub-URLs werden automatisch alle Varianten getestet
+                        </p>
+                    </div>
+                    
+                    <input type="text" class="input-field" id="jsonUrl" 
+                           placeholder="GitHub URL oder direkte JSON-URL" 
+                           value="https://raw.githack.com/Digid0t/DigiDot_9/main/Hundetricks.json">
+                    <button class="btn btn-primary btn-full" onclick="loadJSONFromURL()">
+                        🔗 Von URL laden
+                    </button>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="setting-group">
+                    <label class="setting-label">📦 Backup-System</label>
+                    <p class="setting-description">Sichere ALLE Daten: Fortschritt, eigene Tricks & Datenbank</p>
+                    
+                    <button class="btn btn-primary btn-full" onclick="createBackupEnhanced()" style="margin-bottom:10px;">
+                        💾 Vollständiges Backup erstellen
+                    </button>
+                    
+                    <button class="btn btn-success btn-full" onclick="loadBackupManual()" style="margin-bottom:16px;">
+                        📂 Backup laden
+                    </button>
+                    
+                    <div style="background:var(--bg-main); padding:12px; border-radius:8px; margin-bottom:12px;">
+                        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                            <input type="checkbox" id="autoLoadBackupSetting"
+                                   onchange="localStorage.setItem(AUTO_LOAD_BACKUP_KEY, this.checked); console.log('Auto-Load Backup:', this.checked);">
+                            <span style="font-size:0.9rem;">Backup-Dialog überspringen</span>
+                        </label>
+                        <p style="margin:8px 0 0 24px; font-size:0.75rem; color:var(--text-secondary);">
+                            Wenn aktiviert: Backup-Dialog wird nicht gezeigt, stattdessen wird online geladen
+                        </p>
+                    </div>
+                    
+                    <div style="background:var(--bg-main); padding:12px; border-radius:8px;">
+                        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                            <input type="checkbox" id="autoLoadLocalSetting"
+                                   onchange="localStorage.setItem(AUTO_LOAD_LOCAL_JSON_KEY, this.checked); console.log('Auto-Load Local:', this.checked);">
+                            <span style="font-size:0.9rem;">Lokale JSON bevorzugen (Offline-Modus)</span>
+                        </label>
+                        <p style="margin:8px 0 0 24px; font-size:0.75rem; color:var(--text-secondary);">
+                            Wenn aktiviert: Datei-Auswahl-Dialog wird beim Start gezeigt
+                        </p>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">💾 Alte Daten-Funktionen</label>
+                    <p class="setting-description">Nur Fortschritt & eigene Tricks (ohne Datenbank)</p>
+                    
+                    <div class="button-grid button-grid-2">
+                        <button class="btn btn-success btn-full" onclick="exportData()">
+                            💾 Speichern
+                        </button>
+                        
+                        <div class="file-input-wrapper">
+                            <label class="btn btn-primary btn-full">
+                                📤 Laden
+                                <input type="file" accept=".json" onchange="importData(event)">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="setting-group">
+                    <label class="setting-label">🔗 GitHub Repository</label>
+                    <p class="setting-description">Quellcode, Updates und Dokumentation</p>
+                    <a href="https://github.com/Digid0t/DigiDot_9" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="btn btn-primary btn-full" 
+                       style="text-decoration: none;">
+                        <span>📂 GitHub öffnen</span>
+                    </a>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="setting-group">
+                    <label class="setting-label">🔊 Sprachausgabe (Barrierefreiheit)</label>
+                    <p class="setting-description">Text-to-Speech für alle Inhalte</p>
+                    
+                    <div style="background:var(--bg-main); padding:12px; border-radius:8px; margin-bottom:12px;">
+                        <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                            <input type="checkbox" id="ttsEnabledSetting" 
+                                   checked
+                                   onchange="localStorage.setItem(TTS_ENABLED_KEY, this.checked);">
+                            <span style="font-size:0.9rem;">Sprachausgabe aktivieren</span>
+                        </label>
+                    </div>
+                    
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; margin-bottom:4px; font-size:0.85rem; color:var(--text-secondary);">
+                            Geschwindigkeit: <span id="ttsRateValue">1.0</span>x
+                        </label>
+                        <input type="range" id="ttsRateSlider" 
+                               min="0.5" max="2.0" step="0.1" value="1.0"
+                               style="width:100%;"
+                               oninput="document.getElementById('ttsRateValue').textContent = this.value; localStorage.setItem(TTS_RATE_KEY, this.value);">
+                    </div>
+                    
+                    <div style="margin-bottom:12px;">
+                        <label style="display:block; margin-bottom:4px; font-size:0.85rem; color:var(--text-secondary);">
+                            Lautstärke: <span id="ttsVolumeValue">100</span>%
+                        </label>
+                        <input type="range" id="ttsVolumeSlider" 
+                               min="0" max="1" step="0.1" value="1"
+                               style="width:100%;"
+                               oninput="document.getElementById('ttsVolumeValue').textContent = Math.round(this.value * 100); localStorage.setItem(TTS_VOLUME_KEY, this.value);">
+                    </div>
+                    
+                    <button class="btn btn-accent btn-full" onclick="testTTS()" style="margin-top:8px;">
+                        🔊 Sprachausgabe testen
+                    </button>
+                    
+                    <p style="margin-top:12px; font-size:0.75rem; color:var(--text-secondary);">
+                        💡 <strong>Tipp:</strong> Drücken Sie ESC um die Sprachausgabe jederzeit zu stoppen.
+                    </p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="setting-group">
+                    <label class="setting-label">🗑️ Daten zurücksetzen</label>
+                    <p class="setting-description">Achtung: Löscht alle eigenen Tricks und den Fortschritt!</p>
+                    <button class="btn btn-secondary btn-full" onclick="resetAllData()">
+                        Alles zurücksetzen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === ADD TRICK MODAL === -->
+    <div class="modal-overlay" id="addTrickModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">➕ Neuer Trick</h2>
+                <button class="modal-close" onclick="closeAddTrick()">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label class="setting-label">Kategorie</label>
+                    <select class="input-field" id="newTrickCategory">
+                        <option value="beginner">Anfänger (Green)</option>
+                        <option value="intermediate">Fortgeschritten (Yellow)</option>
+                        <option value="advanced">Profi (Red)</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">Titel des Tricks *</label>
+                    <input type="text" class="input-field" id="newTrickTitle" placeholder="z.B. Spin">
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">✋ Handzeichen</label>
+                    <input type="text" class="input-field" id="newTrickHandKurz" 
+                           placeholder="Kurz: z.B. Zeigefinger nach oben">
+                    <textarea class="input-field textarea-field" id="newTrickHandLang" 
+                              placeholder="Ausführlich: Detaillierte Beschreibung..."></textarea>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">🎬 Bewegungsablauf</label>
+                    <input type="text" class="input-field" id="newTrickBewegungKurz" 
+                           placeholder="Kurz: z.B. Hund dreht sich im Kreis">
+                    <textarea class="input-field textarea-field" id="newTrickBewegungLang" 
+                              placeholder="Ausführlich: Detaillierte Beschreibung..."></textarea>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">📍 Endposition</label>
+                    <input type="text" class="input-field" id="newTrickEndposKurz" 
+                           placeholder="Kurz: z.B. Hund steht vor dir">
+                    <textarea class="input-field textarea-field" id="newTrickEndposLang" 
+                              placeholder="Ausführlich: Detaillierte Beschreibung..."></textarea>
+                </div>
+
+                <div class="setting-group">
+                    <label class="setting-label">💡 Trainingstipps</label>
+                    <input type="text" class="input-field" id="newTrickTippsKurz" 
+                           placeholder="Kurz: z.B. Mit Leckerli führen">
+                    <textarea class="input-field textarea-field" id="newTrickTippsLang" 
+                              placeholder="Ausführlich: Detaillierte Trainingstipps..."></textarea>
+                </div>
+
+                <button class="btn btn-success btn-full" onclick="saveNewTrick()">
+                    ✅ Trick speichern
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'dogTricksLearned';
+        const CUSTOM_TRICKS_KEY = 'dogTricksCustom';
+        const FULL_DATA_KEY = 'dogTricksFullData';
+        const JSON_URL_KEY = 'dogTricksJsonUrl';
+        const DARK_MODE_KEY = 'dogTricksDarkMode';
+        const BACKUP_EXISTS_KEY = 'dogTricksBackupExists';
+        const AUTO_LOAD_BACKUP_KEY = 'dogTricksAutoLoadBackup';
+        const AUTO_LOAD_LOCAL_JSON_KEY = 'dogTricksAutoLoadLocalJson';
+        const LAST_BACKUP_DATE_KEY = 'dogTricksLastBackupDate';
+        const TTS_ENABLED_KEY = 'dogTricksTTSEnabled';
+        const TTS_RATE_KEY = 'dogTricksTTSRate';
+        const TTS_PITCH_KEY = 'dogTricksTTSPitch';
+        const TTS_VOLUME_KEY = 'dogTricksTTSVolume';
+        const TTS_VOICE_KEY = 'dogTricksTTSVoice';
+        
+        let learnedTricks = new Set();
+        let totalTricks = 0;
+        let currentData = null;
+        let customTricks = [];
+        let backupFileHandle = null; // Für File System Access API
+        let tricksMap = new Map(); // Speichert Trick-Objekte für TTS-Zugriff
+        let currentSpeech = null; // Aktueller TTS-Vorgang
+        let isSpeaking = false; // TTS aktiv?
+
+        // === DARK MODE ===
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const btn = document.getElementById('darkModeBtn');
+            
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                btn.textContent = '🌙';
+                localStorage.setItem(DARK_MODE_KEY, 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                btn.textContent = '☀️';
+                localStorage.setItem(DARK_MODE_KEY, 'dark');
+            }
+        }
+
+        function initDarkMode() {
+            const savedTheme = localStorage.getItem(DARK_MODE_KEY);
+            const btn = document.getElementById('darkModeBtn');
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (btn) btn.textContent = '☀️';
+            }
+        }
+
+        // === BURGER MENU ===
+        function toggleBurgerMenu() {
+            const overlay = document.getElementById('burgerOverlay');
+            const menu = document.getElementById('burgerMenu');
+            
+            overlay.classList.toggle('show');
+            menu.classList.toggle('show');
+        }
+
+        function closeBurgerMenu() {
+            const overlay = document.getElementById('burgerOverlay');
+            const menu = document.getElementById('burgerMenu');
+            
+            overlay.classList.remove('show');
+            menu.classList.remove('show');
+        }
+
+        // === HEADER COLLAPSE ===
+        let headerCollapsed = false;
+        let headerHidden = false;
+        let lastScrollY = 0;
+        const scrollThreshold = 50;
+
+        function toggleHeaderCollapse() {
+            const header = document.getElementById('appHeader');
+            headerCollapsed = !headerCollapsed;
+            
+            if (headerCollapsed) {
+                header.classList.add('collapsed');
+                localStorage.setItem('headerCollapsed', 'true');
+            } else {
+                header.classList.remove('collapsed');
+                localStorage.setItem('headerCollapsed', 'false');
+            }
+        }
+
+        function initHeaderState() {
+            const savedState = localStorage.getItem('headerCollapsed');
+            if (savedState === 'true') {
+                headerCollapsed = true;
+                document.getElementById('appHeader').classList.add('collapsed');
+            }
+        }
+
+        // Auto-hide/show header beim Scrollen
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const header = document.getElementById('appHeader');
+            
+            if (!header) return;
+            
+            // Runterscrollen: Header ausblenden
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                if (!headerHidden) {
+                    header.classList.add('header-hidden');
+                    headerHidden = true;
+                }
+            }
+            // Hochscrollen: Header wieder einblenden
+            else if (currentScrollY < lastScrollY || currentScrollY < 50) {
+                if (headerHidden) {
+                    header.classList.remove('header-hidden');
+                    headerHidden = false;
+                }
+            }
+            
+            lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+        });
+
+        function generateNavigation(data) {
+            if (!data || !data.trick_database) return;
+
+            console.log('📱📱📱 STARTE BURGER-MENU-GENERIERUNG 📱📱📱');
+            
+            const container = document.getElementById('burgerContent');
+            container.innerHTML = '';
+
+            const categories = Object.entries(data.trick_database);
+            
+            categories.forEach(([catKey, cat]) => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'nav-category';
+                
+                const color = getCategoryColor(cat.meta.category_name, cat.meta.color_code);
+                console.log(`📱 Burger-Menu Kategorie: "${cat.meta.category_name}" → Farbe: ${color}`);
+                
+                const header = document.createElement('div');
+                header.className = 'nav-category-header';
+                header.style.borderLeftColor = color;
+                header.style.borderLeftWidth = '4px';
+                header.style.display = 'flex';
+                header.style.alignItems = 'center';
+                header.style.justifyContent = 'space-between';
+                header.style.gap = '8px';
+                
+                const titleSpan = document.createElement('span');
+                titleSpan.textContent = `${cleanCategoryName(cat.meta.category_name)} (${cat.list.length})`;
+                titleSpan.style.flex = '1';
+                
+                const buttonsDiv = document.createElement('div');
+                buttonsDiv.style.display = 'flex';
+                buttonsDiv.style.alignItems = 'center';
+                buttonsDiv.style.gap = '8px';
+                
+                // TTS-Button für alle Tricks
+                const ttsCatBtn = document.createElement('button');
+                ttsCatBtn.className = 'tts-btn tts-btn-small';
+                ttsCatBtn.innerHTML = '🔊';
+                ttsCatBtn.setAttribute('aria-label', 'Alle Tricks vorlesen');
+                ttsCatBtn.setAttribute('title', 'Alle Tricks dieser Kategorie vorlesen');
+                ttsCatBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    speakAllTricksInCategory(cat.list, cleanCategoryName(cat.meta.category_name), ttsCatBtn);
+                };
+                
+                const arrow = document.createElement('span');
+                arrow.className = 'nav-arrow';
+                arrow.textContent = '▼';
+                
+                buttonsDiv.appendChild(ttsCatBtn);
+                buttonsDiv.appendChild(arrow);
+                
+                header.appendChild(titleSpan);
+                header.appendChild(buttonsDiv);
+                
+                const tricksContainer = document.createElement('div');
+                tricksContainer.className = 'nav-tricks';
+                
+                cat.list.forEach(trick => {
+                    const trickItem = document.createElement('div');
+                    trickItem.className = 'nav-trick-item';
+                    trickItem.style.setProperty('--category-color', color);
+                    
+                    // Erstelle TTS-Button
+                    const ttsBtn = document.createElement('button');
+                    ttsBtn.className = 'tts-btn tts-btn-small';
+                    ttsBtn.innerHTML = '🔊';
+                    ttsBtn.setAttribute('aria-label', 'Trick vorlesen');
+                    ttsBtn.setAttribute('title', 'Trick vorlesen');
+                    ttsBtn.style.marginLeft = '8px';
+                    ttsBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        speakTrickCard(trick, cleanCategoryName(cat.meta.category_name), ttsBtn);
+                    };
+                    
+                    // Erstelle Content-Wrapper
+                    const titleWrapper = document.createElement('div');
+                    titleWrapper.style.display = 'flex';
+                    titleWrapper.style.alignItems = 'center';
+                    titleWrapper.style.justifyContent = 'space-between';
+                    titleWrapper.style.flex = '1';
+                    titleWrapper.style.gap = '8px';
+                    
+                    const titleSpan = document.createElement('span');
+                    titleSpan.className = 'nav-trick-title';
+                    titleSpan.textContent = trick.titel;
+                    titleSpan.style.flex = '1';
+                    titleSpan.style.minWidth = '0';
+                    
+                    const idSpan = document.createElement('span');
+                    idSpan.className = 'nav-trick-id';
+                    idSpan.textContent = `#${trick.position || trick.id}`;
+                    
+                    titleWrapper.appendChild(titleSpan);
+                    titleWrapper.appendChild(idSpan);
+                    
+                    trickItem.appendChild(titleWrapper);
+                    trickItem.appendChild(ttsBtn);
+                    
+                    trickItem.onclick = (e) => {
+                        if (e.target !== ttsBtn && !ttsBtn.contains(e.target)) {
+                            scrollToTrick(trick.id);
+                            closeBurgerMenu();
+                        }
+                    };
+                    
+                    tricksContainer.appendChild(trickItem);
+                });
+                
+                header.onclick = (e) => {
+                    // Nicht togglen wenn TTS-Button geklickt wurde
+                    if (e.target === ttsCatBtn || ttsCatBtn.contains(e.target)) {
+                        return;
+                    }
+                    header.classList.toggle('active');
+                    tricksContainer.classList.toggle('open');
+                };
+                
+                categoryDiv.appendChild(header);
+                categoryDiv.appendChild(tricksContainer);
+                container.appendChild(categoryDiv);
+            });
+        }
+
+        function scrollToTrick(trickId) {
+            const card = document.getElementById(`card-${trickId}`);
+            if (card) {
+                // Kategorie öffnen, falls eingeklappt
+                const categoryBody = card.closest('.cat-body');
+                const categoryWrapper = card.closest('.category-wrapper');
+                
+                if (categoryBody && categoryWrapper) {
+                    const categoryHeader = categoryWrapper.querySelector('.cat-header');
+                    
+                    // Kategorie öffnen
+                    if (!categoryBody.classList.contains('open')) {
+                        categoryBody.classList.add('open');
+                        categoryHeader.classList.add('active');
+                    }
+                }
+                
+                // Kurze Verzögerung, damit die Kategorie Zeit hat sich zu öffnen
+                setTimeout(() => {
+                    card.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start'
+                    });
+                    
+                    // Highlight effect
+                    card.style.boxShadow = '0 0 0 3px #3ea876';
+                    setTimeout(() => {
+                        card.style.boxShadow = '';
+                    }, 2000);
+                }, 100);
+            }
+        }
+
+        // === MODAL FUNCTIONS ===
+        function openSettings() {
+            document.getElementById('settingsModal').classList.add('show');
+            initTTSSettings(); // Lade TTS-Einstellungen
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsModal').classList.remove('show');
+        }
+
+        function openAddTrick() {
+            document.getElementById('addTrickModal').classList.add('show');
+        }
+
+        function closeAddTrick() {
+            document.getElementById('addTrickModal').classList.remove('show');
+            clearAddTrickForm();
+        }
+
+        function clearAddTrickForm() {
+            document.getElementById('newTrickTitle').value = '';
+            document.getElementById('newTrickHandKurz').value = '';
+            document.getElementById('newTrickHandLang').value = '';
+            document.getElementById('newTrickBewegungKurz').value = '';
+            document.getElementById('newTrickBewegungLang').value = '';
+            document.getElementById('newTrickEndposKurz').value = '';
+            document.getElementById('newTrickEndposLang').value = '';
+            document.getElementById('newTrickTippsKurz').value = '';
+            document.getElementById('newTrickTippsLang').value = '';
+        }
+
+        // === DATA EXPORT/IMPORT ===
+        function exportData() {
+            const exportObj = {
+                version: '1.0',
+                exportDate: new Date().toISOString(),
+                learnedTricks: Array.from(learnedTricks),
+                customTricks: customTricks,
+                baseData: currentData
+            };
+
+            const dataStr = JSON.stringify(exportObj, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `hundetricks_backup_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            alert('✅ Backup erfolgreich heruntergeladen!');
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importObj = JSON.parse(e.target.result);
+                    
+                    // Validierung
+                    if (!importObj.version) {
+                        alert('❌ Ungültiges Backup-Format!');
+                        return;
+                    }
+
+                    // Daten wiederherstellen
+                    if (importObj.learnedTricks) {
+                        learnedTricks = new Set(importObj.learnedTricks);
+                        localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(learnedTricks)));
+                    }
+
+                    if (importObj.customTricks) {
+                        customTricks = importObj.customTricks;
+                        localStorage.setItem(CUSTOM_TRICKS_KEY, JSON.stringify(customTricks));
+                    }
+
+                    if (importObj.baseData) {
+                        currentData = importObj.baseData;
+                        localStorage.setItem(FULL_DATA_KEY, JSON.stringify(currentData));
+                    }
+
+                    alert('✅ Backup erfolgreich wiederhergestellt!');
+                    closeSettings();
+                    renderApp(currentData);
+                    updateUI();
+
+                } catch (error) {
+                    console.error('Import error:', error);
+                    alert('❌ Fehler beim Laden der Backup-Datei: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        // === JSON LOADING ===
+        function loadJSONFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            console.log('📁 Lade Datei:', file.name, 'Größe:', file.size, 'bytes');
+
+            const reader = new FileReader();
+            
+            reader.onerror = function() {
+                alert('❌ Fehler beim Lesen der Datei!');
+            };
+            
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    console.log('📦 Datei geladen, validiere...');
+                    console.log('📊 Daten-Keys:', Object.keys(data || {}));
+                    
+                    // VALIDIERUNG: Ist das eine Tricks-Datenbank oder ein Backup?
+                    if (data.version && data.learnedTricks !== undefined) {
+                        // Das ist ein BACKUP-Format, nicht die Tricks-Datenbank!
+                        alert('❌ Dies ist eine Backup-Datei!\n\nBitte verwenden Sie stattdessen:\n"📤 Gespeicherte Daten laden" weiter unten in den Einstellungen.');
+                        event.target.value = '';
+                        return;
+                    }
+                    
+                    // Validierung: Prüfe ob es eine gültige Tricks-Datenbank ist
+                    if (!data.trick_database) {
+                        alert('❌ Ungültige Tricks-Datei!\n\nDie Datei muss eine "trick_database" enthalten.\n\nLaden Sie die richtige Datei von:\nhttps://github.com/Digid0t/DigiDot_9');
+                        event.target.value = '';
+                        return;
+                    }
+                    
+                    console.log('✅ Gültige Tricks-Datenbank gefunden');
+                    console.log('📊 Kategorien:', Object.keys(data.trick_database));
+                    currentData = data;
+                    localStorage.setItem(FULL_DATA_KEY, JSON.stringify(data));
+                    mergeCustomTricks();
+                    renderApp(currentData);
+                    alert('✅ JSON-Datei erfolgreich geladen!');
+                    closeSettings();
+                    
+                } catch (error) {
+                    console.error('JSON parse error:', error);
+                    alert('❌ Fehler beim Laden der JSON-Datei:\n\n' + error.message + '\n\nBitte stellen Sie sicher, dass die Datei eine gültige JSON-Datei ist.');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        async function loadJSONFromURL() {
+            const urlInput = document.getElementById('jsonUrl');
+            let url = urlInput.value.trim();
+            
+            if (!url) {
+                alert('❌ Bitte eine URL eingeben!');
+                return;
+            }
+
+            console.log('🔗 Lade von URL:', url);
+            
+            // Intelligente GitHub URL-Erkennung und Konvertierung
+            let urls = [url]; // Starte mit der vom User eingegebenen URL
+            
+            // Wenn es eine GitHub-URL ist, generiere Varianten
+            if (url.includes('github.com')) {
+                const githubMatch = url.match(/github\.com\/([^\/]+)\/([^\/]+)\/(?:blob|raw)\/([^\/]+)\/(.+)/);
+                
+                if (githubMatch) {
+                    const [, owner, repo, branch, file] = githubMatch;
+                    
+                    console.log('📂 GitHub-Repository erkannt:', { owner, repo, branch, file });
+                    
+                    // Generiere alle Varianten
+                    urls = [
+                        // GitHack (schnell, cached)
+                        `https://raw.githack.com/${owner}/${repo}/${branch}/${file}`,
+                        // Raw GitHub
+                        `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${file}`,
+                        // Original URL
+                        url,
+                        // API als Fallback
+                        `https://api.github.com/repos/${owner}/${repo}/contents/${file}?ref=${branch}`
+                    ];
+                    
+                    console.log('🔄 Generierte URL-Varianten:', urls);
+                }
+            }
+
+            let lastError = null;
+            
+            for (let i = 0; i < urls.length; i++) {
+                const currentUrl = urls[i];
+                
+                try {
+                    console.log(`\n🔍 Versuch ${i + 1}/${urls.length}: ${currentUrl}`);
+                    
+                    const response = await fetch(currentUrl, {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache',
+                        headers: {
+                            'Accept': 'application/json',
+                            'User-Agent': 'TrickTraining-App'
+                        }
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    
+                    let data;
+                    
+                    // GitHub API gibt base64-encoded content zurück
+                    if (currentUrl.includes('api.github.com')) {
+                        const apiData = await response.json();
+                        const decoded = atob(apiData.content);
+                        data = JSON.parse(decoded);
+                    } else {
+                        data = await response.json();
+                    }
+                    
+                    console.log('📦 Daten empfangen, validiere...');
+                    
+                    // VALIDIERUNG: Ist das eine Tricks-Datenbank oder ein Backup?
+                    if (data.version && data.learnedTricks !== undefined) {
+                        alert('❌ Dies ist eine Backup-Datei, nicht die Tricks-Datenbank!\n\nBitte verwenden Sie die URL zur Hundetricks.json Datei.');
+                        return;
+                    }
+                    
+                    // Validierung: Prüfe ob es eine gültige Tricks-Datenbank ist
+                    if (!data.trick_database) {
+                        throw new Error('Keine "trick_database" gefunden');
+                    }
+                    
+                    console.log('✅ Gültige Tricks-Datenbank von URL geladen');
+                    console.log('📊 Kategorien:', Object.keys(data.trick_database));
+                    
+                    currentData = data;
+                    localStorage.setItem(FULL_DATA_KEY, JSON.stringify(data));
+                    localStorage.setItem(JSON_URL_KEY, currentUrl);
+                    
+                    mergeCustomTricks();
+                    renderApp(currentData);
+                    alert('✅ JSON erfolgreich geladen!');
+                    closeSettings();
+                    
+                    return; // Erfolg!
+                    
+                } catch (error) {
+                    console.warn(`⚠️ Versuch ${i + 1} fehlgeschlagen:`, error.message);
+                    lastError = error;
+                    
+                    // Bei GitHack kurz warten
+                    if (currentUrl.includes('githack') && i < urls.length - 1) {
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                    }
+                    
+                    continue;
+                }
+            }
+            
+            // Alle Versuche fehlgeschlagen
+            console.error('❌ Alle Lade-Versuche fehlgeschlagen:', lastError);
+            alert('❌ Fehler beim Laden von allen Quellen:\n\n' + 
+                  (lastError?.message || 'Unbekannter Fehler') + 
+                  '\n\nAlternative: Laden Sie die Datei direkt vom Gerät über "📁 Datei vom Gerät laden"');
+        }
+
+        // === CUSTOM TRICK CREATION ===
+        function saveNewTrick() {
+            const category = document.getElementById('newTrickCategory').value;
+            const title = document.getElementById('newTrickTitle').value.trim();
+            
+            if (!title) {
+                alert('❌ Bitte einen Titel eingeben!');
+                return;
+            }
+
+            const newTrick = {
+                id: 'custom_' + Date.now(),
+                position: '0.0',
+                kategorie: category === 'beginner' ? 'Anfänger' : 
+                          category === 'intermediate' ? 'Fortgeschritten' : 'Profi',
+                titel: title,
+                handzeichen: document.getElementById('newTrickHandLang').value.trim() || 
+                            document.getElementById('newTrickHandKurz').value.trim() || '',
+                handzeichen_kurz: document.getElementById('newTrickHandKurz').value.trim() || '',
+                bewegungsablauf: document.getElementById('newTrickBewegungLang').value.trim() || 
+                                document.getElementById('newTrickBewegungKurz').value.trim() || '',
+                bewegungsablauf_kurz: document.getElementById('newTrickBewegungKurz').value.trim() || '',
+                endposition: document.getElementById('newTrickEndposLang').value.trim() || 
+                            document.getElementById('newTrickEndposKurz').value.trim() || '',
+                endposition_kurz: document.getElementById('newTrickEndposKurz').value.trim() || '',
+                trainingstipps: document.getElementById('newTrickTippsLang').value.trim() || 
+                               document.getElementById('newTrickTippsKurz').value.trim() || '',
+                trainingstipps_kurz: document.getElementById('newTrickTippsKurz').value.trim() || '',
+                steigerung: {
+                    variante_1: '',
+                    variante_2: '',
+                    variante_3: '',
+                    variante_1_kurz: '',
+                    variante_2_kurz: '',
+                    variante_3_kurz: ''
+                },
+                isCustom: true
+            };
+
+            customTricks.push(newTrick);
+            localStorage.setItem(CUSTOM_TRICKS_KEY, JSON.stringify(customTricks));
+
+            // Trick zur aktuellen Ansicht hinzufügen
+            if (currentData && currentData.trick_database && currentData.trick_database[category]) {
+                currentData.trick_database[category].list.unshift(newTrick);
+            }
+
+            alert('✅ Trick erfolgreich erstellt und gespeichert!');
+            closeAddTrick();
+            renderApp(currentData);
+        }
+
+        function deleteCustomTrick(trickId, event) {
+            event.stopPropagation();
+            
+            if (!confirm('🗑️ Diesen eigenen Trick wirklich löschen?')) {
+                return;
+            }
+
+            // Aus customTricks Array entfernen
+            customTricks = customTricks.filter(t => t.id !== trickId);
+            localStorage.setItem(CUSTOM_TRICKS_KEY, JSON.stringify(customTricks));
+
+            // Aus currentData entfernen
+            if (currentData && currentData.trick_database) {
+                Object.keys(currentData.trick_database).forEach(catKey => {
+                    if (currentData.trick_database[catKey].list) {
+                        currentData.trick_database[catKey].list = 
+                            currentData.trick_database[catKey].list.filter(t => t.id !== trickId);
+                    }
+                });
+            }
+
+            // Aus learnedTricks entfernen falls vorhanden
+            if (learnedTricks.has(trickId)) {
+                learnedTricks.delete(trickId);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(learnedTricks)));
+            }
+
+            alert('✅ Trick wurde gelöscht!');
+            renderApp(currentData);
+        }
+
+        // === RESET ===
+        function resetAllData() {
+            if (!confirm('⚠️ ACHTUNG!\n\nDies löscht:\n- Alle eigenen Tricks\n- Den gesamten Fortschritt\n- Alle gespeicherten Daten\n\nWirklich fortfahren?')) {
+                return;
+            }
+
+            if (!confirm('🚨 LETZTE WARNUNG!\n\nAlle Daten werden unwiderruflich gelöscht!\n\nJetzt wirklich zurücksetzen?')) {
+                return;
+            }
+
+            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(CUSTOM_TRICKS_KEY);
+            localStorage.removeItem(FULL_DATA_KEY);
+            
+            learnedTricks = new Set();
+            customTricks = [];
+            
+            alert('✅ Alle Daten wurden zurückgesetzt!');
+            closeSettings();
+            
+            // Neu laden von URL falls vorhanden
+            const savedUrl = localStorage.getItem(JSON_URL_KEY);
+            if (savedUrl) {
+                document.getElementById('jsonUrl').value = savedUrl;
+                loadJSONFromURL();
+            } else {
+                location.reload();
+            }
+        }
+
+        // App-Start
+        // ============================================================
+        // TEXT-TO-SPEECH (TTS) BARRIEREFREIHEIT-SYSTEM
+        // ============================================================
+
+        function initTTS() {
+            // ESC-Taste zum Stoppen
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isSpeaking) {
+                    stopSpeech();
+                }
+            });
+
+            // Lade Einstellungen
+            const ttsEnabled = localStorage.getItem(TTS_ENABLED_KEY);
+            if (ttsEnabled === null) {
+                localStorage.setItem(TTS_ENABLED_KEY, 'true'); // Default: aktiviert
+            }
+
+            console.log('🔊 TTS-System initialisiert');
+        }
+
+        function getTTSSettings() {
+            return {
+                enabled: localStorage.getItem(TTS_ENABLED_KEY) !== 'false',
+                rate: parseFloat(localStorage.getItem(TTS_RATE_KEY) || '1.0'),
+                pitch: parseFloat(localStorage.getItem(TTS_PITCH_KEY) || '1.0'),
+                volume: parseFloat(localStorage.getItem(TTS_VOLUME_KEY) || '1.0'),
+                voiceName: localStorage.getItem(TTS_VOICE_KEY) || null
+            };
+        }
+
+        function speak(text, buttonElement = null) {
+            if (!text || text.trim() === '') {
+                console.warn('Kein Text zum Vorlesen');
+                return;
+            }
+
+            const settings = getTTSSettings();
+            
+            if (!settings.enabled) {
+                console.log('TTS ist deaktiviert');
+                return;
+            }
+
+            // Web Speech API direkt prüfen (inkl. webkit prefix für Safari)
+            const synth = window.speechSynthesis || window.webkitSpeechSynthesis;
+            const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance || window.webkitSpeechSynthesisUtterance;
+            
+            if (!synth || !SpeechSynthesisUtterance) {
+                alert('⚠️ Ihr Browser unterstützt keine Sprachausgabe.\n\nBitte verwenden Sie:\n• Chrome / Edge\n• Firefox\n• Safari\n• Opera');
+                return;
+            }
+
+            // Stoppe vorherige Sprachausgabe
+            stopSpeech();
+
+            // Bereinige Text
+            const cleanText = text
+                .replace(/<[^>]*>/g, '') // HTML-Tags entfernen
+                .replace(/\s+/g, ' ') // Mehrfache Leerzeichen
+                .trim();
+
+            if (!cleanText) {
+                console.warn('Kein Text nach Bereinigung');
+                return;
+            }
+
+            console.log('🔊 Spreche:', cleanText.substring(0, 50) + '...');
+
+            // Erstelle Sprachausgabe
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            utterance.lang = 'de-DE';
+            utterance.rate = settings.rate;
+            utterance.pitch = settings.pitch;
+            utterance.volume = settings.volume;
+
+            // Deutsche Stimme bevorzugen
+            const voices = synth.getVoices();
+            if (settings.voiceName) {
+                const savedVoice = voices.find(v => v.name === settings.voiceName);
+                if (savedVoice) {
+                    utterance.voice = savedVoice;
+                }
+            } else {
+                // Automatisch beste deutsche Stimme wählen
+                const germanVoice = voices.find(v => v.lang.startsWith('de')) ||
+                                   voices.find(v => v.lang === 'de-DE') ||
+                                   voices[0]; // Fallback: Erste verfügbare Stimme
+                if (germanVoice) {
+                    utterance.voice = germanVoice;
+                }
+            }
+
+            // Event-Handler
+            utterance.onstart = () => {
+                isSpeaking = true;
+                if (buttonElement) {
+                    buttonElement.classList.add('speaking');
+                    buttonElement.setAttribute('aria-label', 'Vorlesen stoppen');
+                }
+                console.log('▶️ Sprachausgabe gestartet');
+            };
+
+            utterance.onend = () => {
+                isSpeaking = false;
+                currentSpeech = null;
+                if (buttonElement) {
+                    buttonElement.classList.remove('speaking');
+                    buttonElement.setAttribute('aria-label', 'Text vorlesen');
+                }
+                console.log('✅ Sprachausgabe beendet');
+            };
+
+            utterance.onerror = (event) => {
+                console.error('❌ TTS Fehler:', event.error);
+                isSpeaking = false;
+                currentSpeech = null;
+                if (buttonElement) {
+                    buttonElement.classList.remove('speaking');
+                }
+                
+                // Nur echte Fehler anzeigen, nicht "interrupted" oder "canceled"
+                if (event.error !== 'interrupted' && event.error !== 'canceled') {
+                    alert('⚠️ Fehler bei der Sprachausgabe: ' + event.error + '\n\nBitte versuchen Sie es erneut.');
+                }
+            };
+
+            // Speichere und starte
+            currentSpeech = utterance;
+            synth.speak(utterance);
+        }
+
+        function stopSpeech() {
+            const synth = window.speechSynthesis || window.webkitSpeechSynthesis;
+            if (synth && isSpeaking && synth.speaking) {
+                synth.cancel();
+                isSpeaking = false;
+                currentSpeech = null;
+                
+                // Entferne alle speaking-Klassen
+                document.querySelectorAll('.tts-btn.speaking').forEach(btn => {
+                    btn.classList.remove('speaking');
+                    btn.setAttribute('aria-label', 'Text vorlesen');
+                });
+                
+                console.log('⏹️ Sprachausgabe gestoppt');
+            }
+        }
+
+        function toggleSpeech(text, buttonElement) {
+            if (isSpeaking && buttonElement && buttonElement.classList.contains('speaking')) {
+                stopSpeech();
+            } else {
+                speak(text, buttonElement);
+            }
+        }
+
+        function createTTSButton(text, className = '', ariaLabel = 'Text vorlesen') {
+            const btn = document.createElement('button');
+            btn.className = `tts-btn ${className}`;
+            btn.innerHTML = '🔊';
+            btn.setAttribute('aria-label', ariaLabel);
+            btn.setAttribute('title', ariaLabel);
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                toggleSpeech(text, btn);
+            };
+            return btn;
+        }
+
+        function speakTrickCard(trick, categoryName, buttonElement) {
+            let text = `${trick.name || trick.titel}. Kategorie: ${categoryName}. `;
+            
+            // NUR Kurztexte vorlesen (wie in der Anzeige)
+            
+            // Handzeichen (nur kurz)
+            if (trick.handzeichen_kurz) {
+                text += `Handzeichen: ${trick.handzeichen_kurz}. `;
+            }
+            
+            // Bewegungsablauf (nur kurz)
+            if (trick.bewegungsablauf_kurz) {
+                text += `Bewegungsablauf: ${trick.bewegungsablauf_kurz}. `;
+            }
+            
+            // Endposition (nur kurz)
+            if (trick.endposition_kurz) {
+                text += `Endposition: ${trick.endposition_kurz}. `;
+            }
+            
+            // Trainingstipps (nur kurz)
+            if (trick.trainingstipps_kurz) {
+                text += `Trainingstipps: ${trick.trainingstipps_kurz}. `;
+            }
+            
+            // Steigerungen (nur kurz)
+            if (trick.steigerung) {
+                const variantKeys = Object.keys(trick.steigerung).filter(k => k.endsWith('_kurz')).sort();
+                if (variantKeys.length > 0) {
+                    text += `Steigerungen: `;
+                    variantKeys.forEach((key) => {
+                        const num = key.split('_')[1];
+                        const shortText = trick.steigerung[key];
+                        if (shortText) {
+                            text += `Stufe ${num}: ${shortText}. `;
+                        }
+                    });
+                }
+            }
+            
+            toggleSpeech(text, buttonElement);
+        }
+
+        function speakAllTricksInCategory(tricks, categoryName, buttonElement) {
+            if (!tricks || tricks.length === 0) {
+                speak('Keine Tricks in dieser Kategorie.', buttonElement);
+                return;
+            }
+            
+            // TOGGLE: Wenn bereits am Sprechen, dann stoppen
+            if (isSpeaking && buttonElement && buttonElement.classList.contains('speaking')) {
+                stopSpeech();
+                return;
+            }
+            
+            // Speech API prüfen
+            const synth = window.speechSynthesis || window.webkitSpeechSynthesis;
+            const SpeechSynthesisUtterance = window.SpeechSynthesisUtterance || window.webkitSpeechSynthesisUtterance;
+            
+            if (!synth || !SpeechSynthesisUtterance) {
+                alert('⚠️ Sprachausgabe nicht verfügbar.');
+                return;
+            }
+            
+            // Sequenzielles Vorlesen (verhindert "synthesis-failed" bei langen Texten)
+            let currentIndex = 0;
+            
+            function speakNextTrick() {
+                // Prüfe ob User gestoppt hat
+                if (!isSpeaking) {
+                    console.log('⏹️ Sequenzielle Wiedergabe gestoppt');
+                    return;
+                }
+                
+                if (currentIndex >= tricks.length) {
+                    // Alle Tricks vorgelesen
+                    if (buttonElement) {
+                        buttonElement.classList.remove('speaking');
+                        buttonElement.setAttribute('aria-label', 'Alle Tricks vorlesen');
+                    }
+                    isSpeaking = false;
+                    currentSpeech = null;
+                    console.log('✅ Alle Tricks der Kategorie vorgelesen');
+                    return;
+                }
+                
+                const trick = tricks[currentIndex];
+                let text = '';
+                
+                // Erste Ansage
+                if (currentIndex === 0) {
+                    text = `Kategorie ${categoryName}. ${tricks.length} Tricks. `;
+                }
+                
+                // NUR der Trick-Name (keine Beschreibungen)
+                text += `Trick ${currentIndex + 1}: ${trick.titel || trick.name}. `;
+                
+                // Vorlesen
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'de-DE';
+                const settings = getTTSSettings();
+                utterance.rate = settings.rate;
+                utterance.pitch = settings.pitch;
+                utterance.volume = settings.volume;
+                
+                // Deutsche Stimme
+                const voices = synth.getVoices();
+                const germanVoice = voices.find(v => v.lang && v.lang.startsWith('de'));
+                if (germanVoice) utterance.voice = germanVoice;
+                
+                utterance.onend = () => {
+                    currentIndex++;
+                    // Kleine Pause zwischen Tricks (300ms)
+                    setTimeout(() => speakNextTrick(), 300);
+                };
+                
+                utterance.onerror = (event) => {
+                    console.error('TTS Fehler bei Trick:', trick.titel, event.error);
+                    
+                    // Bei Fehler: Stoppen
+                    if (buttonElement) {
+                        buttonElement.classList.remove('speaking');
+                    }
+                    isSpeaking = false;
+                    currentSpeech = null;
+                    
+                    if (event.error !== 'interrupted' && event.error !== 'canceled') {
+                        alert(`⚠️ Fehler beim Vorlesen von "${trick.titel}"\n\nBitte versuchen Sie einzelne Tricks vorzulesen.`);
+                    }
+                };
+                
+                currentSpeech = utterance;
+                synth.speak(utterance);
+            }
+            
+            // Markiere Button als aktiv
+            if (buttonElement) {
+                buttonElement.classList.add('speaking');
+                buttonElement.setAttribute('aria-label', 'Vorlesen stoppen');
+            }
+            isSpeaking = true;
+            
+            // Starte sequenzielle Wiedergabe
+            speakNextTrick();
+        }
+
+        function speakTrickById(trickId, categoryName, buttonElement) {
+            const trick = tricksMap.get(trickId);
+            if (!trick) {
+                console.error('Trick nicht gefunden:', trickId);
+                speak('Trick nicht gefunden.', buttonElement);
+                return;
+            }
+            speakTrickCard(trick, categoryName, buttonElement);
+        }
+
+        function speakTrickDescription(description, buttonElement) {
+            const text = `Ausführliche Beschreibung: ${description}`;
+            toggleSpeech(text, buttonElement);
+        }
+
+        function speakProgress() {
+            const learned = learnedTricks.size;
+            const total = totalTricks;
+            const percent = total > 0 ? Math.round((learned / total) * 100) : 0;
+            const text = `Fortschritt: ${learned} von ${total} Tricks gelernt. Das sind ${percent} Prozent.`;
+            speak(text);
+        }
+
+        // Stimmen laden (wichtig für Chrome/Edge)
+        function loadVoices() {
+            return new Promise((resolve) => {
+                const synth = window.speechSynthesis || window.webkitSpeechSynthesis;
+                if (!synth) {
+                    resolve([]);
+                    return;
+                }
+                
+                let voices = synth.getVoices();
+                if (voices.length > 0) {
+                    resolve(voices);
+                } else {
+                    synth.onvoiceschanged = () => {
+                        voices = synth.getVoices();
+                        resolve(voices);
+                    };
+                    // Timeout nach 2 Sekunden
+                    setTimeout(() => resolve(synth.getVoices()), 2000);
+                }
+            });
+        }
+
+        window.onload = async function() {
+            console.log('🎯 APP STARTET - Window.onload');
+            
+            // Initialisierungen
+            initDarkMode();
+            initHeaderState();
+            initTTS();
+            await loadVoices(); // Stimmen laden
+            loadStorage();
+            loadCustomTricks();
+            
+            // Lade Checkbox-Einstellungen
+            const autoLoadBackup = localStorage.getItem(AUTO_LOAD_BACKUP_KEY) === 'true';
+            const autoLoadLocal = localStorage.getItem(AUTO_LOAD_LOCAL_JSON_KEY) === 'true';
+            
+            // Setze Checkbox-Status in Einstellungen
+            setTimeout(() => {
+                if (document.getElementById('autoLoadBackupSetting')) {
+                    document.getElementById('autoLoadBackupSetting').checked = autoLoadBackup;
+                }
+                if (document.getElementById('autoLoadLocalSetting')) {
+                    document.getElementById('autoLoadLocalSetting').checked = autoLoadLocal;
+                }
+            }, 100);
+            
+            // Prüfe ob Daten im Cache sind
+            const savedData = localStorage.getItem(FULL_DATA_KEY);
+            
+            // Starte intelligente Lade-Hierarchie
+            try {
+                await smartLoadData();
+            } catch (error) {
+                console.log('Smart-Load fehlgeschlagen, versuche Fallback...', error);
+                
+                // Fallback: Gespeicherte Daten
+                if (savedData) {
+                    try {
+                        currentData = JSON.parse(savedData);
+                        mergeCustomTricks();
+                        renderApp(currentData);
+                        console.log('✅ Gespeicherte Daten als Fallback geladen (Offline-Modus)');
+                        
+                        // Zeige Offline-Banner
+                        setTimeout(() => {
+                            const container = document.getElementById('tricksContainer');
+                            if (container && container.children.length > 0) {
+                                const banner = document.createElement('div');
+                                banner.style.cssText = 'background:#e8f5f0; color:#2d7a5e; padding:12px; text-align:center; margin-bottom:16px; border-radius:8px; font-size:0.9rem;';
+                                banner.innerHTML = '📡 Offline-Modus: Verwende gespeicherte Daten';
+                                container.insertBefore(banner, container.firstChild);
+                            }
+                        }, 100);
+                    } catch (err) {
+                        console.error('Auch gespeicherte Daten sind korrupt:', err);
+                        showFirstTimeSetupDialog();
+                    }
+                } else {
+                    // Keine Daten vorhanden
+                    console.warn('Keine Daten verfügbar - zeige Setup');
+                    showFirstTimeSetupDialog();
+                }
+            }
+        };
+
+        function loadCustomTricks() {
+            const saved = localStorage.getItem(CUSTOM_TRICKS_KEY);
+            if (saved) {
+                try {
+                    customTricks = JSON.parse(saved);
+                } catch (error) {
+                    console.error('Error loading custom tricks:', error);
+                    customTricks = [];
+                }
+            }
+        }
+
+        function mergeCustomTricks() {
+            if (!currentData || !currentData.trick_database || customTricks.length === 0) return;
+
+            customTricks.forEach(trick => {
+                const category = trick.kategorie === 'Anfänger' ? 'beginner' :
+                                trick.kategorie === 'Fortgeschritten' ? 'intermediate' : 'advanced';
+                
+                if (currentData.trick_database[category]) {
+                    // Prüfen ob Trick bereits existiert
+                    const exists = currentData.trick_database[category].list.some(t => t.id === trick.id);
+                    if (!exists) {
+                        currentData.trick_database[category].list.unshift(trick);
+                    }
+                }
+            });
+        }
+
+        async function loadJSON() {
+            console.log('🚀 STARTE JSON-LADEN MIT MEHRFACHEN FALLBACKS');
+            
+            const githubConfig = {
+                owner: 'Digid0t',
+                repo: 'DigiDot_9',
+                branch: 'main',
+                file: 'Hundetricks.json'
+            };
+            
+            // OPTIMIERTE URL-LISTE - Von zuverlässigsten zu weniger zuverlässigen
+            const urls = [
+                // 1. jsDelivr CDN - SEHR zuverlässig, fast, globales CDN
+                `https://cdn.jsdelivr.net/gh/${githubConfig.owner}/${githubConfig.repo}@${githubConfig.branch}/${githubConfig.file}`,
+                
+                // 2. GitHack - gut für Entwicklung
+                `https://raw.githack.com/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
+                
+                // 3. Raw GitHub - manchmal CORS-Probleme
+                `https://raw.githubusercontent.com/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
+                
+                // 4. GitHack CDN (cached)
+                `https://rawcdn.githack.com/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
+                
+                // 5. Statically CDN - Alternative
+                `https://cdn.statically.io/gh/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
+                
+                // 6. Kombineal CDN
+                `https://combinatronics.io/raw?url=https://github.com/${githubConfig.owner}/${githubConfig.repo}/blob/${githubConfig.branch}/${githubConfig.file}`,
+                
+                // 7. Relativ (falls lokal gehostet)
+                `./${githubConfig.file}`,
+                `${githubConfig.file}`
+            ];
+            
+            console.log('📋 Verwende folgende Fallback-URLs:', urls.length, 'Optionen');
+            
+            let lastError = null;
+            let successUrl = null;
+            
+            // Versuche jede URL mit Timeout
+            for (let i = 0; i < urls.length; i++) {
+                const url = urls[i];
+                const urlName = url.includes('jsdelivr') ? 'jsDelivr CDN' :
+                               url.includes('raw.githack') ? 'GitHack' :
+                               url.includes('rawcdn.githack') ? 'GitHack CDN' :
+                               url.includes('githubusercontent') ? 'GitHub Raw' :
+                               url.includes('statically') ? 'Statically CDN' :
+                               url.includes('combinatronics') ? 'Combineal' :
+                               url.startsWith('./') || !url.includes('://') ? 'Relativ' : 'Unbekannt';
+                
+                try {
+                    console.log(`\n🔄 Versuch ${i + 1}/${urls.length}: ${urlName}`);
+                    console.log(`   URL: ${url.substring(0, 80)}...`);
+                    
+                    // Fetch mit Timeout (5 Sekunden)
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 5000);
+                    
+                    const fetchOptions = {
+                        method: 'GET',
+                        cache: 'no-cache',
+                        signal: controller.signal,
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                        }
+                    };
+                    
+                    // CORS nur bei externen URLs (Firefox-kompatibel)
+                    if (url.includes('://')) {
+                        fetchOptions.mode = 'cors';
+                        fetchOptions.credentials = 'omit'; // Firefox braucht das manchmal
+                    }
+                    
+                    const response = await fetch(url, fetchOptions);
+                    clearTimeout(timeoutId);
+                    
+                    console.log(`   Status: ${response.status} ${response.statusText}`);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    
+                    // Prüfe Content-Type
+                    const contentType = response.headers.get('content-type');
+                    console.log(`   Content-Type: ${contentType}`);
+                    
+                    const data = await response.json();
+                    
+                    // KRITISCHE VALIDIERUNG
+                    if (!data) {
+                        throw new Error('Leere Antwort - keine Daten');
+                    }
+                    
+                    if (!data.trick_database) {
+                        throw new Error('Ungültige Struktur: "trick_database" fehlt');
+                    }
+                    
+                    const categories = Object.keys(data.trick_database);
+                    if (categories.length === 0) {
+                        throw new Error('Keine Kategorien in trick_database gefunden');
+                    }
+                    
+                    console.log(`✅✅✅ ERFOLG MIT ${urlName}!`);
+                    console.log(`📦 JSON geladen: ${JSON.stringify(data).length} Zeichen`);
+                    console.log(`📊 Kategorien: ${categories.join(', ')}`);
+                    
+                    // Speichere Daten
+                    currentData = data;
+                    localStorage.setItem(FULL_DATA_KEY, JSON.stringify(data));
+                    successUrl = url;
+                    
+                    // Merge und Render
+                    mergeCustomTricks();
+                    renderApp(currentData);
+                    
+                    console.log('🎉 JSON erfolgreich geladen und gerendert!');
+                    return; // ERFOLG!
+                    
+                } catch(error) {
+                    console.warn(`❌ ${urlName} fehlgeschlagen:`, error.message);
+                    lastError = error;
+                    
+                    // CORS-Fehler oder Netzwerkfehler → Sofort weiter (kein Warten)
+                    const isCorsError = error.message.includes('CORS') || 
+                                       error.message.includes('Failed to fetch') ||
+                                       error.name === 'TypeError';
+                    
+                    // Nur bei Timeouts oder Server-Fehlern kurz warten
+                    if (!isCorsError && (url.includes('githack') || url.includes('statically')) && i < urls.length - 1) {
+                        console.log('⏳ Warte 500ms...');
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                    }
+                    
+                    // Weiter zur nächsten URL
+                    continue;
+                }
+            }
+            
+            // ALLE URLs fehlgeschlagen!
+            console.error('❌❌❌ KRITISCHER FEHLER: ALLE LADE-VERSUCHE FEHLGESCHLAGEN!');
+            console.error('Letzter Fehler:', lastError);
+            console.error('Versuchte URLs:', urls);
+            
+            // Zeige Fehler-Dialog
+            showLoadError(`Alle ${urls.length} Lade-Versuche fehlgeschlagen.\n\nLetzter Fehler: ${lastError?.message || 'Unbekannt'}\n\nBitte laden Sie die JSON-Datei manuell oder prüfen Sie Ihre Internetverbindung.`);
+            
+            throw new Error(`JSON konnte von keiner Quelle geladen werden. Letzter Fehler: ${lastError?.message || 'Unbekannt'}`);
+        }
+        
+        function showLoadError(errorMsg) {
+            const errorHTML = `
+                <div style="text-align:center; padding:40px 20px; color:var(--text-primary);">
+                    <div style="font-size:3rem; margin-bottom:20px;">⚠️</div>
+                    <h2 style="margin:0 0 20px 0; font-size:1.5rem; color:#e53e3e;">Verbindungsfehler</h2>
+                    
+                    <div style="background:var(--card-bg); padding:24px; border-radius:12px; margin:20px auto; max-width:500px; text-align:left; border: 2px solid #3ea876;">
+                        <h3 style="margin:0 0 20px 0; font-size:1.1rem; color:#3ea876;">📥 So laden Sie die Tricks:</h3>
+                        
+                        <div style="margin-bottom:20px; padding:16px; background:var(--bg-main); border-radius:8px;">
+                            <p style="margin:0 0 8px 0; font-weight:600;">Methode 1: Download & Upload (Empfohlen)</p>
+                            <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip" 
+                               download 
+                               style="display:inline-block; background:var(--gradient-success); color:white; padding:12px 24px; border-radius:8px; text-decoration:none; margin-top:8px; font-weight:600;">
+                                📦 Repository als ZIP herunterladen
+                            </a>
+                            <p style="margin:8px 0 0 0; font-size:0.85rem; color:var(--text-secondary);">
+                                Nach dem Download: Entpacken Sie das ZIP-Archiv und klicken Sie auf <strong>⚙️ Einstellungen</strong> → <strong>"📁 Datei vom Gerät laden"</strong> und wählen Sie die Hundetricks.json aus.
+                            </p>
+                        </div>
+                        
+                        <div style="padding:16px; background:var(--bg-main); border-radius:8px;">
+                            <p style="margin:0 0 8px 0; font-weight:600;">Methode 2: Direktes Laden von URL</p>
+                            <p style="margin:0; font-size:0.85rem; color:var(--text-secondary);">
+                                Öffnen Sie <strong>⚙️ Einstellungen</strong> → <strong>"🔗 JSON von URL laden"</strong><br>
+                                Die korrekte URL ist bereits vorausgefüllt.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top:20px;">
+                        <a href="https://github.com/Digid0t/DigiDot_9" target="_blank" 
+                           style="color:#3ea876; text-decoration:none; font-size:0.9rem;">
+                            📂 Zum GitHub Repository →
+                        </a>
+                    </div>
+                    
+                    <details style="margin-top:20px; max-width:500px; margin-left:auto; margin-right:auto;">
+                        <summary style="cursor:pointer; color:var(--text-secondary); font-size:0.85rem;">Fehlerdetails anzeigen</summary>
+                        <div style="background:var(--bg-main); padding:12px; border-radius:8px; margin-top:8px; font-size:0.8rem; color:var(--text-secondary); text-align:left; font-family:monospace; word-break:break-all;">
+                            ${errorMsg}
+                        </div>
+                    </details>
+                </div>
+            `;
+            
+            document.getElementById('tricksContainer').innerHTML = errorHTML;
+        }
+
+        // === APPLICATION DESCRIPTION ===
+        function renderApplicationDescription(data, container) {
+            // Prüfe ob meta_info vorhanden
+            if (!data.meta_info) {
+                console.log('ℹ️ Keine meta_info in JSON vorhanden');
+                return;
+            }
+            
+            const meta = data.meta_info;
+            
+            // Prüfe ob irgendwelche relevanten Felder vorhanden sind
+            if (!meta.description && !meta.description_kurz && !meta.training_philosophy && 
+                !meta.usage_guidelines && !meta.completion_note) {
+                console.log('ℹ️ Keine Application Description Felder vorhanden');
+                return;
+            }
+            
+            console.log('📄 Rendere Application Description aus meta_info');
+            
+            const descriptionDiv = document.createElement('div');
+            descriptionDiv.className = 'app-description-section';
+            descriptionDiv.style.cssText = `
+                background: var(--card-bg);
+                border-radius: var(--radius-lg);
+                padding: 24px;
+                margin-bottom: 32px;
+                box-shadow: var(--shadow-md);
+                border-left: 4px solid #3ea876;
+            `;
+            
+            // === HEADER ===
+            const header = document.createElement('div');
+            header.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;';
+            
+            const title = document.createElement('h2');
+            title.textContent = meta.title || '📋 Über diese Anwendung';
+            title.style.cssText = 'margin: 0; font-size: 1.4rem; color: var(--text-primary); font-weight: 700;';
+            
+            const ttsBtn = document.createElement('button');
+            ttsBtn.className = 'tts-btn';
+            ttsBtn.innerHTML = '🔊';
+            ttsBtn.setAttribute('aria-label', 'Beschreibung vorlesen');
+            ttsBtn.onclick = () => speakAppDescription(meta, ttsBtn);
+            
+            header.appendChild(title);
+            header.appendChild(ttsBtn);
+            descriptionDiv.appendChild(header);
+            
+            // === KURZE DESCRIPTION (erste ~5 Sätze oder description_kurz) ===
+            const shortDesc = meta.description_kurz || splitIntoSentences(meta.description || '', 5);
+            if (shortDesc) {
+                const shortP = document.createElement('p');
+                shortP.textContent = shortDesc;
+                shortP.style.cssText = 'margin: 0 0 16px 0; line-height: 1.6; color: var(--text-primary); font-size: 1.05rem;';
+                descriptionDiv.appendChild(shortP);
+            }
+            
+            // === MEHR ERFAHREN BUTTON ===
+            const hasMoreContent = meta.description || meta.training_philosophy || meta.training_philosophy_kurz || 
+                                   meta.usage_guidelines || meta.usage_guidelines_kurz ||
+                                   meta.completion_note;
+            
+            if (hasMoreContent) {
+                const expandBtn = document.createElement('button');
+                expandBtn.className = 'expand-btn';
+                expandBtn.innerHTML = '▼ Mehr erfahren';
+                expandBtn.style.cssText = `
+                    background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
+                    color: white;
+                    border: none;
+                    padding: 12px 24px;
+                    border-radius: var(--radius-sm);
+                    cursor: pointer;
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                    transition: all 0.3s ease;
+                    width: 100%;
+                    margin-top: 8px;
+                `;
+                expandBtn.onmouseover = () => expandBtn.style.transform = 'scale(1.02)';
+                expandBtn.onmouseout = () => expandBtn.style.transform = 'scale(1)';
+                
+                const expandedContent = document.createElement('div');
+                expandedContent.className = 'expanded-content';
+                expandedContent.style.cssText = 'display: none; margin-top: 24px;';
+                
+                // === VOLLSTÄNDIGE DESCRIPTION ===
+                if (meta.description && meta.description !== shortDesc) {
+                    addExpandableSection(expandedContent, '📖 Vollständige Beschreibung', meta.description, null);
+                }
+                
+                // === TRAININGSPHILOSOPHIE ===
+                if (meta.training_philosophy_kurz || meta.training_philosophy) {
+                    addExpandableSection(expandedContent, '🎓 Trainingsphilosophie', meta.training_philosophy, meta.training_philosophy_kurz);
+                }
+                
+                // === NUTZUNGSRICHTLINIEN ===
+                if (meta.usage_guidelines_kurz || meta.usage_guidelines) {
+                    addExpandableSection(expandedContent, '📜 Nutzungsrichtlinien', meta.usage_guidelines, meta.usage_guidelines_kurz);
+                }
+                
+                // === ABSCHLUSSHINWEIS ===
+                if (meta.completion_note) {
+                    addExpandableSection(expandedContent, '✅ Abschlusshinweis', meta.completion_note, null);
+                }
+                
+                expandBtn.onclick = () => {
+                    const isExpanded = expandedContent.style.display === 'block';
+                    expandedContent.style.display = isExpanded ? 'none' : 'block';
+                    expandBtn.innerHTML = isExpanded ? '▼ Mehr erfahren' : '▲ Weniger anzeigen';
+                };
+                
+                descriptionDiv.appendChild(expandBtn);
+                descriptionDiv.appendChild(expandedContent);
+            }
+            
+            // Füge am Anfang des Containers ein
+            container.insertBefore(descriptionDiv, container.firstChild);
+        }
+        
+        function addExpandableSection(parent, title, longText, shortText) {
+            const section = document.createElement('div');
+            section.style.cssText = 'margin-bottom: 20px; padding: 16px; background: var(--bg-main); border-radius: var(--radius-md); border-left: 3px solid #3ea876;';
+            
+            // Header mit Titel und TTS
+            const header = document.createElement('div');
+            header.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;';
+            
+            const sectionTitle = document.createElement('h3');
+            sectionTitle.textContent = title;
+            sectionTitle.style.cssText = 'margin: 0; font-size: 1.15rem; color: var(--text-primary); font-weight: 600;';
+            
+            const ttsBtn = document.createElement('button');
+            ttsBtn.className = 'tts-btn tts-btn-small';
+            ttsBtn.innerHTML = '🔊';
+            ttsBtn.setAttribute('aria-label', `${title} vorlesen`);
+            ttsBtn.style.cssText = 'font-size: 1.2rem; padding: 6px 12px;';
+            
+            header.appendChild(sectionTitle);
+            header.appendChild(ttsBtn);
+            section.appendChild(header);
+            
+            // Kurztext (immer sichtbar wenn vorhanden)
+            if (shortText) {
+                const shortP = document.createElement('p');
+                shortP.textContent = shortText;
+                shortP.style.cssText = 'margin: 0 0 12px 0; line-height: 1.6; color: var(--text-primary);';
+                section.appendChild(shortP);
+                
+                // TTS für Kurztext
+                ttsBtn.onclick = () => toggleSpeech(shortText, ttsBtn);
+            }
+            
+            // Langtext (ausklappbar)
+            if (longText && longText !== shortText) {
+                const expandBtn = document.createElement('button');
+                expandBtn.className = 'expand-btn-small';
+                expandBtn.innerHTML = '▼ Mehr erfahren';
+                expandBtn.style.cssText = `
+                    background: transparent;
+                    color: #3ea876;
+                    border: 2px solid #3ea876;
+                    padding: 8px 16px;
+                    border-radius: var(--radius-sm);
+                    cursor: pointer;
+                    font-weight: 600;
+                    font-size: 0.85rem;
+                    transition: all 0.3s ease;
+                    margin-bottom: 12px;
+                `;
+                expandBtn.onmouseover = () => {
+                    expandBtn.style.background = '#3ea876';
+                    expandBtn.style.color = 'white';
+                };
+                expandBtn.onmouseout = () => {
+                    expandBtn.style.background = 'transparent';
+                    expandBtn.style.color = '#3ea876';
+                };
+                
+                const longDiv = document.createElement('div');
+                longDiv.style.cssText = 'display: none; margin-top: 12px; padding: 12px; background: var(--card-bg); border-radius: var(--radius-sm);';
+                
+                const longP = document.createElement('p');
+                longP.textContent = longText;
+                longP.style.cssText = 'margin: 0 0 12px 0; line-height: 1.6; color: var(--text-secondary);';
+                
+                const longTtsBtn = document.createElement('button');
+                longTtsBtn.className = 'tts-btn tts-btn-small';
+                longTtsBtn.innerHTML = '🔊 Vollständige Version vorlesen';
+                longTtsBtn.setAttribute('aria-label', `${title} vollständig vorlesen`);
+                longTtsBtn.style.cssText = 'font-size: 0.9rem; padding: 8px 16px;';
+                longTtsBtn.onclick = () => toggleSpeech(longText, longTtsBtn);
+                
+                longDiv.appendChild(longP);
+                longDiv.appendChild(longTtsBtn);
+                
+                expandBtn.onclick = () => {
+                    const isExpanded = longDiv.style.display === 'block';
+                    longDiv.style.display = isExpanded ? 'none' : 'block';
+                    expandBtn.innerHTML = isExpanded ? '▼ Mehr erfahren' : '▲ Weniger anzeigen';
+                };
+                
+                section.appendChild(expandBtn);
+                section.appendChild(longDiv);
+            } else if (longText) {
+                // Nur Langtext vorhanden (kein Kurztext)
+                const longP = document.createElement('p');
+                longP.textContent = longText;
+                longP.style.cssText = 'margin: 0; line-height: 1.6; color: var(--text-primary);';
+                section.appendChild(longP);
+                
+                ttsBtn.onclick = () => toggleSpeech(longText, ttsBtn);
+            }
+            
+            parent.appendChild(section);
+        }
+        
+        function speakAppDescription(meta, buttonElement) {
+            let text = '';
+            
+            // Titel falls vorhanden
+            if (meta.title) {
+                text += meta.title + '. ';
+            }
+            
+            // NUR Kurztexte vorlesen (beim Hauptbutton oben)
+            if (meta.description_kurz) {
+                text += meta.description_kurz;
+            } else if (meta.description) {
+                text += splitIntoSentences(meta.description, 5);
+            }
+            
+            toggleSpeech(text, buttonElement);
+        }
+        
+        function splitIntoSentences(text, count) {
+            if (!text) return '';
+            const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+            return sentences.slice(0, count).join(' ').trim();
+        }
+
+        function renderApp(data) {
+            const container = document.getElementById('tricksContainer');
+            container.innerHTML = '';
+            
+            // Leere tricksMap für TTS-Zugriff
+            tricksMap.clear();
+
+            // VALIDIERUNG: Prüfe ob gültige Daten vorhanden sind
+            if (!data || !data.trick_database) {
+                console.error('Ungültige Daten in renderApp:', data);
+                container.innerHTML = `
+                    <div style="text-align:center; padding:40px 20px; color:var(--text-primary);">
+                        <div style="font-size:3rem; margin-bottom:20px;">⚠️</div>
+                        <h2 style="margin:0 0 20px 0; font-size:1.5rem; color:#e53e3e;">Ungültige Daten</h2>
+                        <p style="margin:20px 0; color:var(--text-secondary);">Die geladenen Daten haben nicht das erwartete Format.</p>
+                        <p style="margin:20px 0;">Bitte laden Sie die Tricks-Datenbank über ⚙️ Einstellungen.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Die JSON-Struktur hat ein trick_database Objekt mit Kategorien
+            const trickDatabase = data.trick_database;
+            
+            // Konvertiere das Objekt in ein Array für einfachere Verarbeitung
+            const categories = [];
+            for (const [key, categoryData] of Object.entries(trickDatabase)) {
+                if (categoryData && categoryData.list) {
+                    categories.push({
+                        key: key,
+                        meta: categoryData.meta || {},
+                        list: categoryData.list
+                    });
+                }
+            }
+            
+            // Prüfe ob überhaupt Kategorien vorhanden sind
+            if (categories.length === 0) {
+                console.warn('Keine gültigen Kategorien gefunden');
+                container.innerHTML = `
+                    <div style="text-align:center; padding:40px 20px; color:var(--text-primary);">
+                        <div style="font-size:3rem; margin-bottom:20px;">📦</div>
+                        <h2 style="margin:0 0 20px 0; font-size:1.5rem;">Keine Tricks gefunden</h2>
+                        <p style="margin:20px 0; color:var(--text-secondary);">Die Datenbank enthält keine Trick-Kategorien.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Zähle Total
+            totalTricks = 0;
+            categories.forEach(cat => totalTricks += cat.list.length);
+
+            // Render Application Description (falls vorhanden)
+            renderApplicationDescription(data, container);
+
+            // Kategorien rendern
+            console.log('🚀🚀🚀 STARTE KATEGORIE-RENDERING 🚀🚀🚀');
+            categories.forEach(cat => {
+                const meta = cat.meta || {};
+                const themeColor = getCategoryColor(meta.category_name, meta.color_code);
+                
+                // Debug-Logging
+                console.log(`✅ Kategorie: "${meta.category_name}", Color-Code: ${meta.color_code}, Finale Farbe: ${themeColor}`);
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'category-wrapper';
+                wrapper.dataset.category = cat.key;
+                wrapper.style.setProperty('--category-color', themeColor);
+
+                const header = document.createElement('div');
+                header.className = 'cat-header active';
+                const categoryText = cleanCategoryName(meta.category_name);
+                header.innerHTML = `
+                    <div class="cat-title" style="display:flex; align-items:center; gap:8px; flex:1;">
+                        <div style="flex:1;">
+                            <span>${categoryText}</span>
+                            <span class="cat-count" style="background: ${themeColor}20; color: ${themeColor};">${cat.list.length}</span>
+                        </div>
+                        <button class="tts-btn tts-btn-small" 
+                                onclick="speak('Kategorie ${categoryText.replace(/'/g, "\\'")}. ${cat.list.length} Tricks.'); event.stopPropagation();"
+                                aria-label="Kategorie vorlesen"
+                                title="Kategorie vorlesen">
+                            🔊
+                        </button>
+                    </div>
+                    <span class="arrow" style="color: ${themeColor};">▼</span>
+                `;
+                
+                const body = document.createElement('div');
+                body.className = 'cat-body open';
+
+                header.onclick = () => {
+                    body.classList.toggle('open');
+                    header.classList.toggle('active');
+                };
+
+                cat.list.forEach(trick => {
+                    // Speichere Trick in Map für TTS-Zugriff
+                    tricksMap.set(trick.id, trick);
+                    body.appendChild(createTrickCard(trick, themeColor, categoryText));
+                });
+
+                wrapper.appendChild(header);
+                wrapper.appendChild(body);
+                container.appendChild(wrapper);
+            });
+
+            updateUI();
+            generateNavigation(data);
+        }
+
+        function createTrickCard(trick, color, categoryName = '') {
+            const isLearned = learnedTricks.has(trick.id);
+            const card = document.createElement('div');
+            card.className = `trick-card ${isLearned ? 'learned' : ''}`;
+            card.id = `card-${trick.id}`;
+            card.dataset.search = JSON.stringify(trick).toLowerCase();
+
+            let contentHTML = '';
+            
+            // Custom Badge für eigene Tricks
+            if (trick.isCustom) {
+                contentHTML += `
+                    <div class="custom-badge">
+                        ✨ Eigener Trick
+                        <button class="delete-custom-btn" onclick="deleteCustomTrick('${trick.id}', event)" title="Trick löschen">
+                            🗑️
+                        </button>
+                    </div>
+                `;
+            }
+            
+            contentHTML += `
+                <div class="card-top" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                    <div style="flex:1; min-width:0;">
+                        <h3 class="trick-title">${trick.titel}</h3>
+                        <span class="trick-id">#${trick.position || trick.id}</span>
+                    </div>
+                    <button class="tts-btn tts-btn-small" 
+                            onclick="speakTrickById('${trick.id}', '${categoryName}', this); event.stopPropagation();"
+                            aria-label="Kompletten Trick vorlesen"
+                            title="Kompletten Trick vorlesen">
+                        🔊
+                    </button>
+                </div>
+            `;
+
+            contentHTML += createExpandableSection("Handzeichen", "✋", trick.handzeichen_kurz, trick.handzeichen, color);
+            contentHTML += createExpandableSection("Bewegungsablauf", "🎬", trick.bewegungsablauf_kurz, trick.bewegungsablauf, color);
+            contentHTML += createExpandableSection("Endposition", "📍", trick.endposition_kurz, trick.endposition, color);
+            contentHTML += createExpandableSection("Trainingstipps", "💡", trick.trainingstipps_kurz, trick.trainingstipps, color);
+
+            if(trick.steigerung) {
+                let variationsHTML = '';
+                const keys = Object.keys(trick.steigerung).filter(k => k.startsWith('variante_') && !k.endsWith('_kurz'));
+                
+                if(keys.length > 0) {
+                    variationsHTML += `<div class="variation-container">
+                        <div class="variation-title">🚀 Steigerungen</div>`;
+                    
+                    keys.sort();
+                    
+                    keys.forEach(key => {
+                        const shortKey = key + "_kurz";
+                        const num = key.split('_')[1];
+                        const shortText = trick.steigerung[shortKey];
+                        const longText = trick.steigerung[key];
+                        
+                        variationsHTML += createExpandableSection(`Stufe ${num}`, "🔹", shortText, longText, color);
+                    });
+                    
+                    variationsHTML += `</div>`;
+                }
+                contentHTML += variationsHTML;
+            }
+
+            contentHTML += `
+                <div class="card-footer">
+                    <div class="check-wrapper ${isLearned ? 'active' : ''}" onclick="toggleStatus('${trick.id}')">
+                        <span class="check-label" id="lbl-${trick.id}">${isLearned ? 'Gelernt!' : 'Als gelernt markieren'}</span>
+                        <div class="switch"><div class="knob"></div></div>
+                    </div>
+                </div>
+            `;
+
+            card.innerHTML = contentHTML;
+            return card;
+        }
+
+        function createExpandableSection(label, icon, textShort, textLong, color) {
+            // Wenn überhaupt kein Text vorhanden ist, nichts anzeigen
+            if(!textShort && !textLong) return '';
+
+            // Bereinige die Texte
+            const cleanShort = textShort && textShort.trim() ? textShort.trim() : null;
+            const cleanLong = textLong && textLong.trim() ? textLong.trim() : null;
+            
+            // Wenn immer noch nichts da ist, abbrechen
+            if(!cleanShort && !cleanLong) return '';
+            
+            const uid = Math.random().toString(36).substr(2, 9);
+            
+            // Beide Texte vorhanden - zeige Kurztext mit Button für Langtext
+            if(cleanShort && cleanLong) {
+                const escapedLong = cleanLong.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                return `
+                    <div class="info-block">
+                        <div class="block-label">
+                            <span class="block-icon">${icon}</span>
+                            ${label}
+                        </div>
+                        <div class="text-short">${cleanShort}</div>
+                        <div id="long-${uid}" class="text-long">
+                            ${cleanLong}
+                            <button class="tts-btn tts-btn-small tts-btn-inline" 
+                                    onclick="speakTrickDescription('${escapedLong}', this); event.stopPropagation();"
+                                    aria-label="Beschreibung vorlesen"
+                                    title="Beschreibung vorlesen"
+                                    style="margin-top:8px;">
+                                🔊 Vorlesen
+                            </button>
+                        </div>
+                        <button class="toggle-btn" style="background: ${color}15; border-color: ${color}30; color: ${color};" onclick="toggleText('${uid}', this)">
+                            ▼ Mehr erfahren
+                        </button>
+                    </div>
+                `;
+            }
+            
+            // Nur Langtext vorhanden - zeige vollständig ohne Button
+            if(!cleanShort && cleanLong) {
+                return `
+                    <div class="info-block">
+                        <div class="block-label">
+                            <span class="block-icon">${icon}</span>
+                            ${label}
+                        </div>
+                        <div class="text-short">${cleanLong}</div>
+                    </div>
+                `;
+            }
+            
+            // Nur Kurztext vorhanden - zeige vollständig ohne Button
+            if(cleanShort && !cleanLong) {
+                return `
+                    <div class="info-block">
+                        <div class="block-label">
+                            <span class="block-icon">${icon}</span>
+                            ${label}
+                        </div>
+                        <div class="text-short">${cleanShort}</div>
+                    </div>
+                `;
+            }
+            
+            return '';
+        }
+
+        window.toggleText = function(uid, btn) {
+            const longDiv = document.getElementById(`long-${uid}`);
+            
+            if (longDiv.classList.contains('show')) {
+                longDiv.classList.remove('show');
+                btn.innerHTML = "▼ Mehr erfahren";
+            } else {
+                longDiv.classList.add('show');
+                btn.innerHTML = "▲ Weniger anzeigen";
+            }
+        };
+
+        window.toggleStatus = function(id) {
+            const card = document.getElementById(`card-${id}`);
+            const wrapper = card.querySelector('.check-wrapper');
+            const lbl = document.getElementById(`lbl-${id}`);
+
+            if(learnedTricks.has(id)) {
+                learnedTricks.delete(id);
+                card.classList.remove('learned');
+                wrapper.classList.remove('active');
+                lbl.innerText = "Als gelernt markieren";
+            } else {
+                learnedTricks.add(id);
+                card.classList.add('learned');
+                wrapper.classList.add('active');
+                lbl.innerText = "Gelernt!";
+            }
+            saveStorage();
+            updateUI();
+        }
+
+        function handleSearch(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.trick-card');
+            
+            cards.forEach(card => {
+                const text = card.dataset.search;
+                const match = text.includes(term);
+                
+                if(match) {
+                    card.classList.remove('hidden');
+                    if(term.length > 0) {
+                        card.closest('.cat-body').classList.add('open');
+                        card.closest('.category-wrapper').querySelector('.cat-header').classList.add('active');
+                    }
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            document.querySelectorAll('.category-wrapper').forEach(wrap => {
+                const visibleCards = wrap.querySelectorAll('.trick-card:not(.hidden)').length;
+                wrap.style.display = visibleCards > 0 ? 'block' : 'none';
+            });
+        }
+
+        function updateUI() {
+            const done = learnedTricks.size;
+            const percent = totalTricks > 0 ? Math.round((done/totalTricks)*100) : 0;
+            
+            // Haupt-Fortschrittsanzeige
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressLabel').innerText = `${percent}% Komplett`;
+            document.getElementById('statsInfo').innerText = `${done} / ${totalTricks}`;
+            
+            // Mini-Fortschrittsanzeige (für eingeklappten Header)
+            const miniBar = document.getElementById('progressMini');
+            const statsCompact = document.getElementById('statsCompact');
+            if (miniBar) miniBar.style.width = percent + '%';
+            if (statsCompact) statsCompact.innerText = `${done}/${totalTricks}`;
+        }
+
+        function getColor(code) {
+            // IGNORIERT - Wird überschrieben durch getCategoryColor()
+            const lowerCode = code.toString().toLowerCase().trim();
+            
+            const colorMap = {
+                'green': '#11998e',
+                'yellow': '#FFC15E',
+                'red': '#e74c3c'
+            };
+            
+            return colorMap[lowerCode] || '#cccccc';
+        }
+        
+        function getCategoryColor(categoryName, colorCode) {
+            // FESTE REGELN nach Kategorie-NAME - JSON wird KOMPLETT IGNORIERT!
+            const name = (categoryName || '').toLowerCase().trim();
+            
+            console.log(`🔍 Prüfe Kategorie: "${categoryName}" (lowercase: "${name}")`);
+            
+            // GELB für Fortgeschritten - SEHR aggressive Prüfung!
+            if (name.includes('fort') || 
+                name.includes('mittel') || 
+                name.includes('inter') || 
+                name.includes('medium') ||
+                name.includes('yellow') ||
+                name.includes('gelb') ||
+                name.includes('44')) {  // Falls es nach Anzahl geht
+                console.log(`🟡🟡🟡 FORTGESCHRITTEN ERKANNT → GELB #FFC15E`);
+                return '#FFC15E';
+            }
+            
+            // TÜRKIS für Anfänger
+            if (name.includes('anfäng') || 
+                name.includes('begin') || 
+                name.includes('start') ||
+                name.includes('green') ||
+                name.includes('grün') ||
+                name.includes('31')) {
+                console.log(`🟢 ANFÄNGER erkannt → TÜRKIS #11998e`);
+                return '#11998e';
+            }
+            
+            // ROT für Profi
+            if (name.includes('profi') || 
+                name.includes('advan') || 
+                name.includes('expert') ||
+                name.includes('red') ||
+                name.includes('rot') ||
+                name.includes('45')) {
+                console.log(`🔴 PROFI erkannt → ROT #e74c3c`);
+                return '#e74c3c';
+            }
+            
+            // Fallback - zeige deutliche Warnung
+            console.error(`❌❌❌ UNBEKANNTE KATEGORIE: "${categoryName}" - verwende Grau!`);
+            return '#cccccc';
+        }
+
+        function cleanCategoryName(name) {
+            // Entfernt Farben in Klammern aus Kategorienamen
+            // z.B. "Anfänger (Green)" -> "Anfänger"
+            if (!name) return name;
+            return name.replace(/\s*\([^)]*\)\s*$/, '').trim();
+        }
+
+        function debugDataStructure(data, source) {
+            console.log(`=== DEBUG: ${source} ===`);
+            console.log('Data object keys:', Object.keys(data || {}));
+            console.log('Has trick_database:', !!data?.trick_database);
+            console.log('Has version (backup format):', !!data?.version);
+            console.log('Has learnedTricks (backup format):', !!data?.learnedTricks);
+            
+            if (data?.trick_database) {
+                const categories = Object.keys(data.trick_database);
+                console.log('Categories:', categories);
+                categories.forEach(cat => {
+                    const count = data.trick_database[cat]?.list?.length || 0;
+                    console.log(`  - ${cat}: ${count} tricks`);
+                });
+            }
+            console.log('=================');
+        }
+
+        function saveStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify([...learnedTricks]));
+        }
+
+        function loadStorage() {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if(raw) learnedTricks = new Set(JSON.parse(raw));
+        }
+
+        // ============================================================
+        // UMFASSENDES BACKUP & LADE-SYSTEM
+        // ============================================================
+
+        // Hauptfunktion: Intelligente Lade-Hierarchie
+        async function smartLoadData() {
+            console.log('🚀 STARTE INTELLIGENTE LADE-HIERARCHIE');
+            
+            // PRIORITÄT 1: Backup-JSON prüfen
+            const backupExists = localStorage.getItem(BACKUP_EXISTS_KEY) === 'true';
+            const autoLoadBackup = localStorage.getItem(AUTO_LOAD_BACKUP_KEY) === 'true';
+            
+            // Wenn Backup existiert ABER User will Dialog ÜBERSPRINGEN
+            if (backupExists && autoLoadBackup) {
+                console.log('📦 Backup vorhanden & Auto-Load aktiviert - überspringe Dialog, gehe zu Online-Laden');
+                // NICHT den Dialog zeigen, sondern direkt zu Online-Laden gehen
+            }
+            // Wenn Backup existiert und User WILL den Dialog sehen
+            else if (backupExists && !autoLoadBackup) {
+                console.log('📦 Backup vorhanden aber Auto-Load deaktiviert - zeige Dialog');
+                showBackupLoadDialog();
+                return;
+            }
+            
+            // PRIORITÄT 2: Lokale Original-JSON (wenn aktiviert)
+            const autoLoadLocal = localStorage.getItem(AUTO_LOAD_LOCAL_JSON_KEY) === 'true';
+            
+            if (autoLoadLocal) {
+                console.log('💾 Lokale JSON-Laden aktiviert - zeige Dialog');
+                showOriginalJsonDialog();
+                return;
+            }
+            
+            // PRIORITÄT 3: Online von GitHub laden
+            console.log('🌐 Versuche Online-Laden von GitHub');
+            try {
+                await loadJSON();
+                return;
+            } catch (error) {
+                console.error('❌ Online-Laden fehlgeschlagen:', error);
+                showFirstTimeSetupDialog();
+            }
+        }
+
+        // Backup manuell laden
+        async function loadBackupManual() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                try {
+                    await processBackupFile(file);
+                    alert('✅ Backup erfolgreich geladen!');
+                    closeAllDialogs();
+                } catch (error) {
+                    console.error('Backup-Load Error:', error);
+                    alert('❌ Fehler beim Laden des Backups:\n\n' + error.message);
+                }
+            };
+            
+            input.click();
+        }
+
+        // Backup-Datei verarbeiten
+        async function processBackupFile(file) {
+            const text = await file.text();
+            const data = JSON.parse(text);
+            
+            // Validiere dass es ein Backup ist
+            if (!data.version || data.learnedTricks === undefined) {
+                throw new Error('Keine gültige Backup-Datei!');
+            }
+            
+            // Restore alles
+            if (data.learnedTricks) {
+                learnedTricks = new Set(data.learnedTricks);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify([...learnedTricks]));
+            }
+            
+            if (data.customTricks) {
+                customTricks = data.customTricks;
+                localStorage.setItem(CUSTOM_TRICKS_KEY, JSON.stringify(customTricks));
+            }
+            
+            if (data.fullData) {
+                currentData = data.fullData;
+                localStorage.setItem(FULL_DATA_KEY, JSON.stringify(currentData));
+                renderApp(currentData);
+            }
+            
+            console.log('✅ Backup komplett wiederhergestellt');
+        }
+
+        // Lokale JSON laden
+        async function loadLocalJSONManual() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            
+            input.onchange = async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                try {
+                    const text = await file.text();
+                    const data = JSON.parse(text);
+                    
+                    // Validiere Tricks-Datenbank
+                    if (!data.trick_database) {
+                        throw new Error('Keine gültige Hundetricks.json!\n\nDie Datei muss eine "trick_database" enthalten.');
+                    }
+                    
+                    currentData = data;
+                    localStorage.setItem(FULL_DATA_KEY, JSON.stringify(data));
+                    mergeCustomTricks();
+                    renderApp(currentData);
+                    
+                    alert('✅ Hundetricks.json erfolgreich geladen!');
+                    closeAllDialogs();
+                } catch (error) {
+                    console.error('Load Error:', error);
+                    alert('❌ Fehler beim Laden:\n\n' + error.message);
+                }
+            };
+            
+            input.click();
+        }
+
+        // Backup erstellen (erweitert)
+        function createBackupEnhanced() {
+            const backup = {
+                version: '2.0',
+                timestamp: new Date().toISOString(),
+                learnedTricks: [...learnedTricks],
+                customTricks: customTricks,
+                fullData: currentData
+            };
+            
+            const dataStr = JSON.stringify(backup, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            const dateStr = new Date().toISOString().split('T')[0];
+            link.download = `hundetricks-backup-${dateStr}.json`;
+            link.click();
+            
+            // Markiere dass Backup existiert
+            localStorage.setItem(BACKUP_EXISTS_KEY, 'true');
+            localStorage.setItem(LAST_BACKUP_DATE_KEY, new Date().toLocaleString('de-DE'));
+            
+            alert('✅ Backup erfolgreich erstellt!\n\n📁 Speichern Sie die Datei an einem sicheren Ort.\n\n💡 Beim nächsten Start können Sie das Backup automatisch laden lassen.');
+        }
+
+        // ============================================================
+        // DIALOGE
+        // ============================================================
+
+        function showBackupLoadDialog() {
+            const lastBackup = localStorage.getItem(LAST_BACKUP_DATE_KEY) || 'Unbekannt';
+            const autoLoad = localStorage.getItem(AUTO_LOAD_BACKUP_KEY) === 'true';
+            
+            const dialog = `
+                <div class="modal-overlay show" id="backupDialog" onclick="if(event.target === this) closeDialog('backupDialog')">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h2 class="modal-title">📦 Backup gefunden!</h2>
+                            <button class="modal-close" onclick="closeDialog('backupDialog')">✕</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <p style="margin-bottom:20px;">
+                                Es wurde ein gespeichertes Backup gefunden. 
+                                Möchten Sie Ihr Backup mit allen gelernten Tricks und eigenen Inhalten laden?
+                            </p>
+                            
+                            <div style="background:var(--bg-main); padding:16px; border-radius:8px; margin-bottom:20px;">
+                                <p style="margin:0 0 8px 0; font-weight:600;">📝 Backup enthält:</p>
+                                <ul style="margin:8px 0; padding-left:20px; color:var(--text-secondary); font-size:0.9rem;">
+                                    <li>Alle gelernten Tricks</li>
+                                    <li>Ihre eigenen Tricks</li>
+                                    <li>Fortschritt & Einstellungen</li>
+                                    <li>Komplette Datenbank</li>
+                                </ul>
+                                <p style="margin:8px 0 0 0; font-size:0.85rem; color:var(--text-secondary);">
+                                    Letztes Backup: ${lastBackup}
+                                </p>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-full" onclick="loadBackupManual()">
+                                📦 Backup vom Gerät laden
+                            </button>
+                            
+                            <div class="divider"></div>
+                            
+                            <button class="btn btn-secondary btn-full" onclick="closeDialog('backupDialog'); showOriginalJsonDialog()">
+                                📄 Stattdessen Original-Datenbank laden
+                            </button>
+                            
+                            <div style="margin-top:16px; padding:12px; background:var(--bg-main); border-radius:8px;">
+                                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                                    <input type="checkbox" id="autoLoadBackupDialogCheck" 
+                                           ${autoLoad ? 'checked' : ''}
+                                           onchange="localStorage.setItem(AUTO_LOAD_BACKUP_KEY, this.checked); console.log('Auto-Load Backup:', this.checked);">
+                                    <span style="font-size:0.9rem;">Diesen Dialog nicht mehr anzeigen (lädt automatisch online)</span>
+                                </label>
+                                <p style="margin:8px 0 0 24px; font-size:0.75rem; color:var(--text-secondary);">
+                                    Falls aktiviert, wird beim Start direkt die Online-Datenbank geladen
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', dialog);
+        }
+
+        function showOriginalJsonDialog() {
+            const dialog = `
+                <div class="modal-overlay show" id="originalDialog" onclick="if(event.target === this) closeDialog('originalDialog')">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h2 class="modal-title">📄 Datenbank laden</h2>
+                            <button class="modal-close" onclick="closeDialog('originalDialog')">✕</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <p style="margin-bottom:20px;">
+                                Wählen Sie wie Sie die Hundetricks-Datenbank laden möchten:
+                            </p>
+                            
+                            <div style="background:linear-gradient(135deg, #3ea87615, #2d7a5e15); padding:16px; border-radius:8px; margin-bottom:16px; border:1px solid #3ea87630;">
+                                <p style="margin:0 0 12px 0; font-weight:600;">💡 Empfohlen: Online laden</p>
+                                <p style="margin:0 0 12px 0; font-size:0.85rem; color:var(--text-secondary);">
+                                    Die neueste Version wird automatisch von GitHub geladen.
+                                </p>
+                                <button class="btn btn-primary btn-full" onclick="loadFromGitHub()">
+                                    🌐 Online von GitHub laden
+                                </button>
+                            </div>
+                            
+                            <div class="divider"></div>
+                            
+                            <div style="background:var(--bg-main); padding:16px; border-radius:8px; margin-bottom:16px;">
+                                <p style="margin:0 0 12px 0; font-weight:600;">💾 Lokal: Von Gerät laden</p>
+                                <p style="margin:0 0 12px 0; font-size:0.85rem; color:var(--text-secondary);">
+                                    Laden Sie die Hundetricks.json von Ihrem Gerät.
+                                </p>
+                                <button class="btn btn-secondary btn-full" onclick="loadLocalJSONManual()">
+                                    📁 Datei vom Gerät auswählen
+                                </button>
+                            </div>
+                            
+                            <div class="divider"></div>
+                            
+                            <div style="background:var(--bg-main); padding:16px; border-radius:8px;">
+                                <p style="margin:0 0 12px 0; font-weight:600;">📥 Dateien herunterladen</p>
+                                <p style="margin:0 0 12px 0; font-size:0.85rem; color:var(--text-secondary);">
+                                    Für offline Nutzung können Sie alle Dateien herunterladen:
+                                </p>
+                                
+                                <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip"
+                                   class="btn btn-accent btn-full"
+                                   style="text-decoration:none; display:block; margin-bottom:8px;"
+                                   download>
+                                    📦 Repository als ZIP herunterladen
+                                </a>
+                                
+                                <a href="https://github.com/Digid0t/DigiDot_9"
+                                   target="_blank"
+                                   class="btn btn-secondary btn-full"
+                                   style="text-decoration:none; display:block;">
+                                    🔗 GitHub Repository öffnen
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', dialog);
+        }
+
+        function showFirstTimeSetupDialog() {
+            const dialog = `
+                <div class="modal-overlay show" id="setupDialog">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h2 class="modal-title">🎉 Willkommen bei Trick Training!</h2>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <p style="margin-bottom:20px; font-size:1.1rem;">
+                                Um die App zu nutzen, benötigen Sie die Hundetricks-Datenbank.
+                            </p>
+                            
+                            <div style="background:linear-gradient(135deg, #3ea87615, #2d7a5e15); padding:20px; border-radius:12px; margin-bottom:16px; border:2px solid #3ea87650;">
+                                <p style="margin:0 0 12px 0; font-weight:600; font-size:1.05rem;">🌐 Option 1: Online nutzen (Empfohlen)</p>
+                                <p style="margin:0 0 16px 0; font-size:0.9rem; color:var(--text-secondary);">
+                                    Daten werden automatisch von GitHub geladen. Immer aktuell!
+                                </p>
+                                <button class="btn btn-primary btn-full" style="font-size:1.05rem; padding:14px;" onclick="loadFromGitHub()">
+                                    🚀 Jetzt online starten
+                                </button>
+                            </div>
+                            
+                            <div class="divider"></div>
+                            
+                            <div style="background:var(--bg-main); padding:20px; border-radius:12px; margin-bottom:16px;">
+                                <p style="margin:0 0 12px 0; font-weight:600; font-size:1.05rem;">💾 Option 2: Offline nutzen</p>
+                                <p style="margin:0 0 16px 0; font-size:0.9rem; color:var(--text-secondary);">
+                                    Laden Sie die Dateien herunter und wählen Sie die JSON-Datei aus.
+                                </p>
+                                
+                                <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip"
+                                   class="btn btn-accent btn-full"
+                                   style="text-decoration:none; display:block; margin-bottom:10px;"
+                                   download>
+                                    📥 Repository herunterladen (.zip)
+                                </a>
+                                
+                                <button class="btn btn-secondary btn-full" onclick="loadLocalJSONManual()">
+                                    📁 Hundetricks.json auswählen
+                                </button>
+                            </div>
+                            
+                            <details style="margin-top:20px; background:var(--bg-main); padding:12px; border-radius:8px;">
+                                <summary style="cursor:pointer; color:var(--text-secondary); font-size:0.9rem; font-weight:600;">
+                                    💡 Wie funktioniert das Backup-System?
+                                </summary>
+                                <div style="padding:12px 0 0 0; font-size:0.85rem; color:var(--text-secondary); line-height:1.6;">
+                                    <p><strong>Backup erstellen:</strong></p>
+                                    <p>⚙️ Einstellungen → 💾 "Backup erstellen"<br>
+                                    Speichert alle gelernten Tricks und eigenen Inhalte in einer Datei.</p>
+                                    
+                                    <p style="margin-top:12px;"><strong>Backup laden:</strong></p>
+                                    <p>⚙️ Einstellungen → 📂 "Backup laden"<br>
+                                    Stellt alles aus Ihrer Backup-Datei wieder her.</p>
+                                    
+                                    <p style="margin-top:12px;"><strong>Auto-Load:</strong></p>
+                                    <p>In den Einstellungen können Sie aktivieren, dass Backups beim Start automatisch geladen werden.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', dialog);
+        }
+
+        // Helper-Funktionen
+        function loadFromGitHub() {
+            closeAllDialogs();
+            loadJSON();
+        }
+
+        function closeDialog(id) {
+            const dialog = document.getElementById(id);
+            if (dialog) dialog.remove();
+        }
+
+        function closeAllDialogs() {
+            document.querySelectorAll('.modal-overlay').forEach(d => d.remove());
+        }
+
+        function testTTS() {
+            const text = "Hallo! Dies ist ein Test der Sprachausgabe. Die Vorlesefunktion ist aktiviert und funktioniert einwandfrei.";
+            speak(text);
+        }
+
+        function initTTSSettings() {
+            const settings = getTTSSettings();
+            
+            // Checkboxen
+            const enabledCheckbox = document.getElementById('ttsEnabledSetting');
+            if (enabledCheckbox) {
+                enabledCheckbox.checked = settings.enabled;
+            }
+            
+            // Slider
+            const rateSlider = document.getElementById('ttsRateSlider');
+            const rateValue = document.getElementById('ttsRateValue');
+            if (rateSlider && rateValue) {
+                rateSlider.value = settings.rate;
+                rateValue.textContent = settings.rate;
+            }
+            
+            const volumeSlider = document.getElementById('ttsVolumeSlider');
+            const volumeValue = document.getElementById('ttsVolumeValue');
+            if (volumeSlider && volumeValue) {
+                volumeSlider.value = settings.volume;
+                volumeValue.textContent = Math.round(settings.volume * 100);
+            }
+        }
+    </script>
+    
+    <!-- ============================================================ -->
+    <!-- PWA SYSTEM - Production Ready
+    <!-- ============================================================ -->
+    <script>
+        // ════════════════════════════════════════════════════════════
+        // SERVICE WORKER REGISTRATION with error handling
+        // ════════════════════════════════════════════════════════════
+        
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+                .then(reg => {
+                    console.log('✅ Service Worker registered');
+                    
+                    // Update detection
+                    reg.addEventListener('updatefound', () => {
+                        const newWorker = reg.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                if (confirm('🎉 Neue Version verfügbar! Jetzt aktualisieren?')) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                    
+                    // Listen for activation
+                    navigator.serviceWorker.addEventListener('message', (e) => {
+                        if (e.data.type === 'ACTIVATED') {
+                            console.log('✅ Service Worker activated, version:', e.data.version);
+                        }
+                    });
+                })
+                .catch(err => {
+                    console.error('❌ Service Worker registration failed:', err);
+                    // Continue without SW - app still works
+                });
+        } else {
+            console.warn('⚠️ Service Workers not supported - running without offline support');
+        }
+        
+        // ════════════════════════════════════════════════════════════
+        // HELPER: Communicate with Service Worker
+        // ════════════════════════════════════════════════════════════
+        
+        async function sendToSW(type, data = {}, timeout = 5000) {
+            if (!navigator.serviceWorker.controller) {
+                console.warn('Service Worker not ready');
+                return { success: false, error: 'Service Worker not available' };
+            }
+            
+            return new Promise((resolve) => {
+                const channel = new MessageChannel();
+                
+                const timer = setTimeout(() => {
+                    resolve({ success: false, error: 'Timeout' });
+                }, timeout);
+                
+                channel.port1.onmessage = (e) => {
+                    clearTimeout(timer);
+                    resolve(e.data);
+                };
+                
+                try {
+                    navigator.serviceWorker.controller.postMessage(
+                        { type, data }, 
+                        [channel.port2]
+                    );
+                } catch (err) {
+                    clearTimeout(timer);
+                    resolve({ success: false, error: err.message });
+                }
+            });
+        }
+        
+        // ════════════════════════════════════════════════════════════
+        // AUTO-BACKUP on page unload
+        // ════════════════════════════════════════════════════════════
+        
+        window.addEventListener('beforeunload', () => {
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({ type: 'CREATE_BACKUP' });
+            }
+        });
+        
+        // ════════════════════════════════════════════════════════════
+        // BACKUP MANAGER UI with robust error handling
+        // ════════════════════════════════════════════════════════════
+        
+        async function showBackupManager() {
+            try {
+                const response = await sendToSW('GET_ALL_BACKUPS');
+                
+                if (!response.success && !response.backups) {
+                    showToast('Backup-Verwaltung nicht verfügbar', 'error');
+                    return;
+                }
+                
+                const backups = response.backups || [];
+                
+                let html = `
+                    <div style="padding: 20px; max-height: 500px; overflow-y: auto;">
+                        <h3 style="margin: 0 0 16px 0; color: var(--text-primary);">
+                            💾 Backup-Verwaltung
+                        </h3>
+                `;
+                
+                if (backups.length === 0) {
+                    html += `
+                        <p style="color: var(--text-secondary); margin: 20px 0;">
+                            Noch keine Backups vorhanden.
+                        </p>
+                    `;
+                } else {
+                    html += `
+                        <div style="margin-bottom: 20px;">
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
+                                ${backups.length} Backup${backups.length > 1 ? 's' : ''} verfügbar (letzte 5 werden behalten)
+                            </p>
+                    `;
+                    
+                    backups.forEach(backup => {
+                        const date = new Date(backup.timestamp).toLocaleString('de-DE', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+                        
+                        const learnedCount = backup.learned?.length || 0;
+                        const customCount = backup.custom?.length || 0;
+                        
+                        html += `
+                            <div style="
+                                background: var(--bg-secondary);
+                                padding: 12px;
+                                border-radius: 8px;
+                                margin-bottom: 8px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 12px;
+                            ">
+                                <div style="flex: 1; min-width: 0;">
+                                    <strong style="color: var(--text-primary);">${date}</strong><br>
+                                    <small style="color: var(--text-secondary);">
+                                        ${learnedCount} gelernt · ${customCount} eigene
+                                    </small>
+                                </div>
+                                <button 
+                                    onclick="restoreBackupFromManager(${backup.id})" 
+                                    style="
+                                        background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
+                                        color: white;
+                                        border: none;
+                                        padding: 8px 16px;
+                                        border-radius: 6px;
+                                        cursor: pointer;
+                                        font-weight: 600;
+                                        white-space: nowrap;
+                                    "
+                                >
+                                    Wiederherstellen
+                                </button>
+                            </div>
+                        `;
+                    });
+                    
+                    html += `</div>`;
+                }
+                
+                html += `
+                    <div style="display: flex; gap: 8px; margin-top: 16px;">
+                        <button 
+                            onclick="createNewBackup()" 
+                            style="
+                                flex: 1;
+                                background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+                                color: white;
+                                border: none;
+                                padding: 12px 24px;
+                                border-radius: 8px;
+                                cursor: pointer;
+                                font-weight: 600;
+                            "
+                        >
+                            ➕ Neues Backup
+                        </button>
+                        <button 
+                            onclick="closeBackupDialog()" 
+                            style="
+                                background: #666;
+                                color: white;
+                                border: none;
+                                padding: 12px 24px;
+                                border-radius: 8px;
+                                cursor: pointer;
+                                font-weight: 600;
+                            "
+                        >
+                            Schließen
+                        </button>
+                    </div>
+                </div>
+                `;
+                
+                const dialog = document.createElement('div');
+                dialog.id = 'backup-dialog';
+                dialog.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: var(--card-bg);
+                    border-radius: 12px;
+                    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+                    z-index: 100000;
+                    max-width: 500px;
+                    width: 90%;
+                    max-height: 90vh;
+                    overflow: hidden;
+                `;
+                dialog.innerHTML = html;
+                
+                const overlay = document.createElement('div');
+                overlay.id = 'backup-overlay';
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0,0,0,0.5);
+                    z-index: 99999;
+                `;
+                overlay.onclick = closeBackupDialog;
+                
+                document.body.appendChild(overlay);
+                document.body.appendChild(dialog);
+                
+            } catch (err) {
+                console.error('Backup Manager error:', err);
+                showToast('Fehler beim Laden der Backups', 'error');
+            }
+        }
+        
+        async function createNewBackup() {
+            try {
+                showToast('Erstelle Backup...', 'info');
+                
+                const result = await sendToSW('CREATE_BACKUP');
+                
+                if (result.success && result.backup) {
+                    showToast('✅ Backup erfolgreich erstellt!', 'success');
+                    closeBackupDialog();
+                    // Reopen to show new backup
+                    setTimeout(() => showBackupManager(), 300);
+                } else {
+                    showToast('❌ Backup konnte nicht erstellt werden', 'error');
+                }
+            } catch (err) {
+                console.error('Create backup error:', err);
+                showToast('❌ Fehler beim Erstellen des Backups', 'error');
+            }
+        }
+        
+        async function restoreBackupFromManager(backupId) {
+            if (!confirm('Backup wiederherstellen?\n\nAktuelle Daten werden überschrieben!')) {
+                return;
+            }
+            
+            try {
+                showToast('Stelle Backup wieder her...', 'info');
+                closeBackupDialog();
+                
+                const result = await sendToSW('RESTORE_BACKUP', { backupId }, 10000);
+                
+                if (result.success) {
+                    showToast('✅ Backup wiederhergestellt! Seite wird neu geladen...', 'success');
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    showToast('❌ Wiederherstellung fehlgeschlagen: ' + (result.error || 'Unbekannter Fehler'), 'error');
+                }
+            } catch (err) {
+                console.error('Restore backup error:', err);
+                showToast('❌ Fehler bei der Wiederherstellung', 'error');
+            }
+        }
+        
+        function closeBackupDialog() {
+            document.getElementById('backup-dialog')?.remove();
+            document.getElementById('backup-overlay')?.remove();
+        }
+        
+        // ════════════════════════════════════════════════════════════
+        // TOAST NOTIFICATIONS
+        // ════════════════════════════════════════════════════════════
+        
+        function showToast(message, type = 'info') {
+            const colors = {
+                success: '#3ea876',
+                error: '#e53e3e',
+                info: '#4a90e2',
+                warning: '#f59e0b'
+            };
+            
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 80px;
+                right: 20px;
+                background: ${colors[type] || colors.info};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 100001;
+                font-size: 0.9rem;
+                max-width: 300px;
+                animation: slideIn 0.3s ease;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        // ════════════════════════════════════════════════════════════
+        // GLOBAL FUNCTIONS
+        // ════════════════════════════════════════════════════════════
+        
+        window.showBackupManager = showBackupManager;
+        window.createNewBackup = createNewBackup;
+        window.restoreBackupFromManager = restoreBackupFromManager;
+        window.closeBackupDialog = closeBackupDialog;
+        window.showToast = showToast;
+        window.sendToSW = sendToSW;
+        
+        // Animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        console.log('✅ PWA initialized');
+    </script>
+    
+    <!-- ============================================================ -->
+    <!-- LEGACY CODE REMOVED -->
+    <!-- ============================================================ -->
+    <script>
+        // ════════════════════════════════════════════════════════════
+        // PWA DATA SYNC MANAGER
+        // ════════════════════════════════════════════════════════════
+        
+        
+        console.log('🚀 PWA Integration complete');
+    </script>
+    
+    <!-- ============================================================ -->
+    <!-- LEGACY PWA CODE REMOVED -->
+    <!-- ============================================================ -->
+    <script>
+        // ════════════════════════════════════════════════════════════
+        // LEGACY PWA CODE REMOVED
+        // All PWA functionality now handled by:
+        // - pwa-bridge.js (Service Worker communication)
+        // - service-worker-professional.js (Advanced caching & sync)
+        // - PWADataSyncManager (Data synchronization)
+        // ════════════════════════════════════════════════════════════
+        
+        // Install Prompt (A2HS) - Kept for compatibility
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('💾 Install prompt available');
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            if (localStorage.getItem('installPromptDismissed') === 'true') {
+                return;
+            }
+            
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                console.log('✅ App is already installed');
+                return;
+            }
+            
+            const installBanner = document.createElement('div');
+            installBanner.id = 'installBanner';
+            installBanner.style.cssText = `
+                position: fixed;
+                top: 70px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                max-width: 90%;
+                animation: slideDown 0.3s ease;
+            `;
+            
+            installBanner.innerHTML = `
+                <span>📱 App installieren für bessere Erfahrung?</span>
+                <button onclick="installApp()" style="
+                    background: white;
+                    color: #4a90e2;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    font-weight: 600;
+                    cursor: pointer;
+                ">Installieren</button>
+                <button onclick="dismissInstall()" style="
+                    background: transparent;
+                    color: white;
+                    border: 2px solid white;
+                    padding: 8px 16px;
+                    border-radius: 6px;
+                    font-weight: 600;
+                    cursor: pointer;
+                ">Nicht jetzt</button>
+            `;
+            
+            document.body.appendChild(installBanner);
+        });
+        
+        async function installApp() {
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            console.log(`User response to install prompt: ${outcome}`);
+            
+            if (outcome === 'accepted') {
+                console.log('✅ User accepted the install prompt');
+            }
+            
+            deferredPrompt = null;
+            dismissInstall();
+        }
+        
+        function dismissInstall() {
+            const banner = document.getElementById('installBanner');
+            if (banner) {
+                banner.style.animation = 'slideUp 0.3s ease reverse';
+                setTimeout(() => banner.remove(), 300);
+            }
+            localStorage.setItem('installPromptDismissed', 'true');
+        }
+        
+        window.addEventListener('appinstalled', () => {
+            console.log('✅ PWA was installed successfully');
+            deferredPrompt = null;
+        });
+        
+        // Online/Offline Status Indicator
+        function updateOnlineStatus() {
+            const statusIndicator = document.getElementById('onlineStatus') || createStatusIndicator();
+            
+            if (navigator.onLine) {
+                statusIndicator.style.background = '#3ea876';
+                statusIndicator.title = 'Online';
+            } else {
+                statusIndicator.style.background = '#e53e3e';
+                statusIndicator.title = 'Offline - Gecachte Daten werden verwendet';
+            }
+        }
+        
+        function createStatusIndicator() {
+            const indicator = document.createElement('div');
+            indicator.id = 'onlineStatus';
+            indicator.style.cssText = `
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                z-index: 9999;
+                box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+                transition: background 0.3s ease;
+            `;
+            document.body.appendChild(indicator);
+            return indicator;
+        }
+        
+        window.addEventListener('online', () => {
+            console.log('🌐 Online');
+            updateOnlineStatus();
+        });
+        
+        window.addEventListener('offline', () => {
+            console.log('📡 Offline');
+            updateOnlineStatus();
+        });
+        
+        updateOnlineStatus();
+        
+        console.log('🚀 PWA Features initialized');
+        console.log('📱 Standalone:', isStandalone());
+        console.log('🌐 Online:', navigator.onLine);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "Hundetricks - Trainingskompendium",
+  "short_name": "Hundetricks",
+  "description": "120+ Hundetricks mit Offline-Support und Sprachausgabe",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#3ea876",
+  "background_color": "#1a1a1a",
+  "lang": "de-DE",
+  
+  "icons": [
+    {
+      "src": "./icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  
+  "categories": ["education", "lifestyle"],
+  "prefer_related_applications": false
+}
