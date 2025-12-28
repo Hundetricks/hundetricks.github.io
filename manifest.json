@@ -1,51 +1,35 @@
 {
-  "name": "Hundetricks - Professionelle Hundetrainings-App",
+  "name": "Hundetricks - Professionelles Training",
   "short_name": "Hundetricks",
-  "description": "120+ professionelle Hundetricks mit Offline-Support, Fortschrittstracking und automatischen Backups",
+  "description": "120+ Hundetricks mit Offline-Support",
   
-  "start_url": "./",
+  "start_url": "./?source=pwa",
   "scope": "./",
-  "id": "hundetricks-app-v3",
+  "id": "hundetricks-app",
   
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "orientation": "any",
   
   "theme_color": "#3ea876",
   "background_color": "#1a1a1a",
   
   "lang": "de-DE",
-  "dir": "ltr",
   
   "icons": [
     {
-      "src": "./icon-192.png",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192'%3E%3Crect width='192' height='192' fill='%233ea876' rx='24'/%3E%3Ctext x='50%25' y='50%25' font-size='96' text-anchor='middle' dy='.35em'%3E🐾%3C/text%3E%3C/svg%3E",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "./icon-512.png",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' fill='%233ea876' rx='64'/%3E%3Ctext x='50%25' y='50%25' font-size='280' text-anchor='middle' dy='.35em'%3E🐾%3C/text%3E%3C/svg%3E",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "purpose": "any maskable"
     }
   ],
   
-  "categories": ["education", "lifestyle", "productivity"],
-  
-  "prefer_related_applications": false,
-  
-  "launch_handler": {
-    "client_mode": "navigate-existing"
-  },
-  
-  "file_handlers": [
-    {
-      "action": "./",
-      "accept": {
-        "application/json": [".json"]
-      }
-    }
-  ]
+  "categories": ["education", "lifestyle"],
+  "prefer_related_applications": false
 }

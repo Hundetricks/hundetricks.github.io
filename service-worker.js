@@ -22,8 +22,6 @@ const CORE_ASSETS = [
 
 // Optional assets (graceful degradation)
 const OPTIONAL_ASSETS = [
-    './icon-192.png',
-    './icon-512.png',
     './Hundetricks.json'
 ];
 
