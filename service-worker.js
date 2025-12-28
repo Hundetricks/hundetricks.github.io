@@ -1,5 +1,5 @@
 // ============================================================
-// HUNDETRICKS SERVICE WORKER v3.0 - PRODUCTION
+// HUNDETRICKS SERVICE WORKER
 // Lokale UND Online Nutzung - 100% kompatibel
 // ============================================================
 
@@ -222,9 +222,9 @@ async function loadTricksData() {
     // TIER 3: GitHub (Online Fallback)
     if (self.navigator.onLine) {
         const githubUrls = [
-            'https://hundetricks.github.io/Hundetricks.json',
             'https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json',
-            'https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json'
+            'https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json',
+             'https://hundetricks.github.io/Hundetricks.json'
         ];
         
         for (const url of githubUrls) {
@@ -295,7 +295,7 @@ async function updateInBackground() {
     // Fallback to GitHub
     if (self.navigator.onLine) {
         try {
-            const response = await fetch('https://hundetricks.github.io/Hundetricks.json', { 
+            const response = await fetch('https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json', { 
                 cache: 'no-cache' 
             });
             
