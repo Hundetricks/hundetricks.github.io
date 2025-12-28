@@ -1,4 +1,4 @@
-# 🐾 Hundetricks - Professionelles Trainingskompendium
+# 🐾 Hundetricks
 
 <div align="center">
 
@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/Lizenz-MIT-lightgrey?style=for-the-badge)
 ![Tricks](https://img.shields.io/badge/Tricks-120+-orange?style=for-the-badge)
 
-**Eine moderne Progressive Web App für systematisches Hundetraining**
+**Progressive Web App für Hundetraining**
 
 [🚀 Live-Demo](https://hundetricks.github.io/) • [📖 Dokumentation](#dokumentation) • [💾 Download](#installation) • [🐛 Issues](https://github.com/Hundetricks/hundetricks.github.io/issues)
 
@@ -86,7 +86,7 @@
 
 ## 🚀 Installation & Erste Schritte
 
-### Option 1: Direkt im Browser nutzen
+### Option 1: Direkt im Browser nutzen (Chrome Browser, für bessere oFfline Kompatibelität empfohlen!!)
 
 1. Öffne [https://hundetricks.github.io/](https://hundetricks.github.io/)
 2. Die App lädt automatisch alle Daten
@@ -96,8 +96,14 @@
 
 #### Auf dem Smartphone:
 
-**Android (Chrome/Edge):**
-1. Öffne die Website in Chrome oder Edge
+**Android (Chrome Browser):**
+1. Öffne die Website
+2. Klicke auf Einstellungen (⚙️).
+3. Gehe zu 📱 App installieren → Installieren Button drücken
+
+   oder alternativ:
+   
+1. Öffne die Website in Chrome Browser
 2. Tippe auf das Menü (⋮) → "Zum Startbildschirm hinzufügen"
 3. Bestätige mit "Hinzufügen"
 4. Die App erscheint nun wie eine normale App auf deinem Homescreen
@@ -1513,7 +1519,7 @@ Dieses Projekt ist unter der **MIT-Lizenz** lizenziert.
 ```
 MIT License
 
-Copyright (c) 2024 Hundetricks
+Copyright (c) 2025 Hundetricks
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1564,7 +1570,6 @@ Entwickelt mit ❤️ für Hunde und ihre Menschen.
 
 - 🐛 **Bugs melden:** [GitHub Issues](https://github.com/Hundetricks/hundetricks.github.io/issues)
 - 💡 **Feature-Vorschläge:** [GitHub Discussions](https://github.com/Hundetricks/hundetricks.github.io/discussions)
-- 📧 **Email:** [Deine Email hier]
 - 🌐 **Website:** [https://hundetricks.github.io/](https://hundetricks.github.io/)
 
 ---
