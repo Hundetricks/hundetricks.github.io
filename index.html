@@ -6,8 +6,8 @@
     
     <!-- Primary Meta Tags -->
     <title>Hundetricks - Professionelles Trainingskompendium</title>
-    <meta name="title" content="Hundetricks">
-    <meta name="description" content="Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
+    <meta name="title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta name="description" content="Umfassende Trick-Datenbank für progressives Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
     <meta name="keywords" content="Hundetraining, Hundetricks, Dog Training, Tricks, PWA, Offline, Sprachausgabe, TTS">
     <meta name="author" content="Hundetricks App">
     
@@ -40,7 +40,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
     <link rel="shortcut icon" href="./icons/favicon.ico">
-  
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hundetricks.github.io/">
+    <meta property="og:title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta property="og:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="og:image" content="./icons/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hundetricks.github.io/">
+    <meta property="twitter:title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta property="twitter:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="twitter:image" content="./icons/twitter-image.png">
     
     <!-- Security -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,14 +64,14 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
-            --gradient-primary: linear-gradient(135deg, #2d7a5e 0%, #1e5a42 60%);
-            --gradient-success: linear-gradient(135deg, #3ea876 0%, #2d8a5f 60%);
-            --gradient-accent: linear-gradient(135deg, #52c593 0%, #3ea876 60%);
+            --gradient-primary: linear-gradient(135deg, #2d7a5e 20%, #1e5a42 100%);
+            --gradient-success: linear-gradient(135deg, #3ea876 20%, #2d8a5f 100%);
+            --gradient-accent: linear-gradient(135deg, #52c593 20%, #3ea876 100%);
             --bg-main: #f7f9fb;
             --bg-secondary: #f7fff3;
             --text-primary: #1a2332;
             --text-secondary: #5a6b7f;
-            --card-bg: #fcfcfc;
+            --card-bg: #ffffff;
             --border-color: #d4dbe5;
             --shadow-sm: 0 2px 8px rgba(45, 122, 94, 0.08);
             --shadow-md: 0 4px 16px rgba(45, 122, 94, 0.12);
@@ -70,7 +83,7 @@
             --input-bg: #e7e4d2;
             --input-border: #d4dbe5;
             --accent-green: #3ea876;
-            --accent-green-light: #f4fdf2;
+            --accent-green-light: #dcf6d8;
             --hover-overlay: rgba(62, 168, 118, 0.08);
         }
 
@@ -873,13 +886,13 @@
 
         .trick-card.learned {
             opacity: 0.85;
-            background: #ccd1d0;
-            border: 2px solid #d6d8db;
+            background: #b0b6b5;
+            border: 2px solid #9ca3af;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
         }
 
         .trick-card.learned:hover {
-            background: #d2d3d4;
+            background: #a0a3a7;
             transform: none;
         }
 
@@ -891,7 +904,7 @@
 
         .trick-card.learned .trick-title { 
             text-decoration: line-through; 
-            color: #3f4349;
+            color: #6b7280;
             opacity: 0.7;
         }
 
@@ -902,7 +915,7 @@
             right: 12px;
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, #8db6a3 0%, #559678 100%);
+            background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -1149,7 +1162,7 @@
         /* === VARIATIONS === */
         .variation-container {
             margin-top: 24px;
-            background: linear-gradient(135deg, #caecdf, #84dbb8d2);
+            background: linear-gradient(135deg, #bcead8, #6aecb8d2);
             border-radius: var(--radius-md);
             padding: 20px;
             border: 2px solid #a8d5c3;
@@ -3276,6 +3289,100 @@
             });
         }
 
+        // ============================================================
+        // LOAD JSON FROM ERROR DIALOG
+        // ============================================================
+        
+        async function loadJSONFromErrorDialog() {
+            const urlInput = document.getElementById('errorDialogJsonUrl');
+            const statusDiv = document.getElementById('errorDialogLoadingStatus');
+            let url = urlInput?.value.trim();
+            
+            if (!url) {
+                alert('❌ Bitte eine URL eingeben!');
+                return;
+            }
+            
+            // Show loading status
+            if (statusDiv) {
+                statusDiv.style.display = 'block';
+                statusDiv.innerHTML = '🔄 Lade von URL...';
+            }
+            
+            console.log('🔗 Lade von Error-Dialog URL:', url);
+            
+            // Intelligente GitHub URL-Erkennung und Konvertierung
+            let urls = [url];
+            
+            // Wenn es eine GitHub-URL ist, generiere Varianten
+            if (url.includes('github.com')) {
+                const githubMatch = url.match(/github\.com\/([^\/]+)\/([^\/]+)\/(?:blob|raw)\/([^\/]+)\/(.+)/);
+                
+                if (githubMatch) {
+                    const [, owner, repo, branch, file] = githubMatch;
+                    urls = [
+                        `https://raw.githack.com/${owner}/${repo}/${branch}/${file}`,
+                        `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${file}`,
+                        url,
+                        `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}/${file}`
+                    ];
+                }
+            }
+            
+            let lastError = null;
+            
+            for (let i = 0; i < urls.length; i++) {
+                const currentUrl = urls[i];
+                
+                try {
+                    if (statusDiv) {
+                        statusDiv.innerHTML = `🔄 Versuch ${i + 1}/${urls.length}...`;
+                    }
+                    
+                    const response = await fetch(currentUrl, {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache'
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // VALIDIERUNG
+                    if (!data.trick_database) {
+                        throw new Error('Keine trick_database gefunden');
+                    }
+                    
+                    // ERFOLG!
+                    console.log('✅ JSON erfolgreich geladen via Error-Dialog!');
+                    
+                    currentData = data;
+                    localStorage.setItem(FULL_DATA_KEY, JSON.stringify(data));
+                    mergeCustomTricks();
+                    renderApp(currentData);
+                    
+                    showToast('✅ Daten erfolgreich geladen!', 'success');
+                    return;
+                    
+                } catch (error) {
+                    console.log(`❌ Versuch ${i + 1} fehlgeschlagen:`, error.message);
+                    lastError = error;
+                }
+            }
+            
+            // Alle Versuche fehlgeschlagen
+            if (statusDiv) {
+                statusDiv.style.display = 'block';
+                statusDiv.innerHTML = '❌ Laden fehlgeschlagen';
+                statusDiv.style.color = '#e53e3e';
+            }
+            
+            alert(`❌ Konnte JSON nicht laden:\n\n${lastError?.message || 'Unbekannter Fehler'}\n\nBitte prüfen Sie die URL oder versuchen Sie es über ⚙️ Einstellungen.`);
+        }
+        
         async function loadJSON() {
             console.log('🚀 STARTE JSON-LADEN MIT MEHRFACHEN FALLBACKS');
             
@@ -3727,11 +3834,42 @@
             if (!data || !data.trick_database) {
                 console.error('Ungültige Daten in renderApp:', data);
                 container.innerHTML = `
-                    <div style="text-align:center; padding:40px 20px; color:var(--text-primary);">
+                    <div style="text-align:center; padding:40px 20px; max-width:600px; margin:0 auto; color:var(--text-primary);">
                         <div style="font-size:3rem; margin-bottom:20px;">⚠️</div>
                         <h2 style="margin:0 0 20px 0; font-size:1.5rem; color:#e53e3e;">Ungültige Daten</h2>
                         <p style="margin:20px 0; color:var(--text-secondary);">Die geladenen Daten haben nicht das erwartete Format.</p>
-                        <p style="margin:20px 0;">Bitte laden Sie die Tricks-Datenbank über ⚙️ Einstellungen.</p>
+                        
+                        <div style="background:var(--bg-secondary); border:2px solid var(--border-color); border-radius:12px; padding:24px; margin:30px 0; text-align:left;">
+                            <h3 style="margin:0 0 16px 0; font-size:1.1rem; display:flex; align-items:center; gap:8px;">
+                                <span>🔗</span>
+                                <span>Direkt von URL laden</span>
+                            </h3>
+                            
+                            <p style="margin:0 0 12px 0; font-size:0.85rem; color:var(--text-secondary);">
+                                💡 Bei GitHub-URLs werden automatisch alle Varianten getestet
+                            </p>
+                            
+                            <input type="text" 
+                                   id="errorDialogJsonUrl" 
+                                   class="input-field" 
+                                   placeholder="GitHub URL oder direkte JSON-URL"
+                                   value="https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json"
+                                   style="width:100%; margin-bottom:12px; padding:12px; border:2px solid var(--border-color); border-radius:8px; font-size:0.95rem; background:var(--input-bg); color:var(--text-primary);">
+                            
+                            <button onclick="loadJSONFromErrorDialog()" 
+                                    class="btn btn-primary btn-full"
+                                    style="width:100%; padding:12px; background:var(--accent-green); color:white; border:none; border-radius:8px; font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.3s;">
+                                🔄 Von URL laden
+                            </button>
+                            
+                            <div id="errorDialogLoadingStatus" style="margin-top:12px; font-size:0.9rem; color:var(--text-secondary); display:none;">
+                                <span>🔄 Lade...</span>
+                            </div>
+                        </div>
+                        
+                        <p style="margin:20px 0; font-size:0.9rem; color:var(--text-secondary);">
+                            Oder öffnen Sie ⚙️ Einstellungen für weitere Optionen
+                        </p>
                     </div>
                 `;
                 return;
