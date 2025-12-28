@@ -2418,6 +2418,7 @@
                     
                     const trickItem = document.createElement('div');
                     trickItem.className = isLearned ? 'nav-trick-item learned' : 'nav-trick-item';
+                    trickItem.setAttribute('data-trick-id', trick.id); // WICHTIG für dynamisches Update!
                     trickItem.style.setProperty('--category-color', color);
                     
                     // Erstelle TTS-Button
@@ -4468,35 +4469,39 @@
         
         // Hilfsfunktion um Navigation-Item zu aktualisieren ohne komplette Navigation neu zu rendern
         function updateNavigationItem(trickId, isLearned) {
-            // Finde alle nav-trick-items in der Navigation
-            const navItems = document.querySelectorAll('.nav-trick-item');
-            navItems.forEach(item => {
-                // Prüfe ob dieses Item zum Trick gehört (durch onclick-Attribut)
-                const onclickAttr = item.getAttribute('onclick');
-                if (onclickAttr && onclickAttr.includes(`scrollToTrick('${trickId}')`)) {
-                    // Aktualisiere die Klasse
-                    if (isLearned) {
-                        item.classList.add('learned');
-                        // Häkchen hinzufügen wenn noch nicht vorhanden
-                        if (!item.querySelector('.nav-trick-checkmark')) {
-                            const titleWrapper = item.querySelector('div');
-                            if (titleWrapper) {
-                                const checkmark = document.createElement('span');
-                                checkmark.className = 'nav-trick-checkmark';
-                                checkmark.textContent = '✓';
-                                titleWrapper.insertBefore(checkmark, titleWrapper.firstChild);
-                            }
-                        }
-                    } else {
-                        item.classList.remove('learned');
-                        // Häkchen entfernen
-                        const checkmark = item.querySelector('.nav-trick-checkmark');
-                        if (checkmark) {
-                            checkmark.remove();
-                        }
+            // Finde das nav-trick-item mit der passenden Trick-ID
+            const navItem = document.querySelector(`.nav-trick-item[data-trick-id="${trickId}"]`);
+            
+            if (!navItem) {
+                console.warn('⚠️ Navigation Item nicht gefunden für Trick:', trickId);
+                return;
+            }
+            
+            // Aktualisiere die Klasse
+            if (isLearned) {
+                navItem.classList.add('learned');
+                
+                // Häkchen hinzufügen wenn noch nicht vorhanden
+                if (!navItem.querySelector('.nav-trick-checkmark')) {
+                    const titleWrapper = navItem.querySelector('div');
+                    if (titleWrapper) {
+                        const checkmark = document.createElement('span');
+                        checkmark.className = 'nav-trick-checkmark';
+                        checkmark.textContent = '✓';
+                        titleWrapper.insertBefore(checkmark, titleWrapper.firstChild);
                     }
                 }
-            });
+            } else {
+                navItem.classList.remove('learned');
+                
+                // Häkchen entfernen
+                const checkmark = navItem.querySelector('.nav-trick-checkmark');
+                if (checkmark) {
+                    checkmark.remove();
+                }
+            }
+            
+            console.log(`✅ Navigation aktualisiert für Trick ${trickId}: ${isLearned ? 'Gelernt' : 'Nicht gelernt'}`);
         }
 
         function handleSearch(e) {
