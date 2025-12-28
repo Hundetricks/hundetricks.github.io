@@ -6,10 +6,10 @@
     
     <!-- Primary Meta Tags -->
     <title>Hundetricks</title>
-    <meta name="title" content="Hundetricks">
-    <meta name="description" content="Hundetrick-Datenbank mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
+    <meta name="title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta name="description" content="Hundetrick-Datenbank für Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
     <meta name="keywords" content="Hundetraining, Hundetricks, Dog Training, Tricks, PWA, Offline, Sprachausgabe, TTS">
-    <meta name="author" content="Hundetricks App, Inhalte können Falsch sein.">
+    <meta name="author" content="Hundetricks App, Inhalte können Fehler enthalten!">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/manifest.json">
@@ -40,7 +40,21 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/icons/favicon-16x16.png">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/icons/favicon.ico">
- 
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hundetricks.github.io/">
+    <meta property="og:title" content="Hundetricks">
+    <meta property="og:description" content="120+ Hundetricks für gutes Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/icons/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hundetricks.github.io/">
+    <meta property="twitter:title" content="Hundetricks">
+    <meta property="twitter:description" content="120+ Hundetricks für gutes Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/icons/twitter-image.png">
+    
     <!-- Security -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -291,8 +305,8 @@
         }
 
         .icon-btn {
-            background: rgba(62, 168, 118, 0.15);
-            border: 1px solid rgba(62, 168, 118, 0.3);
+            background: rgba(62, 168, 118, 0.25);
+            border: 2px solid rgba(62, 168, 118, 0.5);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -303,6 +317,9 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
             color: var(--text-primary);
+            flex-shrink: 0;
+            min-width: 40px;
+            min-height: 40px;
         }
 
         .burger-btn {
@@ -316,8 +333,8 @@
         }
 
         .icon-btn:hover {
-            background: rgba(62, 168, 118, 0.25);
-            border-color: rgba(62, 168, 118, 0.5);
+            background: rgba(62, 168, 118, 0.35);
+            border-color: rgba(62, 168, 118, 0.7);
             transform: scale(1.05);
         }
         
@@ -1731,7 +1748,7 @@
             </div>
             <div class="footer-divider"></div>
             <div class="footer-text">
-                Hundetricks Datenbank v2.0 | Made with 💜 for dog training
+               💚 🐩 Hundetricks Datenbank 🦮 |🐕 von Hundehalter, für Hundehalter 🐕 💚
             </div>
         </div>
     </footer>
@@ -1822,7 +1839,7 @@
                 <div class="divider"></div>
                 
                 <div class="setting-group">
-                    <label class="setting-label">💾 Alte Daten-Funktionen</label>
+                    <label class="setting-label">💾 Kurzspeicher</label>
                     <p class="setting-description">Nur Fortschritt & eigene Tricks (ohne Datenbank)</p>
                     
                     <div class="button-grid button-grid-2">
@@ -2124,7 +2141,7 @@
         let isInstalled = false;
 
         // ============================================================
-        // PWA INSTALLATION - Event Listener (früh registriert!)
+        // PWA INSTALLATION - Event Listener 
         // ============================================================
         
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -3951,7 +3968,7 @@
                 expandBtn.className = 'expand-btn';
                 expandBtn.innerHTML = '▼ Mehr erfahren';
                 expandBtn.style.cssText = `
-                    background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
+                    background: #2d7a5e;
                     color: white;
                     border: none;
                     padding: 12px 24px;
@@ -4043,9 +4060,9 @@
                 expandBtn.className = 'expand-btn-small';
                 expandBtn.innerHTML = '▼ Mehr erfahren';
                 expandBtn.style.cssText = `
-                    background: transparent;
-                    color: #3ea876;
-                    border: 2px solid #3ea876;
+                    background: rgba(45, 122, 94, 0.15);
+                    color: #2d7a5e;
+                    border: 2px solid #2d7a5e;
                     padding: 8px 16px;
                     border-radius: var(--radius-sm);
                     cursor: pointer;
@@ -4055,12 +4072,12 @@
                     margin-bottom: 12px;
                 `;
                 expandBtn.onmouseover = () => {
-                    expandBtn.style.background = '#3ea876';
+                    expandBtn.style.background = '#2d7a5e';
                     expandBtn.style.color = 'white';
                 };
                 expandBtn.onmouseout = () => {
-                    expandBtn.style.background = 'transparent';
-                    expandBtn.style.color = '#3ea876';
+                    expandBtn.style.background = 'rgba(45, 122, 94, 0.15)';
+                    expandBtn.style.color = '#2d7a5e';
                 };
                 
                 const longDiv = document.createElement('div');
@@ -4379,7 +4396,7 @@
                                 🔊 Vorlesen
                             </button>
                         </div>
-                        <button class="toggle-btn" style="background: ${color}15; border-color: ${color}30; color: ${color};" onclick="toggleText('${uid}', this)">
+                        <button class="toggle-btn" style="background: rgba(45, 122, 94, 0.2); border: 2px solid #2d7a5e; color: #2d7a5e; font-weight: 600;" onclick="toggleText('${uid}', this)">
                             ▼ Mehr erfahren
                         </button>
                     </div>
