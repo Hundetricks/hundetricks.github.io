@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- Primary Meta Tags -->
-    <title>Hundetricks</title>
+    <title>Hundetricks - Professionelles Trainingskompendium</title>
     <meta name="title" content="Hundetricks - Professionelles Trainingskompendium">
-    <meta name="description" content="Hundetrick-Datenbank für Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
+    <meta name="description" content="Umfassende Trick-Datenbank für progressives Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
     <meta name="keywords" content="Hundetraining, Hundetricks, Dog Training, Tricks, PWA, Offline, Sprachausgabe, TTS">
-    <meta name="author" content="Hundetricks App, Inhalte können Fehler enthalten!">
+    <meta name="author" content="Hundetricks App">
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/manifest.json">
@@ -44,15 +44,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hundetricks.github.io/">
-    <meta property="og:title" content="Hundetricks">
-    <meta property="og:description" content="120+ Hundetricks für gutes Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="og:title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta property="og:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/icons/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://hundetricks.github.io/">
-    <meta property="twitter:title" content="Hundetricks">
-    <meta property="twitter:description" content="120+ Hundetricks für gutes Training. Mit Sprachausgabe und Offline-Support.">
+    <meta property="twitter:title" content="Hundetricks - Professionelles Trainingskompendium">
+    <meta property="twitter:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
     <meta property="twitter:image" content="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/icons/twitter-image.png">
     
     <!-- Security -->
@@ -1748,7 +1748,7 @@
             </div>
             <div class="footer-divider"></div>
             <div class="footer-text">
-               💚 🐩 Hundetricks Datenbank 🦮 |🐕 von Hundehalter, für Hundehalter 🐕 💚
+                Hundetricks Datenbank v2.0 | Made with 💜 for dog training
             </div>
         </div>
     </footer>
@@ -1817,21 +1817,21 @@
                         <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
                             <input type="checkbox" id="autoLoadBackupSetting"
                                    onchange="localStorage.setItem(AUTO_LOAD_BACKUP_KEY, this.checked); console.log('Auto-Load Backup:', this.checked);">
-                            <span style="font-size:0.9rem;">Backup-Dialog überspringen</span>
+                            <span style="font-size:0.9rem;">Backup-Frage überspringen</span>
                         </label>
                         <p style="margin:8px 0 0 24px; font-size:0.75rem; color:var(--text-secondary);">
-                            Wenn aktiviert: Backup-Dialog wird nicht gezeigt, stattdessen wird online geladen
+                            Wenn aktiviert: Lädt immer direkt online, fragt nicht nach Backup
                         </p>
                     </div>
                     
                     <div style="background:var(--bg-main); padding:12px; border-radius:8px;">
                         <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
                             <input type="checkbox" id="autoLoadLocalSetting"
-                                   onchange="localStorage.setItem(AUTO_LOAD_LOCAL_JSON_KEY, this.checked); console.log('Auto-Load Local:', this.checked); showToast(this.checked ? '📡 Offline-Modus aktiviert - App wird beim nächsten Laden nur lokale Daten verwenden' : '🌐 Online-Modus aktiviert - App wird beim nächsten Laden Daten von GitHub laden', 'info');">
-                            <span style="font-size:0.9rem;">Lokale JSON bevorzugen (Offline-Modus)</span>
+                                   onchange="localStorage.setItem(AUTO_LOAD_LOCAL_JSON_KEY, this.checked); console.log('Auto-Load Local:', this.checked); showToast(this.checked ? '📡 Offline-Modus an - nur gespeicherte Daten' : '🌐 Online-Modus an - lädt immer neue Daten', 'info');">
+                            <span style="font-size:0.9rem;">Nur offline nutzen</span>
                         </label>
                         <p style="margin:8px 0 0 24px; font-size:0.75rem; color:var(--text-secondary);">
-                            Wenn aktiviert: Nur gespeicherte lokale Daten werden verwendet (kein Internet nötig)
+                            Wenn aktiviert: Nutzt nur gespeicherte Daten, kein Internet nötig
                         </p>
                     </div>
                 </div>
@@ -1839,7 +1839,7 @@
                 <div class="divider"></div>
                 
                 <div class="setting-group">
-                    <label class="setting-label">💾 Kurzspeicher</label>
+                    <label class="setting-label">💾 Alte Daten-Funktionen</label>
                     <p class="setting-description">Nur Fortschritt & eigene Tricks (ohne Datenbank)</p>
                     
                     <div class="button-grid button-grid-2">
@@ -2141,7 +2141,7 @@
         let isInstalled = false;
 
         // ============================================================
-        // PWA INSTALLATION - Event Listener 
+        // PWA INSTALLATION - Event Listener (früh registriert!)
         // ============================================================
         
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -5258,71 +5258,114 @@
         }
         
         // ============================================================
-        // AUTOMATISCHE INITIALISIERUNG BEIM APP-START
+        // AUTOMATISCHER START BEIM LADEN DER SEITE
         // ============================================================
         
+        // Die feste URL zur Tricks-Datenbank
+        const DEFAULT_DB_URL = "https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json";
+        
         async function initializeApp() {
-            console.log('🚀🚀🚀 APP-INITIALISIERUNG GESTARTET 🚀🚀🚀');
+            console.log('🚀 App gestartet, lade Datenbank...');
             
-            // Prüfe Offline-Modus Einstellung
+            // Prüfe ob Offline-Modus in Einstellungen aktiviert wurde
             const offlineModeEnabled = localStorage.getItem(AUTO_LOAD_LOCAL_JSON_KEY) === 'true';
             
             if (offlineModeEnabled) {
-                console.log('📡 OFFLINE-MODUS AKTIVIERT - Lade nur lokale Daten');
+                // Nutzer will NUR offline arbeiten (in Einstellungen aktiviert)
+                console.log('📡 Offline-Modus ist aktiviert - nutze nur gespeicherte Daten');
+                loadCachedDataOnly();
+                return;
+            }
+            
+            // STANDARD: IMMER ERST ONLINE VERSUCHEN
+            console.log('🌐 Versuche Online-Datenbank zu laden...');
+            
+            try {
+                await loadJSON(); // Versucht alle URLs (GitHack, jsDelivr, etc.)
+                console.log('✅ Datenbank erfolgreich von Online geladen!');
+                // Erfolg! App ist bereit
                 
-                // Versuche lokale gecachte Daten zu laden
+            } catch (onlineError) {
+                console.warn('⚠️ Online-Laden fehlgeschlagen:', onlineError.message);
+                console.log('💾 Versuche gespeicherte Daten als Fallback...');
+                
+                // FALLBACK: Versuche gespeicherte Daten
                 const cachedData = localStorage.getItem(FULL_DATA_KEY);
+                
                 if (cachedData) {
                     try {
                         const data = JSON.parse(cachedData);
+                        
+                        // Prüfe ob es echte Datenbank ist (nicht Backup)
                         if (data && data.trick_database) {
-                            console.log('✅ Lokale Daten erfolgreich geladen');
+                            console.log('✅ Gespeicherte Daten geladen (Offline-Fallback)');
                             currentData = data;
                             mergeCustomTricks();
                             renderApp(currentData);
-                            showToast('📡 Offline-Modus - Lokale Daten geladen', 'info');
+                            showToast('📡 Keine Internetverbindung - gespeicherte Daten werden verwendet', 'warning');
                             return;
+                        } else {
+                            console.warn('⚠️ Gespeicherte Daten sind ungültig');
                         }
                     } catch (e) {
-                        console.error('❌ Fehler beim Laden lokaler Daten:', e);
+                        console.error('❌ Fehler beim Lesen gespeicherter Daten:', e);
                     }
                 }
                 
-                // Keine lokalen Daten vorhanden
-                console.warn('⚠️ Keine lokalen Daten vorhanden');
-                showToast('⚠️ Offline-Modus aktiv, aber keine Daten verfügbar. Bitte online gehen und neu laden.', 'warning');
+                // Nichts hat funktioniert
+                console.error('❌ Keine Daten verfügbar!');
+                showToast('❌ Keine Daten verfügbar. Bitte Internetverbindung prüfen.', 'error');
                 
-            } else {
-                console.log('🌐 ONLINE-MODUS - Lade Daten von GitHub');
-                
-                // Automatisch JSON von GitHub laden
+                // Zeige Hilfe-Dialog (optional)
+                setTimeout(() => {
+                    if (!currentData) {
+                        showNoDataDialog();
+                    }
+                }, 2000);
+            }
+        }
+        
+        // Nur gespeicherte Daten laden (wenn Offline-Modus aktiviert)
+        function loadCachedDataOnly() {
+            const cachedData = localStorage.getItem(FULL_DATA_KEY);
+            
+            if (cachedData) {
                 try {
-                    await loadJSON();
-                    console.log('✅ App erfolgreich initialisiert mit Online-Daten');
-                } catch (error) {
-                    console.error('❌ Fehler beim automatischen Laden:', error);
-                    
-                    // Fallback: Versuche lokale gecachte Daten
-                    const cachedData = localStorage.getItem(FULL_DATA_KEY);
-                    if (cachedData) {
-                        try {
-                            const data = JSON.parse(cachedData);
-                            if (data && data.trick_database) {
-                                console.log('✅ Fallback: Lokale gecachte Daten geladen');
-                                currentData = data;
-                                mergeCustomTricks();
-                                renderApp(currentData);
-                                showToast('📡 Offline - Gecachte Daten verwendet', 'warning');
-                                return;
-                            }
-                        } catch (e) {
-                            console.error('❌ Auch gecachte Daten fehlgeschlagen:', e);
-                        }
+                    const data = JSON.parse(cachedData);
+                    if (data && data.trick_database) {
+                        console.log('✅ Offline-Modus: Gespeicherte Daten geladen');
+                        currentData = data;
+                        mergeCustomTricks();
+                        renderApp(currentData);
+                        showToast('📡 Offline-Modus aktiv', 'info');
+                        return;
                     }
-                    
-                    // Letzter Versuch fehlgeschlagen
-                    showToast('❌ Fehler beim Laden der Daten. Bitte Internetverbindung prüfen.', 'error');
+                } catch (e) {
+                    console.error('❌ Fehler beim Laden:', e);
                 }
+            }
+            
+            console.warn('⚠️ Keine gespeicherten Daten vorhanden');
+            showToast('⚠️ Offline-Modus ist aktiv, aber keine Daten gespeichert. Bitte deaktiviere Offline-Modus und lade neu.', 'warning');
+        }
+        
+        // Hilfe-Dialog wenn gar nichts funktioniert hat
+        function showNoDataDialog() {
+            const message = `
+                ⚠️ Keine Daten verfügbar
+                
+                Die Tricks-Datenbank konnte nicht geladen werden.
+                
+                Mögliche Lösungen:
+                • Internetverbindung prüfen
+                • Seite neu laden (F5)
+                • Offline-Modus in Einstellungen deaktivieren
+                
+                Möchtest du die Seite neu laden?
+            `;
+            
+            if (confirm(message)) {
+                location.reload();
             }
         }
         
@@ -5330,11 +5373,11 @@
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initializeApp);
         } else {
-            // DOM ist bereits geladen, sofort initialisieren
+            // DOM ist bereits geladen, sofort starten
             initializeApp();
         }
         
-        console.log('✅ Initialisierungs-Listener registriert');
+        console.log('✅ Auto-Start aktiviert');
     </script>
     
     <!-- ============================================================ -->
