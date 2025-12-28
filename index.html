@@ -43,14 +43,14 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hundetricks.app/">
+    <meta property="og:url" content="https://hundetricks.github.io/">
     <meta property="og:title" content="Hundetricks - Professionelles Trainingskompendium">
     <meta property="og:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
     <meta property="og:image" content="./icons/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://hundetricks.app/">
+    <meta property="twitter:url" content="https://hundetricks.github.io/">
     <meta property="twitter:title" content="Hundetricks - Professionelles Trainingskompendium">
     <meta property="twitter:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
     <meta property="twitter:image" content="./icons/twitter-image.png">
@@ -64,24 +64,27 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
-            --gradient-primary: linear-gradient(135deg, #2d7a5e 0%, #1e5a42 100%);
-            --gradient-success: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
-            --gradient-accent: linear-gradient(135deg, #52c593 0%, #3ea876 100%);
-            --bg-main: #f8f9fd;
-            --bg-secondary: #ffffff;
-            --text-primary: #2d3748;
-            --text-secondary: #718096;
+            --gradient-primary: linear-gradient(135deg, #2d7a5e 20%, #1e5a42 100%);
+            --gradient-success: linear-gradient(135deg, #3ea876 20%, #2d8a5f 100%);
+            --gradient-accent: linear-gradient(135deg, #52c593 20%, #3ea876 100%);
+            --bg-main: #f7f9fb;
+            --bg-secondary: #f7fff3;
+            --text-primary: #1a2332;
+            --text-secondary: #5a6b7f;
             --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+            --border-color: #d4dbe5;
+            --shadow-sm: 0 2px 8px rgba(45, 122, 94, 0.08);
+            --shadow-md: 0 4px 16px rgba(45, 122, 94, 0.12);
+            --shadow-lg: 0 10px 30px rgba(45, 122, 94, 0.16);
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --header-bg: #ffffff;
-            --input-bg: #ffffff;
-            --input-border: #e2e8f0;
+            --input-bg: #e7e4d2;
+            --input-border: #d4dbe5;
+            --accent-green: #3ea876;
+            --accent-green-light: #dcf6d8;
+            --hover-overlay: rgba(62, 168, 118, 0.08);
         }
 
         [data-theme="dark"] {
@@ -97,6 +100,7 @@
             --header-bg: #2d3748;
             --input-bg: #1a202c;
             --input-border: #4a5568;
+            --accent-green-light: #21332c;
         }
 
         * { 
@@ -392,22 +396,24 @@
         .nav-arrow {
             font-size: 0.8rem;
             transition: transform 0.3s ease;
+            transform: rotate(0deg); /* Start: Pfeil nach rechts (eingeklappt) */
         }
 
         .nav-category-header.active .nav-arrow {
-            transform: rotate(180deg);
+            transform: rotate(90deg); /* Aktiv: Pfeil nach unten (ausgeklappt) */
         }
 
         .nav-tricks {
-            max-height: 0;
+            max-height: 0; /* Start: eingeklappt */
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease-in-out;
             padding-left: 12px;
         }
 
         .nav-tricks.open {
-            max-height: 2000px;
+            max-height: 10000px; /* Ausgeklappt: genug Platz für ALLE Tricks */
             padding-top: 8px;
+            padding-bottom: 8px;
         }
 
         .nav-trick-item {
@@ -516,7 +522,7 @@
         }
 
         .modal-close:hover {
-            background: #f1f3f9;
+            background: #56648d;
         }
 
         .modal-body {
@@ -611,6 +617,17 @@
             margin-bottom: 12px;
             background: var(--input-bg);
             color: var(--text-primary);
+        }
+        
+        .input-field:hover {
+            border-color: var(--accent-green);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(62, 168, 118, 0.1);
+            background: var(--accent-green-light);
         }
 
         .input-field:focus {
@@ -787,12 +804,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--card-bg);
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-main) 100%);
             user-select: none;
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
             color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .cat-header:hover {
+            background: linear-gradient(135deg, var(--accent-green-light) 0%, var(--card-bg) 100%);
+            border-bottom-color: var(--accent-green);
         }
 
         .cat-header::before {
@@ -802,8 +825,9 @@
             top: 0;
             bottom: 0;
             width: 5px;
-            background: var(--category-color, var(--border-color));
+            background: var(--category-color, var(--accent-green));
             transition: width 0.3s ease;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
         }
 
         .cat-header:hover::before {
@@ -848,29 +872,58 @@
             border-radius: var(--radius-md);
             padding: 24px;
             position: relative;
-            transition: all 0.3s ease;
-            border: 1px solid #e8eaf0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
 
         .trick-card:hover {
             box-shadow: var(--shadow-md);
-            border-color: #3ea87630;
+            border-color: var(--accent-green);
+            transform: translateY(-2px);
+            background: var(--accent-green-light);
         }
 
         .trick-card.learned {
-            opacity: 0.75;
-            background: #e8e8e8; /* Deutlich grauer Hintergrund im Light Mode */
-            border-color: #d0d0d0;
+            opacity: 0.85;
+            background: #b0b6b5;
+            border: 2px solid #9ca3af;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+
+        .trick-card.learned:hover {
+            background: #a0a3a7;
+            transform: none;
         }
 
         [data-theme="dark"] .trick-card.learned {
-            opacity: 0.5;
-            background: var(--bg-main);
+            opacity: 0.6;
+            background: #374151;
+            border: 2px solid #6b7280;
         }
 
         .trick-card.learned .trick-title { 
             text-decoration: line-through; 
-            color: var(--text-secondary);
+            color: #6b7280;
+            opacity: 0.7;
+        }
+
+        .trick-card.learned::before {
+            content: '✓';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: 0 2px 8px rgba(62, 168, 118, 0.3);
         }
 
         .trick-card.hidden {
@@ -981,7 +1034,7 @@
             align-items: flex-start;
             margin-bottom: 20px;
             padding-bottom: 16px;
-            border-bottom: 2px solid #f1f3f9;
+            border-bottom: 2px solid #9bb5abd8;
         }
 
         .trick-title { 
@@ -1109,7 +1162,7 @@
         /* === VARIATIONS === */
         .variation-container {
             margin-top: 24px;
-            background: linear-gradient(135deg, #e8f5f0, #d4ede3);
+            background: linear-gradient(135deg, #bcead8, #6aecb8d2);
             border-radius: var(--radius-md);
             padding: 20px;
             border: 2px solid #a8d5c3;
@@ -1508,13 +1561,13 @@
     <footer class="app-footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="https://github.com/Digid0t/DigiDot_9" target="_blank" rel="noopener noreferrer" class="footer-link">
+                <a href="https://hundetricks.github.io/" target="_blank" rel="noopener noreferrer" class="footer-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                     </svg>
                     GitHub Repository
                 </a>
-                <a href="https://raw.githubusercontent.com/Digid0t/DigiDot_9/main/Hundetricks.json" target="_blank" rel="noopener noreferrer" class="footer-link">
+                <a href="https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json" target="_blank" rel="noopener noreferrer" class="footer-link">
                     📥 JSON Datei
                 </a>
             </div>
@@ -1548,7 +1601,7 @@
                             </label>
                         </div>
                         
-                        <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip" 
+                        <a href="https://hundetricks.github.io/archive/refs/heads/main.zip" 
                            download 
                            class="btn btn-secondary btn-full" 
                            style="text-decoration:none; display:flex;">
@@ -1565,7 +1618,7 @@
                     
                     <input type="text" class="input-field" id="jsonUrl" 
                            placeholder="GitHub URL oder direkte JSON-URL" 
-                           value="https://raw.githack.com/Digid0t/DigiDot_9/main/Hundetricks.json">
+                           value="https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json">
                     <button class="btn btn-primary btn-full" onclick="loadJSONFromURL()">
                         🔗 Von URL laden
                     </button>
@@ -1631,9 +1684,30 @@
                 <div class="divider"></div>
 
                 <div class="setting-group">
+                    <label class="setting-label">📱 App installieren</label>
+                    <p class="setting-description">Installiere die App auf deinem Gerät für bessere Performance und Offline-Nutzung</p>
+                    
+                    <button class="btn btn-primary btn-full" id="installButton" onclick="installPWA()" style="display:none;">
+                        📱 Auf Startbildschirm installieren
+                    </button>
+                    
+                    <div id="installStatus" style="background:var(--bg-main); padding:12px; border-radius:8px; text-align:center;">
+                        <span style="font-size:0.9rem; color:var(--text-secondary);" id="installStatusText">
+                            ✅ App ist installiert oder Installation nicht verfügbar
+                        </span>
+                    </div>
+                    
+                    <p style="margin-top:12px; font-size:0.75rem; color:var(--text-secondary);">
+                        💡 <strong>Vorteile:</strong> Schnellerer Start, Offline-Zugriff, kein Browser-UI
+                    </p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="setting-group">
                     <label class="setting-label">🔗 GitHub Repository</label>
                     <p class="setting-description">Quellcode, Updates und Dokumentation</p>
-                    <a href="https://github.com/Digid0t/DigiDot_9" 
+                    <a href="https://hundetricks.github.io" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="btn btn-primary btn-full" 
@@ -1784,6 +1858,86 @@
         let tricksMap = new Map(); // Speichert Trick-Objekte für TTS-Zugriff
         let currentSpeech = null; // Aktueller TTS-Vorgang
         let isSpeaking = false; // TTS aktiv?
+        
+        // PWA Installation
+        let deferredPrompt = null;
+        let isInstalled = false;
+
+        // ============================================================
+        // PWA INSTALLATION
+        // ============================================================
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log('[PWA] beforeinstallprompt event fired');
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button
+            const installBtn = document.getElementById('installButton');
+            const installStatus = document.getElementById('installStatusText');
+            
+            if (installBtn && installStatus) {
+                installBtn.style.display = 'block';
+                installStatus.textContent = '✨ Installation verfügbar!';
+                installStatus.style.color = 'var(--accent-green)';
+            }
+        });
+        
+        window.addEventListener('appinstalled', (e) => {
+            console.log('[PWA] App installed successfully');
+            isInstalled = true;
+            deferredPrompt = null;
+            
+            const installBtn = document.getElementById('installButton');
+            const installStatus = document.getElementById('installStatusText');
+            
+            if (installBtn && installStatus) {
+                installBtn.style.display = 'none';
+                installStatus.textContent = '✅ App ist installiert!';
+                installStatus.style.color = 'var(--accent-green)';
+            }
+            
+            showToast('✅ App erfolgreich installiert!', 'success');
+        });
+        
+        async function installPWA() {
+            if (!deferredPrompt) {
+                console.log('[PWA] No install prompt available');
+                showToast('⚠️ Installation nicht verfügbar', 'error');
+                return;
+            }
+            
+            console.log('[PWA] Showing install prompt');
+            deferredPrompt.prompt();
+            
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log('[PWA] User choice:', outcome);
+            
+            if (outcome === 'accepted') {
+                showToast('📱 Installation gestartet...', 'info');
+            } else {
+                showToast('ℹ️ Installation abgebrochen', 'info');
+            }
+            
+            deferredPrompt = null;
+        }
+        
+        // Check if already installed
+        window.addEventListener('load', () => {
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                console.log('[PWA] Running in standalone mode');
+                isInstalled = true;
+                
+                const installBtn = document.getElementById('installButton');
+                const installStatus = document.getElementById('installStatusText');
+                
+                if (installBtn && installStatus) {
+                    installBtn.style.display = 'none';
+                    installStatus.textContent = '✅ App läuft im Standalone-Modus!';
+                    installStatus.style.color = 'var(--accent-green)';
+                }
+            }
+        });
 
         // === DARK MODE ===
         function toggleDarkMode() {
@@ -1896,10 +2050,10 @@
                 categoryDiv.className = 'nav-category';
                 
                 const color = getCategoryColor(cat.meta.category_name, cat.meta.color_code);
-                console.log(`📱 Burger-Menu Kategorie: "${cat.meta.category_name}" → Farbe: ${color}`);
+                console.log(`📱 Burger-Menu Kategorie: "${cat.meta.category_name}" → ${cat.list.length} Tricks → Farbe: ${color}`);
                 
                 const header = document.createElement('div');
-                header.className = 'nav-category-header';
+                header.className = 'nav-category-header'; // Start NICHT active (eingeklappt)
                 header.style.borderLeftColor = color;
                 header.style.borderLeftWidth = '4px';
                 header.style.display = 'flex';
@@ -1929,7 +2083,7 @@
                 
                 const arrow = document.createElement('span');
                 arrow.className = 'nav-arrow';
-                arrow.textContent = '▼';
+                arrow.textContent = '▶'; // Pfeil nach rechts = eingeklappt
                 
                 buttonsDiv.appendChild(ttsCatBtn);
                 buttonsDiv.appendChild(arrow);
@@ -1938,9 +2092,12 @@
                 header.appendChild(buttonsDiv);
                 
                 const tricksContainer = document.createElement('div');
-                tricksContainer.className = 'nav-tricks';
+                tricksContainer.className = 'nav-tricks'; // Start NICHT open (eingeklappt)
                 
-                cat.list.forEach(trick => {
+                // WICHTIG: Rendere ALLE Tricks (nicht nur die ersten 27!)
+                console.log(`   → Rendere ${cat.list.length} Tricks für ${cat.meta.category_name}`);
+                
+                cat.list.forEach((trick, index) => {
                     const trickItem = document.createElement('div');
                     trickItem.className = 'nav-trick-item';
                     trickItem.style.setProperty('--category-color', color);
@@ -1989,21 +2146,34 @@
                     };
                     
                     tricksContainer.appendChild(trickItem);
+                    
+                    // DEBUG: Log jeden 10. Trick
+                    if ((index + 1) % 10 === 0 || index === cat.list.length - 1) {
+                        console.log(`      Trick ${index + 1}/${cat.list.length}: ${trick.position} - ${trick.titel}`);
+                    }
                 });
+                
+                console.log(`   ✅ ${cat.list.length} Tricks gerendert!`);
                 
                 header.onclick = (e) => {
                     // Nicht togglen wenn TTS-Button geklickt wurde
                     if (e.target === ttsCatBtn || ttsCatBtn.contains(e.target)) {
                         return;
                     }
+                    
+                    // Toggle active/open
                     header.classList.toggle('active');
                     tricksContainer.classList.toggle('open');
+                    
+                    console.log(`   Toggle: ${cat.meta.category_name} → ${tricksContainer.classList.contains('open') ? 'OFFEN' : 'GESCHLOSSEN'}`);
                 };
                 
                 categoryDiv.appendChild(header);
                 categoryDiv.appendChild(tricksContainer);
                 container.appendChild(categoryDiv);
             });
+            
+            console.log('✅ BURGER-MENU KOMPLETT GENERIERT');
         }
 
         function scrollToTrick(trickId) {
@@ -2168,7 +2338,7 @@
                     
                     // Validierung: Prüfe ob es eine gültige Tricks-Datenbank ist
                     if (!data.trick_database) {
-                        alert('❌ Ungültige Tricks-Datei!\n\nDie Datei muss eine "trick_database" enthalten.\n\nLaden Sie die richtige Datei von:\nhttps://github.com/Digid0t/DigiDot_9');
+                        alert('❌ Ungültige Tricks-Datei!\n\nDie Datei muss eine "trick_database" enthalten.\n\nLaden Sie die richtige Datei von:\nhttps://hundetricks.github.io');
                         event.target.value = '';
                         return;
                     }
@@ -2786,8 +2956,125 @@
             });
         }
 
+        // ═══════════════════════════════════════════════════════
+        // SHARE TARGET HANDLER
+        // ═══════════════════════════════════════════════════════
+        async function handleShareTarget() {
+            console.log('📤 Verarbeite Share Target...');
+            
+            try {
+                const formData = await getFormData();
+                
+                // Title, Text, URL
+                const title = formData.get('title');
+                const text = formData.get('text');
+                const url = formData.get('url');
+                
+                if (title || text || url) {
+                    console.log('📝 Share Data:', { title, text, url });
+                    showToast(`📤 Geteilte Daten empfangen: ${title || text || url}`, 'info');
+                }
+                
+                // Files (Backup-JSON)
+                const backup = formData.get('backup');
+                if (backup && backup instanceof File) {
+                    console.log('📁 Backup-Datei empfangen:', backup.name);
+                    
+                    const text = await backup.text();
+                    const data = JSON.parse(text);
+                    
+                    // Validierung
+                    if (data.version && data.learnedTricks !== undefined) {
+                        // Restore Backup
+                        if (data.learnedTricks) {
+                            learnedTricks = new Set(data.learnedTricks);
+                            localStorage.setItem(STORAGE_KEY, JSON.stringify([...learnedTricks]));
+                        }
+                        
+                        if (data.customTricks) {
+                            customTricks = data.customTricks;
+                            localStorage.setItem(CUSTOM_TRICKS_KEY, JSON.stringify(customTricks));
+                        }
+                        
+                        if (data.fullData) {
+                            currentData = data.fullData;
+                            localStorage.setItem(FULL_DATA_KEY, JSON.stringify(currentData));
+                        }
+                        
+                        showToast('✅ Backup erfolgreich wiederhergestellt!', 'success');
+                        setTimeout(() => location.href = './', 1000);
+                    } else {
+                        showToast('❌ Ungültige Backup-Datei', 'error');
+                    }
+                }
+            } catch (error) {
+                console.error('❌ Share Target Error:', error);
+                showToast('❌ Fehler beim Verarbeiten der geteilten Daten', 'error');
+            }
+        }
+        
+        async function getFormData() {
+            // Für POST-Requests
+            if (window.location.search.includes('?')) {
+                return new URLSearchParams(window.location.search);
+            }
+            
+            // Für echte Form-Data (wenn implementiert)
+            return new FormData();
+        }
+        
+        // ═══════════════════════════════════════════════════════
+        // APP START
+        // ═══════════════════════════════════════════════════════
+        
         window.onload = async function() {
             console.log('🎯 APP STARTET - Window.onload');
+            
+            // ═══════════════════════════════════════════════════════
+            // SERVICE WORKER REGISTRATION
+            // ═══════════════════════════════════════════════════════
+            if ('serviceWorker' in navigator) {
+                try {
+                    const registration = await navigator.serviceWorker.register('./service-worker.js');
+                    console.log('[SW] Registered:', registration.scope);
+                    
+                    // Listen for updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('[SW] New version available');
+                                
+                                if (confirm('🎉 Neue Version verfügbar! Jetzt aktualisieren?')) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                    
+                    // Listen for controller change
+                    navigator.serviceWorker.addEventListener('controllerchange', () => {
+                        console.log('[SW] Controller changed, reloading...');
+                        window.location.reload();
+                    });
+                    
+                    // Listen for messages from SW
+                    navigator.serviceWorker.addEventListener('message', (e) => {
+                        const { type, version } = e.data || {};
+                        
+                        if (type === 'SW_ACTIVATED') {
+                            console.log('[SW] Activated version:', version);
+                            showToast(`✅ Service Worker v${version} aktiv`, 'success');
+                        }
+                    });
+                } catch (err) {
+                    console.error('[SW] Registration failed:', err);
+                }
+            }
+            
+            // ═══════════════════════════════════════════════════════
             
             // Initialisierungen
             initDarkMode();
@@ -2796,6 +3083,87 @@
             await loadVoices(); // Stimmen laden
             loadStorage();
             loadCustomTricks();
+            
+            // ═══════════════════════════════════════════════════════
+            // MANIFEST QUERY PARAMETER HANDLING
+            // ═══════════════════════════════════════════════════════
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Track PWA source
+            const source = urlParams.get('source');
+            if (source) {
+                console.log(`📱 App gestartet via: ${source}`);
+                // Analytics tracking hier
+            }
+            
+            // Handle Shortcuts
+            const category = urlParams.get('category');
+            if (category) {
+                console.log(`🎯 Shortcut: Springe zu Kategorie ${category}`);
+                // Warte bis Daten geladen sind, dann scrolle zur Kategorie
+                setTimeout(() => {
+                    const categoryElement = document.querySelector(`[data-category="${category}"]`);
+                    if (categoryElement) {
+                        categoryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        categoryElement.querySelector('.cat-header')?.classList.add('active');
+                        categoryElement.querySelector('.cat-body')?.classList.add('open');
+                    }
+                }, 1000);
+            }
+            
+            // Handle View (progress)
+            const view = urlParams.get('view');
+            if (view === 'progress') {
+                console.log('📊 Shortcut: Zeige Fortschritt');
+                setTimeout(() => {
+                    // Filter auf gelernte Tricks
+                    const learnedCards = document.querySelectorAll('.trick-card.learned');
+                    if (learnedCards.length > 0) {
+                        learnedCards[0].scrollIntoView({ behavior: 'smooth' });
+                    }
+                    showToast(`✅ ${learnedCards.length} Tricks gelernt!`, 'success');
+                }, 1000);
+            }
+            
+            // Handle Action (backup)
+            const action = urlParams.get('action');
+            if (action === 'backup') {
+                console.log('💾 Shortcut: Erstelle Backup');
+                setTimeout(() => {
+                    createBackupEnhanced?.();
+                }, 1000);
+            } else if (action === 'create-custom-trick') {
+                console.log('➕ Shortcut: Erstelle eigenen Trick');
+                setTimeout(() => {
+                    openAddCustomTrick?.();
+                }, 1000);
+            }
+            
+            // Handle Trick-ID
+            const trickId = urlParams.get('trick');
+            if (trickId) {
+                console.log(`🎯 Deeplink: Springe zu Trick ${trickId}`);
+                setTimeout(() => {
+                    scrollToTrick(trickId);
+                }, 1000);
+            }
+            
+            // Clean URL nach Verarbeitung (optional)
+            if (urlParams.toString()) {
+                const cleanUrl = window.location.pathname;
+                window.history.replaceState({}, '', cleanUrl);
+            }
+            
+            // ═══════════════════════════════════════════════════════
+            // SHARE TARGET HANDLING
+            // ═══════════════════════════════════════════════════════
+            if (window.location.pathname.includes('/share-target')) {
+                console.log('📤 Share Target aktiviert');
+                handleShareTarget();
+                return;
+            }
+            
+            // ═══════════════════════════════════════════════════════
             
             // Lade Checkbox-Einstellungen
             const autoLoadBackup = localStorage.getItem(AUTO_LOAD_BACKUP_KEY) === 'true';
@@ -2883,8 +3251,8 @@
             console.log('🚀 STARTE JSON-LADEN MIT MEHRFACHEN FALLBACKS');
             
             const githubConfig = {
-                owner: 'Digid0t',
-                repo: 'DigiDot_9',
+                owner: 'Hundetricks',
+                repo: 'hundetricks.github.io',
                 branch: 'main',
                 file: 'Hundetricks.json'
             };
@@ -3040,7 +3408,7 @@
                         
                         <div style="margin-bottom:20px; padding:16px; background:var(--bg-main); border-radius:8px;">
                             <p style="margin:0 0 8px 0; font-weight:600;">Methode 1: Download & Upload (Empfohlen)</p>
-                            <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip" 
+                            <a href="https://hundetricks.github.io/archive/refs/heads/main.zip" 
                                download 
                                style="display:inline-block; background:var(--gradient-success); color:white; padding:12px 24px; border-radius:8px; text-decoration:none; margin-top:8px; font-weight:600;">
                                 📦 Repository als ZIP herunterladen
@@ -3060,7 +3428,7 @@
                     </div>
                     
                     <div style="margin-top:20px;">
-                        <a href="https://github.com/Digid0t/DigiDot_9" target="_blank" 
+                        <a href="https://hundetricks.github.io" target="_blank" 
                            style="color:#3ea876; text-decoration:none; font-size:0.9rem;">
                             📂 Zum GitHub Repository →
                         </a>
@@ -3748,8 +4116,39 @@
         // ============================================================
 
         // Hauptfunktion: Intelligente Lade-Hierarchie
+        // ============================================================
+        // SERVICE WORKER KOMMUNIKATION
+        // ============================================================
+        
+        async function sendToSW(type, data = {}) {
+            if (!navigator.serviceWorker.controller) {
+                console.warn('[SW] No service worker controller');
+                return null;
+            }
+            
+            return new Promise((resolve) => {
+                const channel = new MessageChannel();
+                
+                channel.port1.onmessage = (e) => {
+                    resolve(e.data);
+                };
+                
+                navigator.serviceWorker.controller.postMessage(
+                    { type, data },
+                    [channel.port2]
+                );
+                
+                // Timeout after 10 seconds
+                setTimeout(() => resolve(null), 10000);
+            });
+        }
+        
+        // ============================================================
+        // SMART DATA LOADING - Local First mit Service Worker
+        // ============================================================
+        
         async function smartLoadData() {
-            console.log('🚀 STARTE INTELLIGENTE LADE-HIERARCHIE');
+            console.log('🚀 STARTE INTELLIGENTE LADE-HIERARCHIE (LOCAL FIRST)');
             
             // PRIORITÄT 1: Backup-JSON prüfen
             const backupExists = localStorage.getItem(BACKUP_EXISTS_KEY) === 'true';
@@ -3757,8 +4156,8 @@
             
             // Wenn Backup existiert ABER User will Dialog ÜBERSPRINGEN
             if (backupExists && autoLoadBackup) {
-                console.log('📦 Backup vorhanden & Auto-Load aktiviert - überspringe Dialog, gehe zu Online-Laden');
-                // NICHT den Dialog zeigen, sondern direkt zu Online-Laden gehen
+                console.log('📦 Backup vorhanden & Auto-Load aktiviert - überspringe Dialog');
+                // Gehe zu nächster Priorität
             }
             // Wenn Backup existiert und User WILL den Dialog sehen
             else if (backupExists && !autoLoadBackup) {
@@ -3776,15 +4175,76 @@
                 return;
             }
             
-            // PRIORITÄT 3: Online von GitHub laden
-            console.log('🌐 Versuche Online-Laden von GitHub');
+            // PRIORITÄT 3: Service Worker lädt automatisch
+            // Der SW prüft: LocaleFile → IndexedDB → GitHub
+            console.log('🔄 Lade Daten via Service Worker');
             try {
-                await loadJSON();
-                return;
+                const result = await sendToSW('RELOAD_DATA');
+                
+                if (result && result.success && result.data) {
+                    console.log('✅ Daten vom Service Worker erhalten');
+                    currentData = result.data;
+                    localStorage.setItem(FULL_DATA_KEY, JSON.stringify(currentData));
+                    mergeCustomTricks();
+                    renderApp(currentData);
+                    return;
+                }
             } catch (error) {
-                console.error('❌ Online-Laden fehlgeschlagen:', error);
-                showFirstTimeSetupDialog();
+                console.log('⚠️ Service Worker Fehler:', error);
             }
+            
+            // PRIORITÄT 4: Direktes Laden (Fallback wenn SW nicht antwortet)
+            console.log('🌐 Fallback: Direktes Laden');
+            try {
+                // Versuche lokal
+                await loadJSONLocal();
+                return;
+            } catch (localError) {
+                // Versuche online
+                try {
+                    await loadJSON();
+                    return;
+                } catch (onlineError) {
+                    console.error('❌ Alle Lade-Methoden fehlgeschlagen');
+                    showFirstTimeSetupDialog();
+                }
+            }
+        }
+        
+        // Lokale JSON laden (aus gleichem Ordner)
+        async function loadJSONLocal() {
+            console.log('💾 Versuche lokale Hundetricks.json zu laden...');
+            
+            const localUrls = [
+                './Hundetricks.json',
+                '/Hundetricks.json',
+                '../Hundetricks.json'
+            ];
+            
+            for (const url of localUrls) {
+                try {
+                    const response = await fetch(url, { cache: 'no-cache' });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        
+                        // Validiere
+                        if (data.trick_database) {
+                            console.log(`✅ Lokale JSON geladen: ${url}`);
+                            currentData = data;
+                            localStorage.setItem(FULL_DATA_KEY, JSON.stringify(data));
+                            mergeCustomTricks();
+                            renderApp(currentData);
+                            showToast('✅ Lokale JSON geladen', 'success');
+                            return;
+                        }
+                    }
+                } catch (err) {
+                    console.log(`Lokale URL fehlgeschlagen: ${url}`);
+                }
+            }
+            
+            throw new Error('Keine lokale JSON gefunden');
         }
 
         // Backup manuell laden
@@ -3876,9 +4336,13 @@
         }
 
         // Backup erstellen (erweitert)
-        function createBackupEnhanced() {
+        // ============================================================
+        // BACKUP SYSTEM mit File System Access API
+        // ============================================================
+        
+        async function createBackupEnhanced() {
             const backup = {
-                version: '2.0',
+                version: '3.0',
                 timestamp: new Date().toISOString(),
                 learnedTricks: [...learnedTricks],
                 customTricks: customTricks,
@@ -3887,18 +4351,51 @@
             
             const dataStr = JSON.stringify(backup, null, 2);
             const blob = new Blob([dataStr], { type: 'application/json' });
+            const dateStr = new Date().toISOString().split('T')[0];
+            const filename = `hundetricks-backup-${dateStr}.json`;
             
+            // Try File System Access API first (for local directory)
+            if ('showSaveFilePicker' in window) {
+                try {
+                    const opts = {
+                        suggestedName: filename,
+                        types: [{
+                            description: 'JSON Backup',
+                            accept: { 'application/json': ['.json'] }
+                        }]
+                    };
+                    
+                    const handle = await window.showSaveFilePicker(opts);
+                    const writable = await handle.createWritable();
+                    await writable.write(blob);
+                    await writable.close();
+                    
+                    // Save directory handle for next time
+                    backupFileHandle = handle;
+                    
+                    localStorage.setItem(BACKUP_EXISTS_KEY, 'true');
+                    localStorage.setItem(LAST_BACKUP_DATE_KEY, new Date().toLocaleString('de-DE'));
+                    
+                    showToast('✅ Backup gespeichert!', 'success');
+                    return;
+                } catch (err) {
+                    if (err.name !== 'AbortError') {
+                        console.error('File System Access API Error:', err);
+                    }
+                    // Fall through to download fallback
+                }
+            }
+            
+            // Fallback: Regular download
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            const dateStr = new Date().toISOString().split('T')[0];
-            link.download = `hundetricks-backup-${dateStr}.json`;
+            link.download = filename;
             link.click();
             
-            // Markiere dass Backup existiert
             localStorage.setItem(BACKUP_EXISTS_KEY, 'true');
             localStorage.setItem(LAST_BACKUP_DATE_KEY, new Date().toLocaleString('de-DE'));
             
-            alert('✅ Backup erfolgreich erstellt!\n\n📁 Speichern Sie die Datei an einem sicheren Ort.\n\n💡 Beim nächsten Start können Sie das Backup automatisch laden lassen.');
+            showToast('✅ Backup heruntergeladen!', 'success');
         }
 
         // ============================================================
@@ -4009,14 +4506,14 @@
                                     Für offline Nutzung können Sie alle Dateien herunterladen:
                                 </p>
                                 
-                                <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip"
+                                <a href="https://hundetricks.github.io/archive/refs/heads/main.zip"
                                    class="btn btn-accent btn-full"
                                    style="text-decoration:none; display:block; margin-bottom:8px;"
                                    download>
                                     📦 Repository als ZIP herunterladen
                                 </a>
                                 
-                                <a href="https://github.com/Digid0t/DigiDot_9"
+                                <a href="https://hundetricks.github.io"
                                    target="_blank"
                                    class="btn btn-secondary btn-full"
                                    style="text-decoration:none; display:block;">
@@ -4062,7 +4559,7 @@
                                     Laden Sie die Dateien herunter und wählen Sie die JSON-Datei aus.
                                 </p>
                                 
-                                <a href="https://github.com/Digid0t/DigiDot_9/archive/refs/heads/main.zip"
+                                <a href="https://hundetricks.github.io/archive/refs/heads/main.zip"
                                    class="btn btn-accent btn-full"
                                    style="text-decoration:none; display:block; margin-bottom:10px;"
                                    download>
@@ -4146,366 +4643,218 @@
     </script>
     
     <!-- ============================================================ -->
-    <!-- PWA SYSTEM - Production Ready
+    <!-- PWA SERVICE WORKER - INLINE (No external files) -->
     <!-- ============================================================ -->
     <script>
-        // ════════════════════════════════════════════════════════════
-        // SERVICE WORKER REGISTRATION with error handling
-        // ════════════════════════════════════════════════════════════
-        
+        // Service Worker Registration
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./service-worker.js')
-                .then(reg => {
-                    console.log('✅ Service Worker registered');
-                    
-                    // Update detection
-                    reg.addEventListener('updatefound', () => {
-                        const newWorker = reg.installing;
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                if (confirm('🎉 Neue Version verfügbar! Jetzt aktualisieren?')) {
-                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
-                                    window.location.reload();
-                                }
+            navigator.serviceWorker.register('./service-worker.js').then(reg => {
+                console.log('✅ Service Worker registered');
+                
+                reg.addEventListener('updatefound', () => {
+                    const newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            if (confirm('🎉 Neue Version verfügbar! Jetzt aktualisieren?')) {
+                                newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                window.location.reload();
                             }
-                        });
-                    });
-                    
-                    // Listen for activation
-                    navigator.serviceWorker.addEventListener('message', (e) => {
-                        if (e.data.type === 'ACTIVATED') {
-                            console.log('✅ Service Worker activated, version:', e.data.version);
                         }
                     });
-                })
-                .catch(err => {
-                    console.error('❌ Service Worker registration failed:', err);
-                    // Continue without SW - app still works
                 });
-        } else {
-            console.warn('⚠️ Service Workers not supported - running without offline support');
+            }).catch(err => console.error('❌ SW registration failed:', err));
         }
         
         // ════════════════════════════════════════════════════════════
-        // HELPER: Communicate with Service Worker
+        // PWA INSTALL PROMPT
         // ════════════════════════════════════════════════════════════
         
-        async function sendToSW(type, data = {}, timeout = 5000) {
-            if (!navigator.serviceWorker.controller) {
-                console.warn('Service Worker not ready');
-                return { success: false, error: 'Service Worker not available' };
-            }
+        let deferredPrompt = null;
+        let installShown = localStorage.getItem('pwa-install-shown') === 'true';
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
             
+            // Show install prompt after 10 seconds if not shown before
+            if (!installShown && !window.matchMedia('(display-mode: standalone)').matches) {
+                setTimeout(() => showInstallPrompt(), 10000);
+            }
+        });
+        
+        function showInstallPrompt() {
+            if (!deferredPrompt) return;
+            
+            const banner = document.createElement('div');
+            banner.id = 'install-banner';
+            banner.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
+                color: white;
+                padding: 16px 20px;
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+                z-index: 100000;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                animation: slideUp 0.3s ease;
+            `;
+            
+            banner.innerHTML = `
+                <div style="flex: 1;">
+                    <strong style="display: block; margin-bottom: 4px;">📲 App installieren</strong>
+                    <small style="opacity: 0.9;">Hundetricks auf Ihrem Gerät installieren? Funktioniert auch offline!</small>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button id="install-btn" style="
+                        background: white;
+                        color: #3ea876;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 6px;
+                        font-weight: 600;
+                        cursor: pointer;
+                    ">Installieren</button>
+                    <button id="install-later" style="
+                        background: rgba(255,255,255,0.2);
+                        color: white;
+                        border: none;
+                        padding: 8px 16px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                    ">Später</button>
+                </div>
+            `;
+            
+            document.body.appendChild(banner);
+            
+            document.getElementById('install-btn').onclick = async () => {
+                banner.remove();
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    console.log('Install outcome:', outcome);
+                    deferredPrompt = null;
+                    localStorage.setItem('pwa-install-shown', 'true');
+                    installShown = true;
+                }
+            };
+            
+            document.getElementById('install-later').onclick = () => {
+                banner.remove();
+                localStorage.setItem('pwa-install-shown', 'true');
+                installShown = true;
+            };
+            
+            // Add animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideUp {
+                    from { transform: translateY(100px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Detect if already installed
+        window.addEventListener('appinstalled', () => {
+            console.log('✅ PWA installed successfully');
+            localStorage.setItem('pwa-install-shown', 'true');
+            showToast?.('✅ App erfolgreich installiert!', 'success');
+        });
+        
+        // ════════════════════════════════════════════════════════════
+        // SERVICE WORKER COMMUNICATION
+        // ════════════════════════════════════════════════════════════
+        
+        // Helper: Send message to Service Worker
+        async function sendToSW(type, data = {}) {
+            if (!navigator.serviceWorker.controller) return null;
             return new Promise((resolve) => {
                 const channel = new MessageChannel();
-                
-                const timer = setTimeout(() => {
-                    resolve({ success: false, error: 'Timeout' });
-                }, timeout);
-                
-                channel.port1.onmessage = (e) => {
-                    clearTimeout(timer);
-                    resolve(e.data);
-                };
-                
-                try {
-                    navigator.serviceWorker.controller.postMessage(
-                        { type, data }, 
-                        [channel.port2]
-                    );
-                } catch (err) {
-                    clearTimeout(timer);
-                    resolve({ success: false, error: err.message });
-                }
+                channel.port1.onmessage = (e) => resolve(e.data);
+                navigator.serviceWorker.controller.postMessage({ type, data }, [channel.port2]);
+                setTimeout(() => resolve(null), 5000); // Timeout
             });
         }
         
-        // ════════════════════════════════════════════════════════════
-        // AUTO-BACKUP on page unload
-        // ════════════════════════════════════════════════════════════
-        
+        // Auto-backup on unload
         window.addEventListener('beforeunload', () => {
             if (navigator.serviceWorker.controller) {
                 navigator.serviceWorker.controller.postMessage({ type: 'CREATE_BACKUP' });
             }
         });
         
-        // ════════════════════════════════════════════════════════════
-        // BACKUP MANAGER UI with robust error handling
-        // ════════════════════════════════════════════════════════════
-        
+        // Backup Manager UI
         async function showBackupManager() {
-            try {
-                const response = await sendToSW('GET_ALL_BACKUPS');
-                
-                if (!response.success && !response.backups) {
-                    showToast('Backup-Verwaltung nicht verfügbar', 'error');
-                    return;
-                }
-                
-                const backups = response.backups || [];
-                
-                let html = `
-                    <div style="padding: 20px; max-height: 500px; overflow-y: auto;">
-                        <h3 style="margin: 0 0 16px 0; color: var(--text-primary);">
-                            💾 Backup-Verwaltung
-                        </h3>
-                `;
-                
-                if (backups.length === 0) {
-                    html += `
-                        <p style="color: var(--text-secondary); margin: 20px 0;">
-                            Noch keine Backups vorhanden.
-                        </p>
-                    `;
-                } else {
-                    html += `
-                        <div style="margin-bottom: 20px;">
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">
-                                ${backups.length} Backup${backups.length > 1 ? 's' : ''} verfügbar (letzte 5 werden behalten)
-                            </p>
-                    `;
-                    
-                    backups.forEach(backup => {
-                        const date = new Date(backup.timestamp).toLocaleString('de-DE', {
-                            day: '2-digit',
-                            month: '2-digit',
-                            year: 'numeric',
-                            hour: '2-digit',
-                            minute: '2-digit'
-                        });
-                        
-                        const learnedCount = backup.learned?.length || 0;
-                        const customCount = backup.custom?.length || 0;
-                        
-                        html += `
-                            <div style="
-                                background: var(--bg-secondary);
-                                padding: 12px;
-                                border-radius: 8px;
-                                margin-bottom: 8px;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                                gap: 12px;
-                            ">
-                                <div style="flex: 1; min-width: 0;">
-                                    <strong style="color: var(--text-primary);">${date}</strong><br>
-                                    <small style="color: var(--text-secondary);">
-                                        ${learnedCount} gelernt · ${customCount} eigene
-                                    </small>
-                                </div>
-                                <button 
-                                    onclick="restoreBackupFromManager(${backup.id})" 
-                                    style="
-                                        background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
-                                        color: white;
-                                        border: none;
-                                        padding: 8px 16px;
-                                        border-radius: 6px;
-                                        cursor: pointer;
-                                        font-weight: 600;
-                                        white-space: nowrap;
-                                    "
-                                >
-                                    Wiederherstellen
-                                </button>
-                            </div>
-                        `;
-                    });
-                    
-                    html += `</div>`;
-                }
-                
-                html += `
-                    <div style="display: flex; gap: 8px; margin-top: 16px;">
-                        <button 
-                            onclick="createNewBackup()" 
-                            style="
-                                flex: 1;
-                                background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-                                color: white;
-                                border: none;
-                                padding: 12px 24px;
-                                border-radius: 8px;
-                                cursor: pointer;
-                                font-weight: 600;
-                            "
-                        >
-                            ➕ Neues Backup
-                        </button>
-                        <button 
-                            onclick="closeBackupDialog()" 
-                            style="
-                                background: #666;
-                                color: white;
-                                border: none;
-                                padding: 12px 24px;
-                                border-radius: 8px;
-                                cursor: pointer;
-                                font-weight: 600;
-                            "
-                        >
-                            Schließen
-                        </button>
-                    </div>
-                </div>
-                `;
-                
-                const dialog = document.createElement('div');
-                dialog.id = 'backup-dialog';
-                dialog.style.cssText = `
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background: var(--card-bg);
-                    border-radius: 12px;
-                    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-                    z-index: 100000;
-                    max-width: 500px;
-                    width: 90%;
-                    max-height: 90vh;
-                    overflow: hidden;
-                `;
-                dialog.innerHTML = html;
-                
-                const overlay = document.createElement('div');
-                overlay.id = 'backup-overlay';
-                overlay.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: rgba(0,0,0,0.5);
-                    z-index: 99999;
-                `;
-                overlay.onclick = closeBackupDialog;
-                
-                document.body.appendChild(overlay);
-                document.body.appendChild(dialog);
-                
-            } catch (err) {
-                console.error('Backup Manager error:', err);
-                showToast('Fehler beim Laden der Backups', 'error');
-            }
-        }
-        
-        async function createNewBackup() {
-            try {
-                showToast('Erstelle Backup...', 'info');
-                
-                const result = await sendToSW('CREATE_BACKUP');
-                
-                if (result.success && result.backup) {
-                    showToast('✅ Backup erfolgreich erstellt!', 'success');
-                    closeBackupDialog();
-                    // Reopen to show new backup
-                    setTimeout(() => showBackupManager(), 300);
-                } else {
-                    showToast('❌ Backup konnte nicht erstellt werden', 'error');
-                }
-            } catch (err) {
-                console.error('Create backup error:', err);
-                showToast('❌ Fehler beim Erstellen des Backups', 'error');
-            }
-        }
-        
-        async function restoreBackupFromManager(backupId) {
-            if (!confirm('Backup wiederherstellen?\n\nAktuelle Daten werden überschrieben!')) {
-                return;
-            }
+            const response = await sendToSW('GET_LATEST_BACKUP');
+            const backup = response?.backup;
             
-            try {
-                showToast('Stelle Backup wieder her...', 'info');
-                closeBackupDialog();
-                
-                const result = await sendToSW('RESTORE_BACKUP', { backupId }, 10000);
-                
-                if (result.success) {
-                    showToast('✅ Backup wiederhergestellt! Seite wird neu geladen...', 'success');
-                    setTimeout(() => window.location.reload(), 1500);
-                } else {
-                    showToast('❌ Wiederherstellung fehlgeschlagen: ' + (result.error || 'Unbekannter Fehler'), 'error');
-                }
-            } catch (err) {
-                console.error('Restore backup error:', err);
-                showToast('❌ Fehler bei der Wiederherstellung', 'error');
+            const html = `
+                <div style="padding:20px">
+                    <h3>Backup-Verwaltung</h3>
+                    ${backup ? `
+                        <p>Letztes Backup: ${new Date(backup.timestamp).toLocaleString()}</p>
+                        <button onclick="createBackup()" style="background:#3ea876;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;margin:5px">Neues Backup</button>
+                        <button onclick="restoreBackup(${backup.id})" style="background:#4a90e2;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;margin:5px">Wiederherstellen</button>
+                    ` : '<p>Kein Backup vorhanden</p><button onclick="createBackup()" style="background:#3ea876;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer">Backup erstellen</button>'}
+                    <button onclick="closeDialog()" style="background:#666;color:white;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;margin:5px">Schließen</button>
+                </div>
+            `;
+            
+            const dialog = document.createElement('div');
+            dialog.id = 'backup-dialog';
+            dialog.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--card-bg);padding:20px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.3);z-index:100000';
+            dialog.innerHTML = html;
+            
+            const overlay = document.createElement('div');
+            overlay.id = 'backup-overlay';
+            overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:99999';
+            overlay.onclick = closeDialog;
+            
+            document.body.appendChild(overlay);
+            document.body.appendChild(dialog);
+        }
+        
+        async function createBackup() {
+            const result = await sendToSW('CREATE_BACKUP');
+            if (result?.success) {
+                alert('✅ Backup erstellt!');
+                closeDialog();
+            } else {
+                alert('❌ Backup fehlgeschlagen');
             }
         }
         
-        function closeBackupDialog() {
+        async function restoreBackup(id) {
+            if (!confirm('Backup wiederherstellen? Aktuelle Daten werden überschrieben.')) return;
+            const result = await sendToSW('RESTORE_BACKUP', { backupId: id });
+            if (result?.success) {
+                alert('✅ Backup wiederhergestellt!');
+                window.location.reload();
+            } else {
+                alert('❌ Wiederherstellung fehlgeschlagen');
+            }
+        }
+        
+        function closeDialog() {
             document.getElementById('backup-dialog')?.remove();
             document.getElementById('backup-overlay')?.remove();
         }
         
-        // ════════════════════════════════════════════════════════════
-        // TOAST NOTIFICATIONS
-        // ════════════════════════════════════════════════════════════
-        
-        function showToast(message, type = 'info') {
-            const colors = {
-                success: '#3ea876',
-                error: '#e53e3e',
-                info: '#4a90e2',
-                warning: '#f59e0b'
-            };
-            
-            const toast = document.createElement('div');
-            toast.style.cssText = `
-                position: fixed;
-                bottom: 80px;
-                right: 20px;
-                background: ${colors[type] || colors.info};
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                z-index: 100001;
-                font-size: 0.9rem;
-                max-width: 300px;
-                animation: slideIn 0.3s ease;
-            `;
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
-        }
-        
-        // ════════════════════════════════════════════════════════════
-        // GLOBAL FUNCTIONS
-        // ════════════════════════════════════════════════════════════
-        
         window.showBackupManager = showBackupManager;
-        window.createNewBackup = createNewBackup;
-        window.restoreBackupFromManager = restoreBackupFromManager;
-        window.closeBackupDialog = closeBackupDialog;
-        window.showToast = showToast;
-        window.sendToSW = sendToSW;
-        
-        // Animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(400px); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(400px); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
         
         console.log('✅ PWA initialized');
     </script>
     
     <!-- ============================================================ -->
-    <!-- LEGACY CODE REMOVED -->
+    <!-- LEGACY PWA CODE REMOVED -->
     <!-- ============================================================ -->
     <script>
         // ════════════════════════════════════════════════════════════

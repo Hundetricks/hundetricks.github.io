@@ -1,90 +1,89 @@
 // ============================================================
-// HUNDETRICKS SERVICE WORKER - PRODUCTION v2.0
+// HUNDETRICKS SERVICE WORKER v3.0 - PRODUCTION
+// Lokale UND Online Nutzung - 100% kompatibel
 // ============================================================
 
-const VERSION = '2.0';
-const CACHE_STATIC = `static-v${VERSION}`;
-const CACHE_DATA = `data-v${VERSION}`;
-const CACHE_RUNTIME = `runtime-v${VERSION}`;
+const VERSION = '3.0.0';
+const CACHE_NAME = `hundetricks-v${VERSION}`;
+const DATA_CACHE = `hundetricks-data-v${VERSION}`;
+
+// IndexedDB Configuration
 const DB_NAME = 'HundetricksDB';
-const DB_VERSION = 1;
+const DB_VERSION = 3;
 
 // ============================================================
-// INDEXEDDB - Robust initialization with error handling
+// ASSETS TO CACHE (nur essentielles)
+// ============================================================
+const CORE_ASSETS = [
+    './',
+    './index.html',
+    './manifest.json'
+];
+
+// Optional assets (graceful degradation)
+const OPTIONAL_ASSETS = [
+    './icon-192.png',
+    './icon-512.png',
+    './Hundetricks.json'
+];
+
+// ============================================================
+// INDEXEDDB HELPER
 // ============================================================
 
 function openDB() {
     return new Promise((resolve, reject) => {
-        if (!self.indexedDB) {
-            reject(new Error('IndexedDB not supported'));
-            return;
-        }
-        
         const request = indexedDB.open(DB_NAME, DB_VERSION);
         
-        request.onerror = () => {
-            console.error('[SW] DB error:', request.error);
-            reject(request.error);
-        };
-        
-        request.onsuccess = () => {
-            const db = request.result;
-            db.onerror = (e) => console.error('[SW] DB error:', e);
-            resolve(db);
-        };
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => resolve(request.result);
         
         request.onupgradeneeded = (e) => {
             const db = e.target.result;
             
-            // Tricks data store
+            // Tricks Store
             if (!db.objectStoreNames.contains('tricks')) {
                 const store = db.createObjectStore('tricks', { keyPath: 'id' });
-                store.createIndex('timestamp', 'timestamp', { unique: false });
-                store.createIndex('source', 'source', { unique: false });
+                store.createIndex('timestamp', 'timestamp');
+                store.createIndex('source', 'source');
             }
             
-            // Learned tricks store
+            // Learned Store
             if (!db.objectStoreNames.contains('learned')) {
-                db.createObjectStore('learned', { keyPath: 'trickId' });
+                db.createObjectStore('learned', { keyPath: 'id' });
             }
             
-            // Custom tricks store
+            // Custom Tricks Store
             if (!db.objectStoreNames.contains('custom')) {
                 db.createObjectStore('custom', { keyPath: 'id', autoIncrement: true });
             }
             
-            // Backups store with index
-            if (!db.objectStoreNames.contains('backups')) {
-                const backupStore = db.createObjectStore('backups', { keyPath: 'id', autoIncrement: true });
-                backupStore.createIndex('timestamp', 'timestamp', { unique: false });
+            // Settings Store
+            if (!db.objectStoreNames.contains('settings')) {
+                db.createObjectStore('settings', { keyPath: 'key' });
             }
             
-            console.log('[SW] DB upgraded to version', DB_VERSION);
+            // Backups Store
+            if (!db.objectStoreNames.contains('backups')) {
+                const backupStore = db.createObjectStore('backups', { keyPath: 'id', autoIncrement: true });
+                backupStore.createIndex('timestamp', 'timestamp');
+            }
         };
     });
 }
 
 async function saveToIDB(storeName, data) {
-    try {
-        const db = await openDB();
-        return new Promise((resolve, reject) => {
-            const tx = db.transaction([storeName], 'readwrite');
-            const store = tx.objectStore(storeName);
-            const request = store.put(data);
-            
-            request.onsuccess = () => resolve(request.result);
-            request.onerror = () => reject(request.error);
-            
-            tx.oncomplete = () => db.close();
-            tx.onerror = () => {
-                db.close();
-                reject(tx.error);
-            };
-        });
-    } catch (err) {
-        console.error('[SW] Save to IDB failed:', err);
-        throw err;
-    }
+    const db = await openDB();
+    return new Promise((resolve, reject) => {
+        const tx = db.transaction([storeName], 'readwrite');
+        const request = tx.objectStore(storeName).put(data);
+        
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+        
+        tx.oncomplete = () => db.close();
+        tx.onerror = () => { db.close(); reject(tx.error); };
+    });
 }
 
 async function getFromIDB(storeName, key) {
@@ -92,20 +91,15 @@ async function getFromIDB(storeName, key) {
         const db = await openDB();
         return new Promise((resolve, reject) => {
             const tx = db.transaction([storeName], 'readonly');
-            const store = tx.objectStore(storeName);
-            const request = store.get(key);
+            const request = tx.objectStore(storeName).get(key);
             
             request.onsuccess = () => resolve(request.result);
             request.onerror = () => reject(request.error);
             
             tx.oncomplete = () => db.close();
-            tx.onerror = () => {
-                db.close();
-                reject(tx.error);
-            };
+            tx.onerror = () => { db.close(); reject(tx.error); };
         });
     } catch (err) {
-        console.error('[SW] Get from IDB failed:', err);
         return null;
     }
 }
@@ -115,277 +109,441 @@ async function getAllFromIDB(storeName) {
         const db = await openDB();
         return new Promise((resolve, reject) => {
             const tx = db.transaction([storeName], 'readonly');
-            const store = tx.objectStore(storeName);
-            const request = store.getAll();
+            const request = tx.objectStore(storeName).getAll();
             
             request.onsuccess = () => resolve(request.result || []);
             request.onerror = () => reject(request.error);
             
             tx.oncomplete = () => db.close();
-            tx.onerror = () => {
-                db.close();
-                reject(tx.error);
-            };
+            tx.onerror = () => { db.close(); reject(tx.error); };
         });
     } catch (err) {
-        console.error('[SW] GetAll from IDB failed:', err);
         return [];
     }
 }
 
 // ============================================================
-// SMART JSON LOADING - Auto-detects best source with validation
+// JSON VALIDATION & NORMALIZATION
 // ============================================================
 
 function validateTricksData(data) {
     if (!data || typeof data !== 'object') return false;
-    if (!Array.isArray(data.anfänger) || !Array.isArray(data.fortgeschritten) || !Array.isArray(data.experten)) return false;
-    return true;
+    
+    // New structure
+    if (data.trick_database) {
+        const db = data.trick_database;
+        return !!(db.beginner?.list && db.intermediate?.list && db.advanced?.list);
+    }
+    
+    // Old structure
+    return !!(Array.isArray(data.anfänger) && 
+              Array.isArray(data.fortgeschritten) && 
+              Array.isArray(data.experten));
 }
 
-async function loadTricksData() {
-    console.log('[SW] Loading tricks data...');
+function normalizeJSON(data) {
+    // New structure → Old structure
+    if (data.trick_database) {
+        return {
+            anfänger: data.trick_database.beginner?.list || [],
+            fortgeschritten: data.trick_database.intermediate?.list || [],
+            experten: data.trick_database.advanced?.list || []
+        };
+    }
     
-    // 1. IndexedDB (fastest, offline)
+    // Already old structure
+    if (data.anfänger) {
+        return data;
+    }
+    
+    console.warn('[SW] Unknown JSON structure');
+    return data;
+}
+
+// ============================================================
+// SMART JSON LOADING - Local First!
+// ============================================================
+
+async function loadTricksData() {
+    console.log('[SW] 🔍 Loading Tricks Data...');
+    
+    // TIER 1: IndexedDB (fastest)
     try {
-        const idbData = await getFromIDB('tricks', 'current');
-        if (idbData?.data && validateTricksData(idbData.data)) {
-            console.log('[SW] ✓ Using cached data from IndexedDB');
-            return idbData.data;
+        const cached = await getFromIDB('tricks', 'current');
+        if (cached?.data && validateTricksData(cached.data)) {
+            const age = Date.now() - cached.timestamp;
+            const ageHours = Math.floor(age / 3600000);
+            
+            console.log(`[SW] ✓ IndexedDB (${ageHours}h old)`);
+            
+            // Background update if >1h old AND online
+            if (age > 3600000 && self.navigator.onLine) {
+                updateInBackground();
+            }
+            
+            return normalizeJSON(cached.data);
         }
     } catch (err) {
-        console.warn('[SW] IndexedDB read failed:', err);
+        console.log('[SW] IndexedDB miss');
     }
     
-    // 2. Local Hundetricks.json (priority)
-    const localUrls = ['./Hundetricks.json', '/Hundetricks.json'];
-    for (const url of localUrls) {
-        try {
-            const response = await fetch(url, { 
-                cache: 'no-cache',
-                headers: { 'Accept': 'application/json' }
-            });
-            
-            if (response.ok) {
-                const data = await response.json();
-                if (validateTricksData(data)) {
-                    console.log('[SW] ✓ Using local JSON:', url);
-                    await saveToIDB('tricks', { 
-                        id: 'current', 
-                        data, 
-                        timestamp: Date.now(), 
-                        source: 'local' 
-                    });
-                    return data;
-                }
-            }
-        } catch (err) {
-            console.log('[SW] Local JSON not available:', url);
-        }
-    }
-    
-    // 3. CDN fallback
-    const cdnUrls = [
-        'https://cdn.jsdelivr.net/gh/Digid0t/DigiDot_9@main/Hundetricks.json',
-        'https://raw.githubusercontent.com/Digid0t/DigiDot_9/main/Hundetricks.json'
+    // TIER 2: Local File (PRIORITY!)
+    const localUrls = [
+        './Hundetricks.json',
+        '/Hundetricks.json',
+        '../Hundetricks.json'
     ];
     
-    for (const url of cdnUrls) {
+    for (const url of localUrls) {
         try {
-            const response = await fetch(url, {
-                cache: 'no-cache',
-                headers: { 'Accept': 'application/json' }
-            });
+            console.log(`[SW] Trying local: ${url}`);
+            const response = await fetch(url, { cache: 'no-cache' });
             
             if (response.ok) {
                 const data = await response.json();
+                
                 if (validateTricksData(data)) {
-                    console.log('[SW] ✓ Using CDN:', url);
-                    await saveToIDB('tricks', { 
-                        id: 'current', 
-                        data, 
-                        timestamp: Date.now(), 
-                        source: 'cdn' 
+                    console.log(`[SW] ✓ Local file: ${url}`);
+                    
+                    // Cache in IndexedDB
+                    await saveToIDB('tricks', {
+                        id: 'current',
+                        data: data,
+                        timestamp: Date.now(),
+                        source: 'local'
                     });
-                    return data;
+                    
+                    return normalizeJSON(data);
                 }
             }
         } catch (err) {
-            console.warn('[SW] CDN fetch failed:', url, err);
+            // Silent fail, try next
         }
     }
     
-    // 4. Final fallback: Try cached IndexedDB again (even if invalid)
-    try {
-        const idbData = await getFromIDB('tricks', 'current');
-        if (idbData?.data) {
-            console.warn('[SW] ⚠ Using potentially outdated cached data');
-            return idbData.data;
+    // TIER 3: GitHub (Online Fallback)
+    if (self.navigator.onLine) {
+        const githubUrls = [
+            'https://hundetricks.github.io/Hundetricks.json',
+            'https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json',
+            'https://raw.githack.com/Hundetricks/hundetricks.github.io/main/Hundetricks.json'
+        ];
+        
+        for (const url of githubUrls) {
+            try {
+                console.log(`[SW] Trying GitHub: ${url}`);
+                const response = await fetch(url, { cache: 'no-cache' });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (validateTricksData(data)) {
+                        console.log(`[SW] ✓ GitHub: ${url}`);
+                        
+                        // Cache in IndexedDB
+                        await saveToIDB('tricks', {
+                            id: 'current',
+                            data: data,
+                            timestamp: Date.now(),
+                            source: 'github'
+                        });
+                        
+                        return normalizeJSON(data);
+                    }
+                }
+            } catch (err) {
+                // Silent fail, try next
+            }
         }
-    } catch (err) {}
+    }
+    
+    // TIER 4: Stale IndexedDB (even if old)
+    try {
+        const stale = await getFromIDB('tricks', 'current');
+        if (stale?.data) {
+            console.warn('[SW] ⚠ Using stale cached data');
+            return normalizeJSON(stale.data);
+        }
+    } catch (err) {
+        // Nothing
+    }
     
     throw new Error('No data source available');
 }
 
-// ============================================================
-// BACKUP SYSTEM - Automatic & Manual with rotation
-// ============================================================
-
-async function createBackup() {
-    try {
-        console.log('[SW] Creating backup...');
-        
-        const [tricks, learned, custom] = await Promise.allSettled([
-            getFromIDB('tricks', 'current'),
-            getAllFromIDB('learned'),
-            getAllFromIDB('custom')
-        ]);
-        
-        const backup = {
-            timestamp: Date.now(),
-            version: VERSION,
-            tricks: tricks.status === 'fulfilled' ? tricks.value : null,
-            learned: learned.status === 'fulfilled' ? learned.value : [],
-            custom: custom.status === 'fulfilled' ? custom.value : []
-        };
-        
-        const id = await saveToIDB('backups', backup);
-        console.log('[SW] ✓ Backup created:', id);
-        
-        // Cleanup: Keep only last 5 backups
-        const allBackups = await getAllFromIDB('backups');
-        if (allBackups.length > 5) {
-            const sorted = allBackups.sort((a, b) => b.timestamp - a.timestamp);
-            const db = await openDB();
-            const tx = db.transaction(['backups'], 'readwrite');
-            const store = tx.objectStore('backups');
-            
-            for (let i = 5; i < sorted.length; i++) {
-                store.delete(sorted[i].id);
-            }
-            
-            await new Promise((resolve) => {
-                tx.oncomplete = resolve;
-                tx.onerror = resolve;
-            });
-            db.close();
-            
-            console.log('[SW] Cleaned up old backups, kept latest 5');
-        }
-        
-        return backup;
-    } catch (err) {
-        console.error('[SW] Backup failed:', err);
-        return null;
-    }
-}
-
-async function getLatestBackup() {
-    try {
-        const backups = await getAllFromIDB('backups');
-        return backups.sort((a, b) => b.timestamp - a.timestamp)[0] || null;
-    } catch (err) {
-        console.error('[SW] Get latest backup failed:', err);
-        return null;
-    }
-}
-
-async function restoreBackup(backupId) {
-    try {
-        console.log('[SW] Restoring backup:', backupId);
-        
-        const backup = await getFromIDB('backups', backupId);
-        if (!backup) {
-            throw new Error('Backup not found');
-        }
-        
-        const results = await Promise.allSettled([
-            backup.tricks ? saveToIDB('tricks', backup.tricks) : Promise.resolve(),
-            backup.learned ? Promise.all(backup.learned.map(item => saveToIDB('learned', item))) : Promise.resolve(),
-            backup.custom ? Promise.all(backup.custom.map(item => saveToIDB('custom', item))) : Promise.resolve()
-        ]);
-        
-        const failed = results.filter(r => r.status === 'rejected');
-        if (failed.length > 0) {
-            console.warn('[SW] Some restore operations failed:', failed);
-        }
-        
-        console.log('[SW] ✓ Backup restored');
-        return true;
-    } catch (err) {
-        console.error('[SW] Restore failed:', err);
-        throw err;
-    }
-}
-
-// ============================================================
-// CACHING STRATEGIES
-// ============================================================
-
-async function networkFirst(request) {
-    const url = request.url;
+async function updateInBackground() {
+    console.log('[SW] 🔄 Background update...');
     
     try {
-        const response = await fetch(request, {
-            cache: 'no-cache'
-        });
-        
-        if (response.ok) {
-            const cache = await caches.open(CACHE_DATA);
-            cache.put(request, response.clone()).catch(err => 
-                console.warn('[SW] Cache put failed:', err)
-            );
-        }
-        
-        return response;
-    } catch (err) {
-        console.log('[SW] Network failed, trying cache:', url);
-        
-        // Try cache
-        const cached = await caches.match(request);
-        if (cached) {
-            console.log('[SW] ✓ Serving from cache');
-            return cached;
-        }
-        
-        // Special: JSON data from IndexedDB
-        if (url.includes('.json') || url.includes('Hundetricks')) {
-            try {
-                const data = await loadTricksData();
-                return new Response(JSON.stringify(data), {
-                    status: 200,
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'X-Cache-Source': 'IndexedDB'
-                    }
+        // Try local first
+        const localResponse = await fetch('./Hundetricks.json', { cache: 'no-cache' });
+        if (localResponse.ok) {
+            const data = await localResponse.json();
+            if (validateTricksData(data)) {
+                await saveToIDB('tricks', {
+                    id: 'current',
+                    data: data,
+                    timestamp: Date.now(),
+                    source: 'local-update'
                 });
-            } catch (idbErr) {
-                console.error('[SW] All sources failed');
+                console.log('[SW] ✓ Background update from local');
+                return;
+            }
+        }
+    } catch (err) {
+        // Try online
+    }
+    
+    // Fallback to GitHub
+    if (self.navigator.onLine) {
+        try {
+            const response = await fetch('https://hundetricks.github.io/Hundetricks.json', { 
+                cache: 'no-cache' 
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                if (validateTricksData(data)) {
+                    await saveToIDB('tricks', {
+                        id: 'current',
+                        data: data,
+                        timestamp: Date.now(),
+                        source: 'github-update'
+                    });
+                    console.log('[SW] ✓ Background update from GitHub');
+                }
+            }
+        } catch (err) {
+            console.log('[SW] Background update failed');
+        }
+    }
+}
+
+// ============================================================
+// INSTALLATION
+// ============================================================
+
+self.addEventListener('install', (e) => {
+    console.log('[SW] Installing v' + VERSION);
+    
+    e.waitUntil((async () => {
+        // Initialize IndexedDB
+        await openDB();
+        
+        // Cache core assets
+        const cache = await caches.open(CACHE_NAME);
+        
+        // Add core assets (must succeed)
+        await cache.addAll(CORE_ASSETS);
+        console.log('[SW] ✓ Core assets cached');
+        
+        // Add optional assets (can fail)
+        for (const asset of OPTIONAL_ASSETS) {
+            try {
+                await cache.add(asset);
+            } catch (err) {
+                console.log(`[SW] Optional asset not available: ${asset}`);
             }
         }
         
-        // Final fallback: Simple offline response
-        return new Response(JSON.stringify({ 
-            error: 'Offline', 
-            message: 'Bitte verbinden Sie sich mit dem Internet' 
-        }), {
-            status: 503,
-            headers: { 'Content-Type': 'application/json' }
+        // Pre-load JSON
+        try {
+            await loadTricksData();
+            console.log('[SW] ✓ JSON pre-loaded');
+        } catch (err) {
+            console.log('[SW] JSON pre-load failed (OK for first install)');
+        }
+        
+        await self.skipWaiting();
+    })());
+});
+
+// ============================================================
+// ACTIVATION
+// ============================================================
+
+self.addEventListener('activate', (e) => {
+    console.log('[SW] Activating v' + VERSION);
+    
+    e.waitUntil((async () => {
+        // Clean old caches
+        const keys = await caches.keys();
+        await Promise.all(
+            keys.filter(key => 
+                key.startsWith('hundetricks-') && 
+                key !== CACHE_NAME && 
+                key !== DATA_CACHE
+            ).map(key => {
+                console.log('[SW] Deleting old cache:', key);
+                return caches.delete(key);
+            })
+        );
+        
+        await self.clients.claim();
+        console.log('[SW] ✓ Activated');
+        
+        // Notify clients
+        const clients = await self.clients.matchAll();
+        clients.forEach(client => {
+            client.postMessage({
+                type: 'SW_ACTIVATED',
+                version: VERSION
+            });
         });
+    })());
+});
+
+// ============================================================
+// FETCH HANDLING
+// ============================================================
+
+self.addEventListener('fetch', (e) => {
+    const { request } = e;
+    const url = new URL(request.url);
+    
+    // Ignore non-HTTP
+    if (!url.protocol.startsWith('http')) return;
+    
+    // JSON Files - Special handling
+    if (url.pathname.endsWith('.json')) {
+        e.respondWith(handleJSONRequest(request));
+        return;
     }
+    
+    // Navigation - Network first with cache fallback
+    if (request.mode === 'navigate') {
+        e.respondWith(handleNavigation(request));
+        return;
+    }
+    
+    // Everything else - Cache first
+    e.respondWith(cacheFirst(request));
+});
+
+async function handleJSONRequest(request) {
+    try {
+        // Try network first
+        const response = await fetch(request, { cache: 'no-cache' });
+        
+        if (response.ok) {
+            const clone = response.clone();
+            const data = await clone.json();
+            
+            // Validate and cache
+            if (validateTricksData(data)) {
+                await saveToIDB('tricks', {
+                    id: 'current',
+                    data: data,
+                    timestamp: Date.now(),
+                    source: 'fetch'
+                });
+            }
+            
+            return response;
+        }
+    } catch (err) {
+        // Network failed
+    }
+    
+    // Fallback to IndexedDB
+    try {
+        const cached = await getFromIDB('tricks', 'current');
+        if (cached?.data) {
+            return new Response(JSON.stringify(cached.data), {
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+    } catch (err) {
+        // Nothing
+    }
+    
+    return new Response('{}', {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
+
+async function handleNavigation(request) {
+    try {
+        const response = await fetch(request, { cache: 'no-cache' });
+        
+        if (response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(request, response.clone());
+            return response;
+        }
+    } catch (err) {
+        // Network failed
+    }
+    
+    // Fallback to cache
+    const cached = await caches.match(request);
+    if (cached) return cached;
+    
+    // Ultimate fallback
+    const indexCached = await caches.match('./index.html');
+    if (indexCached) return indexCached;
+    
+    // Offline page
+    return new Response(`
+        <!DOCTYPE html>
+        <html lang="de">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hundetricks - Offline</title>
+            <style>
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                body {
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                    background: #1a1a1a;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 100vh;
+                    text-align: center;
+                    padding: 20px;
+                }
+                .container { max-width: 500px; }
+                h1 { font-size: 4rem; margin-bottom: 1rem; }
+                h2 { color: #3ea876; margin-bottom: 1rem; }
+                p { color: #888; margin-bottom: 2rem; line-height: 1.6; }
+                button {
+                    background: #3ea876;
+                    color: white;
+                    border: none;
+                    padding: 12px 32px;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: background 0.3s;
+                }
+                button:hover { background: #2d8a5f; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>📡</h1>
+                <h2>Offline-Modus</h2>
+                <p>Die App funktioniert offline, sobald die Daten einmal geladen wurden.</p>
+                <button onclick="location.reload()">Erneut versuchen</button>
+            </div>
+        </body>
+        </html>
+    `, {
+        headers: { 'Content-Type': 'text/html' }
+    });
 }
 
 async function cacheFirst(request) {
     const cached = await caches.match(request);
-    
     if (cached) {
         // Update in background
         fetch(request).then(response => {
             if (response.ok) {
-                caches.open(CACHE_RUNTIME).then(cache => {
-                    cache.put(request, response).catch(err => 
-                        console.warn('[SW] Background cache update failed:', err)
-                    );
+                caches.open(CACHE_NAME).then(cache => {
+                    cache.put(request, response);
                 });
             }
         }).catch(() => {});
@@ -397,140 +555,15 @@ async function cacheFirst(request) {
         const response = await fetch(request);
         
         if (response.ok) {
-            const cache = await caches.open(CACHE_RUNTIME);
-            cache.put(request, response.clone()).catch(err =>
-                console.warn('[SW] Cache put failed:', err)
-            );
+            const cache = await caches.open(CACHE_NAME);
+            cache.put(request, response.clone());
         }
         
         return response;
     } catch (err) {
-        console.error('[SW] Fetch failed:', err);
-        throw err;
+        return new Response('Offline', { status: 503 });
     }
 }
-
-// ============================================================
-// INSTALL
-// ============================================================
-
-self.addEventListener('install', (e) => {
-    console.log('[SW] Installing v' + VERSION);
-    
-    e.waitUntil((async () => {
-        try {
-            // Initialize DB
-            await openDB();
-            console.log('[SW] ✓ DB initialized');
-            
-            // Pre-cache static files
-            const cache = await caches.open(CACHE_STATIC);
-            await cache.addAll(['./']);
-            console.log('[SW] ✓ Static cache created');
-            
-            // Skip waiting
-            await self.skipWaiting();
-            console.log('[SW] ✓ Installation complete');
-        } catch (err) {
-            console.error('[SW] Installation error:', err);
-        }
-    })());
-});
-
-// ============================================================
-// ACTIVATE
-// ============================================================
-
-self.addEventListener('activate', (e) => {
-    console.log('[SW] Activating v' + VERSION);
-    
-    e.waitUntil((async () => {
-        try {
-            // Clean old caches
-            const keys = await caches.keys();
-            const deleted = await Promise.all(
-                keys.filter(k => 
-                    (k.startsWith('static-') || k.startsWith('data-') || k.startsWith('runtime-')) &&
-                    !k.includes(VERSION)
-                ).map(k => {
-                    console.log('[SW] Deleting old cache:', k);
-                    return caches.delete(k);
-                })
-            );
-            console.log('[SW] ✓ Cleaned', deleted.length, 'old caches');
-            
-            // Take control
-            await self.clients.claim();
-            console.log('[SW] ✓ Claimed clients');
-            
-            // Auto-backup
-            await createBackup();
-            
-            // Notify clients
-            const clients = await self.clients.matchAll();
-            clients.forEach(client => {
-                client.postMessage({ 
-                    type: 'ACTIVATED', 
-                    version: VERSION 
-                });
-            });
-            
-            console.log('[SW] ✓ Activation complete');
-        } catch (err) {
-            console.error('[SW] Activation error:', err);
-        }
-    })());
-});
-
-// ============================================================
-// FETCH
-// ============================================================
-
-self.addEventListener('fetch', (e) => {
-    const { request } = e;
-    const url = new URL(request.url);
-    
-    // Only handle http(s)
-    if (!url.protocol.startsWith('http')) return;
-    
-    // JSON data: Network First with IndexedDB fallback
-    if (url.pathname.endsWith('.json')) {
-        e.respondWith(networkFirst(request));
-        return;
-    }
-    
-    // Navigation: Network First
-    if (request.mode === 'navigate') {
-        e.respondWith(
-            networkFirst(request).catch(() => 
-                caches.match('./') || 
-                new Response('<!DOCTYPE html><html><body><h1>Offline</h1><p>Bitte laden Sie die App neu wenn Sie online sind.</p></body></html>', {
-                    headers: { 'Content-Type': 'text/html' }
-                })
-            )
-        );
-        return;
-    }
-    
-    // Everything else: Cache First
-    e.respondWith(cacheFirst(request));
-});
-
-// ============================================================
-// BACKGROUND SYNC
-// ============================================================
-
-self.addEventListener('sync', (e) => {
-    console.log('[SW] Background sync:', e.tag);
-    
-    if (e.tag === 'backup') {
-        e.waitUntil(createBackup());
-    }
-    
-    if (e.tag === 'sync-data') {
-        e.waitUntil(loadTricksData());
-    }
-});
 
 // ============================================================
 // MESSAGE HANDLING
@@ -538,52 +571,6 @@ self.addEventListener('sync', (e) => {
 
 self.addEventListener('message', (e) => {
     const { type, data } = e.data || {};
-    
-    if (type === 'CREATE_BACKUP') {
-        e.waitUntil(
-            createBackup().then(backup => {
-                e.ports[0]?.postMessage({ 
-                    success: !!backup, 
-                    backup 
-                });
-            })
-        );
-        return;
-    }
-    
-    if (type === 'GET_LATEST_BACKUP') {
-        e.waitUntil(
-            getLatestBackup().then(backup => {
-                e.ports[0]?.postMessage({ backup });
-            })
-        );
-        return;
-    }
-    
-    if (type === 'GET_ALL_BACKUPS') {
-        e.waitUntil(
-            getAllFromIDB('backups').then(backups => {
-                e.ports[0]?.postMessage({ 
-                    backups: backups.sort((a, b) => b.timestamp - a.timestamp) 
-                });
-            })
-        );
-        return;
-    }
-    
-    if (type === 'RESTORE_BACKUP') {
-        e.waitUntil(
-            restoreBackup(data?.backupId).then(success => {
-                e.ports[0]?.postMessage({ success });
-            }).catch(err => {
-                e.ports[0]?.postMessage({ 
-                    success: false, 
-                    error: err.message 
-                });
-            })
-        );
-        return;
-    }
     
     if (type === 'SKIP_WAITING') {
         self.skipWaiting();
@@ -593,31 +580,18 @@ self.addEventListener('message', (e) => {
     if (type === 'RELOAD_DATA') {
         e.waitUntil(
             loadTricksData().then(data => {
-                e.ports[0]?.postMessage({ 
-                    success: !!data, 
-                    data 
-                });
+                e.ports[0]?.postMessage({ success: true, data });
             }).catch(err => {
-                e.ports[0]?.postMessage({ 
-                    success: false, 
-                    error: err.message 
-                });
+                e.ports[0]?.postMessage({ success: false, error: err.message });
             })
         );
         return;
     }
+    
+    if (type === 'GET_VERSION') {
+        e.ports[0]?.postMessage({ version: VERSION });
+        return;
+    }
 });
 
-// ============================================================
-// ERROR HANDLING
-// ============================================================
-
-self.addEventListener('error', (e) => {
-    console.error('[SW] Error:', e.error);
-});
-
-self.addEventListener('unhandledrejection', (e) => {
-    console.error('[SW] Unhandled rejection:', e.reason);
-});
-
-console.log('[SW] Loaded v' + VERSION);
+console.log('[SW] Service Worker v' + VERSION + ' loaded');
