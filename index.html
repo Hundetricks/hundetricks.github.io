@@ -6,8 +6,8 @@
     
     <!-- Primary Meta Tags -->
     <title>Hundetricks - Professionelles Trainingskompendium</title>
-    <meta name="title" content="Hundetricks - Professionelles Trainingskompendium">
-    <meta name="description" content="Umfassende Trick-Datenbank für progressives Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
+    <meta name="title" content="Hundetricks">
+    <meta name="description" content="Hundetraining mit 120+ Tricks, Sprachausgabe, Dark Mode und Offline-Unterstützung.">
     <meta name="keywords" content="Hundetraining, Hundetricks, Dog Training, Tricks, PWA, Offline, Sprachausgabe, TTS">
     <meta name="author" content="Hundetricks App">
     
@@ -40,20 +40,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
     <link rel="shortcut icon" href="./icons/favicon.ico">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://hundetricks.github.io/">
-    <meta property="og:title" content="Hundetricks - Professionelles Trainingskompendium">
-    <meta property="og:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
-    <meta property="og:image" content="./icons/og-image.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://hundetricks.github.io/">
-    <meta property="twitter:title" content="Hundetricks - Professionelles Trainingskompendium">
-    <meta property="twitter:description" content="120+ Hundetricks für systematisches Training. Mit Sprachausgabe und Offline-Support.">
-    <meta property="twitter:image" content="./icons/twitter-image.png">
+  
     
     <!-- Security -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,14 +51,14 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
-            --gradient-primary: linear-gradient(135deg, #2d7a5e 20%, #1e5a42 100%);
-            --gradient-success: linear-gradient(135deg, #3ea876 20%, #2d8a5f 100%);
-            --gradient-accent: linear-gradient(135deg, #52c593 20%, #3ea876 100%);
+            --gradient-primary: linear-gradient(135deg, #2d7a5e 0%, #1e5a42 60%);
+            --gradient-success: linear-gradient(135deg, #3ea876 0%, #2d8a5f 60%);
+            --gradient-accent: linear-gradient(135deg, #52c593 0%, #3ea876 60%);
             --bg-main: #f7f9fb;
             --bg-secondary: #f7fff3;
             --text-primary: #1a2332;
             --text-secondary: #5a6b7f;
-            --card-bg: #ffffff;
+            --card-bg: #fcfcfc;
             --border-color: #d4dbe5;
             --shadow-sm: 0 2px 8px rgba(45, 122, 94, 0.08);
             --shadow-md: 0 4px 16px rgba(45, 122, 94, 0.12);
@@ -83,7 +70,7 @@
             --input-bg: #e7e4d2;
             --input-border: #d4dbe5;
             --accent-green: #3ea876;
-            --accent-green-light: #dcf6d8;
+            --accent-green-light: #f4fdf2;
             --hover-overlay: rgba(62, 168, 118, 0.08);
         }
 
@@ -886,13 +873,13 @@
 
         .trick-card.learned {
             opacity: 0.85;
-            background: #b0b6b5;
-            border: 2px solid #9ca3af;
+            background: #ccd1d0;
+            border: 2px solid #d6d8db;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
         }
 
         .trick-card.learned:hover {
-            background: #a0a3a7;
+            background: #d2d3d4;
             transform: none;
         }
 
@@ -904,7 +891,7 @@
 
         .trick-card.learned .trick-title { 
             text-decoration: line-through; 
-            color: #6b7280;
+            color: #3f4349;
             opacity: 0.7;
         }
 
@@ -915,7 +902,7 @@
             right: 12px;
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
+            background: linear-gradient(135deg, #8db6a3 0%, #559678 100%);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -1162,7 +1149,7 @@
         /* === VARIATIONS === */
         .variation-container {
             margin-top: 24px;
-            background: linear-gradient(135deg, #bcead8, #6aecb8d2);
+            background: linear-gradient(135deg, #caecdf, #84dbb8d2);
             border-radius: var(--radius-md);
             padding: 20px;
             border: 2px solid #a8d5c3;
@@ -1864,7 +1851,7 @@
         let isInstalled = false;
 
         // ============================================================
-        // PWA INSTALLATION
+        // PWA INSTALLATION - Event Listener (früh registriert!)
         // ============================================================
         
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -1872,15 +1859,24 @@
             e.preventDefault();
             deferredPrompt = e;
             
-            // Show install button
-            const installBtn = document.getElementById('installButton');
-            const installStatus = document.getElementById('installStatusText');
-            
-            if (installBtn && installStatus) {
-                installBtn.style.display = 'block';
-                installStatus.textContent = '✨ Installation verfügbar!';
-                installStatus.style.color = 'var(--accent-green)';
+            // Update UI when DOM is ready
+            function updateInstallUI() {
+                const installBtn = document.getElementById('installButton');
+                const installStatus = document.getElementById('installStatusText');
+                
+                if (installBtn && installStatus) {
+                    installBtn.style.display = 'block';
+                    installStatus.textContent = '✨ Installation verfügbar!';
+                    installStatus.style.color = 'var(--accent-green)';
+                    console.log('[PWA] Install button activated');
+                } else {
+                    // DOM not ready yet, try again in 100ms
+                    setTimeout(updateInstallUI, 100);
+                }
             }
+            
+            // Start trying to update UI
+            updateInstallUI();
         });
         
         window.addEventListener('appinstalled', (e) => {
@@ -1908,22 +1904,40 @@
             }
             
             console.log('[PWA] Showing install prompt');
-            deferredPrompt.prompt();
             
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log('[PWA] User choice:', outcome);
-            
-            if (outcome === 'accepted') {
-                showToast('📱 Installation gestartet...', 'info');
-            } else {
-                showToast('ℹ️ Installation abgebrochen', 'info');
+            try {
+                deferredPrompt.prompt();
+                
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log('[PWA] User choice:', outcome);
+                
+                if (outcome === 'accepted') {
+                    showToast('📱 Installation gestartet...', 'info');
+                } else {
+                    showToast('ℹ️ Installation abgebrochen', 'info');
+                }
+                
+                deferredPrompt = null;
+                
+                // Update UI
+                const installBtn = document.getElementById('installButton');
+                const installStatus = document.getElementById('installStatusText');
+                
+                if (installBtn && installStatus) {
+                    installBtn.style.display = 'none';
+                    installStatus.textContent = outcome === 'accepted' 
+                        ? '⏳ Installation läuft...' 
+                        : '✅ Installation abgebrochen';
+                }
+            } catch (error) {
+                console.error('[PWA] Installation error:', error);
+                showToast('❌ Installation fehlgeschlagen', 'error');
             }
-            
-            deferredPrompt = null;
         }
         
-        // Check if already installed
+        // Check if already installed (on load)
         window.addEventListener('load', () => {
+            // Check standalone mode
             if (window.matchMedia('(display-mode: standalone)').matches) {
                 console.log('[PWA] Running in standalone mode');
                 isInstalled = true;
@@ -1937,6 +1951,21 @@
                     installStatus.style.color = 'var(--accent-green)';
                 }
             }
+            
+            // If still no prompt after 3 seconds, show not available message
+            setTimeout(() => {
+                if (!deferredPrompt && !isInstalled) {
+                    const installBtn = document.getElementById('installButton');
+                    const installStatus = document.getElementById('installStatusText');
+                    
+                    if (installBtn && installStatus) {
+                        installBtn.style.display = 'none';
+                        installStatus.textContent = '📱 Installation in diesem Browser/Modus nicht verfügbar';
+                        installStatus.style.color = 'var(--text-secondary)';
+                        console.log('[PWA] Install prompt not available (might be file:// or unsupported browser)');
+                    }
+                }
+            }, 3000);
         });
 
         // === DARK MODE ===
@@ -3257,25 +3286,25 @@
                 file: 'Hundetricks.json'
             };
             
-            // OPTIMIERTE URL-LISTE - Von zuverlässigsten zu weniger zuverlässigen
+            // OPTIMIERTE URL-LISTE - raw.githack.com ZUERST!
             const urls = [
-                // 1. jsDelivr CDN - SEHR zuverlässig, fast, globales CDN
-                `https://cdn.jsdelivr.net/gh/${githubConfig.owner}/${githubConfig.repo}@${githubConfig.branch}/${githubConfig.file}`,
-                
-                // 2. GitHack - gut für Entwicklung
+                // 1. GitHack - wie gewünscht ZUERST
                 `https://raw.githack.com/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
                 
-                // 3. Raw GitHub - manchmal CORS-Probleme
+                // 2. jsDelivr CDN - sehr zuverlässig, fast, globales CDN
+                `https://cdn.jsdelivr.net/gh/${githubConfig.owner}/${githubConfig.repo}@${githubConfig.branch}/${githubConfig.file}`,
+                
+                // 3. Raw GitHub
                 `https://raw.githubusercontent.com/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
                 
-                // 4. GitHack CDN (cached)
+                // 4. GitHub Pages direkt
+                `https://hundetricks.github.io/${githubConfig.file}`,
+                
+                // 5. GitHack CDN (cached)
                 `https://rawcdn.githack.com/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
                 
-                // 5. Statically CDN - Alternative
+                // 6. Statically CDN
                 `https://cdn.statically.io/gh/${githubConfig.owner}/${githubConfig.repo}/${githubConfig.branch}/${githubConfig.file}`,
-                
-                // 6. Kombineal CDN
-                `https://combinatronics.io/raw?url=https://github.com/${githubConfig.owner}/${githubConfig.repo}/blob/${githubConfig.branch}/${githubConfig.file}`,
                 
                 // 7. Relativ (falls lokal gehostet)
                 `./${githubConfig.file}`,
@@ -4147,68 +4176,155 @@
         // SMART DATA LOADING - Local First mit Service Worker
         // ============================================================
         
+        // ============================================================
+        // SMART DATA LOADING - INTELLIGENT & EFFIZIENT
+        // ============================================================
+        
         async function smartLoadData() {
-            console.log('🚀 STARTE INTELLIGENTE LADE-HIERARCHIE (LOCAL FIRST)');
+            console.log('🚀 SMART LOAD DATA - Intelligente Entscheidung...');
             
-            // PRIORITÄT 1: Backup-JSON prüfen
+            // ═══════════════════════════════════════════════════════
+            // SCHRITT 1: Wurde JEMALS Daten geladen?
+            // ═══════════════════════════════════════════════════════
+            const hasEverLoadedData = localStorage.getItem(FULL_DATA_KEY);
             const backupExists = localStorage.getItem(BACKUP_EXISTS_KEY) === 'true';
             const autoLoadBackup = localStorage.getItem(AUTO_LOAD_BACKUP_KEY) === 'true';
-            
-            // Wenn Backup existiert ABER User will Dialog ÜBERSPRINGEN
-            if (backupExists && autoLoadBackup) {
-                console.log('📦 Backup vorhanden & Auto-Load aktiviert - überspringe Dialog');
-                // Gehe zu nächster Priorität
-            }
-            // Wenn Backup existiert und User WILL den Dialog sehen
-            else if (backupExists && !autoLoadBackup) {
-                console.log('📦 Backup vorhanden aber Auto-Load deaktiviert - zeige Dialog');
-                showBackupLoadDialog();
-                return;
-            }
-            
-            // PRIORITÄT 2: Lokale Original-JSON (wenn aktiviert)
             const autoLoadLocal = localStorage.getItem(AUTO_LOAD_LOCAL_JSON_KEY) === 'true';
             
-            if (autoLoadLocal) {
-                console.log('💾 Lokale JSON-Laden aktiviert - zeige Dialog');
-                showOriginalJsonDialog();
+            // ═══════════════════════════════════════════════════════
+            // FALL A: ERSTE NUTZUNG - Noch NIE Daten geladen
+            // ═══════════════════════════════════════════════════════
+            if (!hasEverLoadedData) {
+                console.log('🎯 ERSTE NUTZUNG erkannt - lade sofort Inhalt');
+                console.log('   → Keine LocalStorage-Daten gefunden');
+                console.log('   → Priorität: App-Inhalt SOFORT anzeigen!');
+                
+                // PRIO 1: Versuche GitHub (online)
+                console.log('🌐 Versuch 1: GitHub laden...');
+                try {
+                    await loadJSON();
+                    console.log('✅ Erste Nutzung: GitHub erfolgreich!');
+                    return; // ERFOLG!
+                } catch (error) {
+                    console.log('⚠️ GitHub fehlgeschlagen:', error.message);
+                }
+                
+                // PRIO 2: Service Worker (hat vielleicht Cache)
+                console.log('🔄 Versuch 2: Service Worker...');
+                try {
+                    const result = await sendToSW('RELOAD_DATA');
+                    if (result?.success && result?.data) {
+                        console.log('✅ Service Worker hat Daten!');
+                        currentData = result.data;
+                        localStorage.setItem(FULL_DATA_KEY, JSON.stringify(currentData));
+                        mergeCustomTricks();
+                        renderApp(currentData);
+                        return;
+                    }
+                } catch (error) {
+                    console.log('⚠️ Service Worker keine Daten');
+                }
+                
+                // PRIO 3: Lokale Datei
+                console.log('💾 Versuch 3: Lokale Datei...');
+                try {
+                    await loadJSONLocal();
+                    return;
+                } catch (error) {
+                    console.log('⚠️ Keine lokale Datei');
+                }
+                
+                // PRIO 4: Setup-Dialog (nichts hat funktioniert)
+                console.error('❌ Erste Nutzung: Keine Daten-Quelle verfügbar');
+                showFirstTimeSetupDialog();
                 return;
             }
             
-            // PRIORITÄT 3: Service Worker lädt automatisch
-            // Der SW prüft: LocaleFile → IndexedDB → GitHub
-            console.log('🔄 Lade Daten via Service Worker');
+            // ═══════════════════════════════════════════════════════
+            // FALL B: WIEDERKEHRENDE NUTZUNG - Daten existieren bereits
+            // ═══════════════════════════════════════════════════════
+            console.log('✅ Wiederkehrende Nutzung erkannt');
+            console.log('   → LocalStorage hat Daten');
+            console.log('   → Optimiere für Performance...');
+            
+            // PRIO 1: Service Worker (schnellster Zugriff, cached)
+            console.log('🔄 Lade via Service Worker (cached/optimiert)...');
             try {
                 const result = await sendToSW('RELOAD_DATA');
                 
-                if (result && result.success && result.data) {
-                    console.log('✅ Daten vom Service Worker erhalten');
+                if (result?.success && result?.data) {
+                    console.log('✅ Service Worker: Daten bereit!');
                     currentData = result.data;
                     localStorage.setItem(FULL_DATA_KEY, JSON.stringify(currentData));
                     mergeCustomTricks();
                     renderApp(currentData);
+                    
+                    // Optional: Backup-Hinweis (nicht blockierend)
+                    if (backupExists && !autoLoadBackup) {
+                        setTimeout(() => {
+                            const msg = 'ℹ️ Backup verfügbar. Möchten Sie es laden?';
+                            if (confirm(msg)) {
+                                loadBackupManual();
+                            }
+                        }, 2000); // 2 Sek Delay, nicht störend
+                    }
                     return;
                 }
             } catch (error) {
-                console.log('⚠️ Service Worker Fehler:', error);
+                console.log('⚠️ Service Worker nicht verfügbar');
             }
             
-            // PRIORITÄT 4: Direktes Laden (Fallback wenn SW nicht antwortet)
-            console.log('🌐 Fallback: Direktes Laden');
+            // PRIO 2: Backup-Dialog (wenn User-Option aktiv)
+            if (backupExists && !autoLoadBackup) {
+                console.log('📦 Backup vorhanden - zeige Dialog');
+                showBackupLoadDialog();
+                return;
+            }
+            
+            // PRIO 3: Lokale JSON (wenn User-Option aktiv)
+            if (autoLoadLocal) {
+                console.log('💾 Lokale JSON-Option aktiv - zeige Dialog');
+                showOriginalJsonDialog();
+                return;
+            }
+            
+            // PRIO 4: GitHub reload (fresh data)
+            console.log('🌐 Lade frische Daten von GitHub...');
             try {
-                // Versuche lokal
+                await loadJSON();
+                return;
+            } catch (error) {
+                console.log('⚠️ GitHub fehlgeschlagen:', error.message);
+            }
+            
+            // PRIO 5: Lokale Datei (offline fallback)
+            console.log('💾 Versuche lokale Datei...');
+            try {
                 await loadJSONLocal();
                 return;
-            } catch (localError) {
-                // Versuche online
-                try {
-                    await loadJSON();
-                    return;
-                } catch (onlineError) {
-                    console.error('❌ Alle Lade-Methoden fehlgeschlagen');
-                    showFirstTimeSetupDialog();
-                }
+            } catch (error) {
+                console.log('⚠️ Lokale Datei fehlgeschlagen');
             }
+            
+            // PRIO 6: Cached LocalStorage (als absolute letzte Option)
+            console.log('📦 Verwende gecachte LocalStorage-Daten...');
+            try {
+                const cachedData = JSON.parse(hasEverLoadedData);
+                if (cachedData && cachedData.trick_database) {
+                    console.log('✅ Cached-Daten wiederhergestellt (offline mode)');
+                    currentData = cachedData;
+                    mergeCustomTricks();
+                    renderApp(currentData);
+                    showToast('📡 Offline-Modus - Cached-Daten geladen', 'info');
+                    return;
+                }
+            } catch (error) {
+                console.error('❌ Cached-Daten ungültig');
+            }
+            
+            // Ultimativer Fallback
+            console.error('❌ Alle Lade-Optionen fehlgeschlagen');
+            showFirstTimeSetupDialog();
         }
         
         // Lokale JSON laden (aus gleichem Ordner)
@@ -4666,86 +4782,8 @@
         }
         
         // ════════════════════════════════════════════════════════════
-        // PWA INSTALL PROMPT
+        // INITIALIZATION & EVENT LISTENERS
         // ════════════════════════════════════════════════════════════
-        
-        let deferredPrompt = null;
-        let installShown = localStorage.getItem('pwa-install-shown') === 'true';
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            // Show install prompt after 10 seconds if not shown before
-            if (!installShown && !window.matchMedia('(display-mode: standalone)').matches) {
-                setTimeout(() => showInstallPrompt(), 10000);
-            }
-        });
-        
-        function showInstallPrompt() {
-            if (!deferredPrompt) return;
-            
-            const banner = document.createElement('div');
-            banner.id = 'install-banner';
-            banner.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                left: 20px;
-                right: 20px;
-                background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
-                color: white;
-                padding: 16px 20px;
-                border-radius: 12px;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-                z-index: 100000;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 12px;
-                animation: slideUp 0.3s ease;
-            `;
-            
-            banner.innerHTML = `
-                <div style="flex: 1;">
-                    <strong style="display: block; margin-bottom: 4px;">📲 App installieren</strong>
-                    <small style="opacity: 0.9;">Hundetricks auf Ihrem Gerät installieren? Funktioniert auch offline!</small>
-                </div>
-                <div style="display: flex; gap: 8px;">
-                    <button id="install-btn" style="
-                        background: white;
-                        color: #3ea876;
-                        border: none;
-                        padding: 8px 16px;
-                        border-radius: 6px;
-                        font-weight: 600;
-                        cursor: pointer;
-                    ">Installieren</button>
-                    <button id="install-later" style="
-                        background: rgba(255,255,255,0.2);
-                        color: white;
-                        border: none;
-                        padding: 8px 16px;
-                        border-radius: 6px;
-                        cursor: pointer;
-                    ">Später</button>
-                </div>
-            `;
-            
-            document.body.appendChild(banner);
-            
-            document.getElementById('install-btn').onclick = async () => {
-                banner.remove();
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    const { outcome } = await deferredPrompt.userChoice;
-                    console.log('Install outcome:', outcome);
-                    deferredPrompt = null;
-                    localStorage.setItem('pwa-install-shown', 'true');
-                    installShown = true;
-                }
-            };
-            
-            document.getElementById('install-later').onclick = () => {
                 banner.remove();
                 localStorage.setItem('pwa-install-shown', 'true');
                 installShown = true;
@@ -4876,98 +4914,6 @@
         // - service-worker-professional.js (Advanced caching & sync)
         // - PWADataSyncManager (Data synchronization)
         // ════════════════════════════════════════════════════════════
-        
-        // Install Prompt (A2HS) - Kept for compatibility
-        let deferredPrompt;
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-            console.log('💾 Install prompt available');
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            if (localStorage.getItem('installPromptDismissed') === 'true') {
-                return;
-            }
-            
-            if (window.matchMedia('(display-mode: standalone)').matches) {
-                console.log('✅ App is already installed');
-                return;
-            }
-            
-            const installBanner = document.createElement('div');
-            installBanner.id = 'installBanner';
-            installBanner.style.cssText = `
-                position: fixed;
-                top: 70px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-                color: white;
-                padding: 16px 24px;
-                border-radius: 12px;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                max-width: 90%;
-                animation: slideDown 0.3s ease;
-            `;
-            
-            installBanner.innerHTML = `
-                <span>📱 App installieren für bessere Erfahrung?</span>
-                <button onclick="installApp()" style="
-                    background: white;
-                    color: #4a90e2;
-                    border: none;
-                    padding: 8px 16px;
-                    border-radius: 6px;
-                    font-weight: 600;
-                    cursor: pointer;
-                ">Installieren</button>
-                <button onclick="dismissInstall()" style="
-                    background: transparent;
-                    color: white;
-                    border: 2px solid white;
-                    padding: 8px 16px;
-                    border-radius: 6px;
-                    font-weight: 600;
-                    cursor: pointer;
-                ">Nicht jetzt</button>
-            `;
-            
-            document.body.appendChild(installBanner);
-        });
-        
-        async function installApp() {
-            if (!deferredPrompt) return;
-            
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            
-            console.log(`User response to install prompt: ${outcome}`);
-            
-            if (outcome === 'accepted') {
-                console.log('✅ User accepted the install prompt');
-            }
-            
-            deferredPrompt = null;
-            dismissInstall();
-        }
-        
-        function dismissInstall() {
-            const banner = document.getElementById('installBanner');
-            if (banner) {
-                banner.style.animation = 'slideUp 0.3s ease reverse';
-                setTimeout(() => banner.remove(), 300);
-            }
-            localStorage.setItem('installPromptDismissed', 'true');
-        }
-        
-        window.addEventListener('appinstalled', () => {
-            console.log('✅ PWA was installed successfully');
-            deferredPrompt = null;
-        });
         
         // Online/Offline Status Indicator
         function updateOnlineStatus() {
