@@ -67,7 +67,7 @@
             --gradient-primary: linear-gradient(135deg, #2d7a5e 20%, #1e5a42 100%);
             --gradient-success: linear-gradient(135deg, #3ea876 20%, #2d8a5f 100%);
             --gradient-accent: linear-gradient(135deg, #52c593 20%, #3ea876 100%);
-            --bg-main: #f5fff6e9;
+            --bg-main: #f7f9fb;
             --bg-secondary: #f7fff3;
             --text-primary: #1a2332;
             --text-secondary: #5a6b7f;
@@ -125,21 +125,59 @@
             padding-bottom: 60px;
             overflow-x: hidden;
             max-width: 100vw;
+            position: relative;
+        }
+        
+        /* Wunderschöner Hunde-Hintergrund - Ein Bild mittig */
+        .background-images {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        .background-images img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            filter: blur(8px) brightness(1.1);
+        }
+        
+        [data-theme="dark"] .background-images img {
+            filter: blur(8px) brightness(0.6);
+        }
+        
+        [data-theme="dark"] .background-images {
+            opacity: 0.6;
         }
 
         /* === STICKY HEADER === */
         .app-header {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(62, 168, 118, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             transform: translateY(0);
+        }
+        
+        [data-theme="dark"] .app-header {
+            background: rgba(45, 55, 72, 0.9);
+            border-bottom: 1px solid rgba(82, 197, 147, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         .app-header.header-hidden {
@@ -267,8 +305,8 @@
         }
 
         .icon-btn {
-            background: linear-gradient(135deg, #3ea87615, #2d7a5e15);
-            border: none;
+            background: rgba(62, 168, 118, 0.15);
+            border: 1px solid rgba(62, 168, 118, 0.3);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -278,6 +316,7 @@
             cursor: pointer;
             font-size: 1.2rem;
             transition: all 0.3s ease;
+            color: var(--text-primary);
         }
 
         .burger-btn {
@@ -291,8 +330,19 @@
         }
 
         .icon-btn:hover {
-            background: linear-gradient(135deg, #3ea87625, #2d7a5e25);
-            transform: scale(1.1);
+            background: rgba(62, 168, 118, 0.25);
+            border-color: rgba(62, 168, 118, 0.5);
+            transform: scale(1.05);
+        }
+        
+        [data-theme="dark"] .icon-btn {
+            background: rgba(82, 197, 147, 0.2);
+            border-color: rgba(82, 197, 147, 0.4);
+        }
+        
+        [data-theme="dark"] .icon-btn:hover {
+            background: rgba(82, 197, 147, 0.3);
+            border-color: rgba(82, 197, 147, 0.6);
         }
 
         /* === BURGER MENU === */
@@ -434,6 +484,36 @@
             background: var(--bg-secondary);
             border-left-color: var(--category-color);
             transform: translateX(4px);
+        }
+        
+        /* Gelernte Tricks in Navigation */
+        .nav-trick-item.learned {
+            background: linear-gradient(135deg, rgba(212, 241, 212, 0.4), rgba(184, 232, 184, 0.3));
+            border-left-color: #3ea876;
+        }
+        
+        [data-theme="dark"] .nav-trick-item.learned {
+            background: linear-gradient(135deg, rgba(45, 95, 45, 0.4), rgba(30, 74, 30, 0.3));
+            border-left-color: #52c593;
+        }
+        
+        .nav-trick-item.learned:hover {
+            background: linear-gradient(135deg, rgba(212, 241, 212, 0.6), rgba(184, 232, 184, 0.5));
+        }
+        
+        [data-theme="dark"] .nav-trick-item.learned:hover {
+            background: linear-gradient(135deg, rgba(45, 95, 45, 0.6), rgba(30, 74, 30, 0.5));
+        }
+        
+        .nav-trick-checkmark {
+            color: #3ea876;
+            font-size: 1.1rem;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        [data-theme="dark"] .nav-trick-checkmark {
+            color: #52c593;
         }
 
         .nav-trick-title {
@@ -593,7 +673,7 @@
 
         .btn-success {
             background: var(--gradient-success);
-            color: rgb(243, 254, 239);
+            color: white;
         }
 
         .btn-success:hover {
@@ -626,14 +706,12 @@
         .input-field:focus {
             outline: none;
             border-color: var(--accent-green);
-            box-shadow: 0 0 0 3px rgba(62, 168, 118, 0.1);
-            background: var(--accent-green-light);
+            box-shadow: 0 0 0 3px rgba(62, 168, 118, 0.15);
+            background: var(--card-bg);
         }
-
-        .input-field:focus {
-            outline: none;
-            border-color: #3ea876;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        
+        [data-theme="dark"] .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(82, 197, 147, 0.2);
         }
 
         .textarea-field {
@@ -715,19 +793,32 @@
             width: 100%;
             padding: 14px 16px 14px 48px;
             border-radius: var(--radius-lg);
-            border: 2px solid transparent;
-            background: var(--bg-main);
+            border: 2px solid rgba(62, 168, 118, 0.5);
+            background: rgba(255, 255, 255, 0.9);
             color: var(--text-primary);
             font-size: 1rem;
             font-family: inherit;
             outline: none;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .search-input:focus {
-            background: var(--input-bg);
+            background: white;
             border-color: #3ea876;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 4px rgba(62, 168, 118, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] .search-input {
+            background: rgba(45, 55, 72, 0.8);
+            border-color: rgba(82, 197, 147, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-theme="dark"] .search-input:focus {
+            background: rgba(45, 55, 72, 0.95);
+            border-color: #52c593;
+            box-shadow: 0 0 0 4px rgba(82, 197, 147, 0.2), 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         .search-input::placeholder {
@@ -737,10 +828,18 @@
 
         /* === PROGRESS === */
         .progress-section {
-            background: linear-gradient(135deg, #3ea87615, #2d7a5e15);
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(62, 168, 118, 0.5);
             padding: 16px;
             border-radius: var(--radius-lg);
             margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        [data-theme="dark"] .progress-section {
+            background: rgba(45, 55, 72, 0.8);
+            border-color: rgba(82, 197, 147, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .progress-label {
@@ -786,14 +885,27 @@
             margin-bottom: 24px;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            background: var(--card-bg);
-            box-shadow: var(--shadow-sm);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(62, 168, 118, 0.4);
             transition: all 0.3s ease;
         }
 
         .category-wrapper:hover {
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
             transform: translateY(-2px);
+            border-color: rgba(62, 168, 118, 0.6);
+        }
+        
+        [data-theme="dark"] .category-wrapper {
+            background: rgba(45, 55, 72, 0.8);
+            border-color: rgba(82, 197, 147, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-theme="dark"] .category-wrapper:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            border-color: rgba(82, 197, 147, 0.4);
         }
 
         .cat-header {
@@ -850,6 +962,7 @@
         .arrow { 
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 1.2rem;
+            margin-left: 12px;
         }
 
         .cat-header.active .arrow { 
@@ -864,48 +977,80 @@
         .cat-body.open { 
             display: block;
         }
+        
+        /* === APP DESCRIPTION BOX === */
+        [data-theme="dark"] .app-description-section {
+            background: rgba(45, 55, 72, 0.9) !important;
+            border-color: rgba(82, 197, 147, 0.4) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+        }
 
         /* === TRICK CARD === */
         .trick-card {
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.95);
             margin: 16px;
             border-radius: var(--radius-md);
             padding: 24px;
             position: relative;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
+            border: 2px solid rgba(62, 168, 118, 0.4);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .trick-card:hover {
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border-color: var(--accent-green);
             transform: translateY(-2px);
-            background: var(--accent-green-light);
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        [data-theme="dark"] .trick-card {
+            background: rgba(45, 55, 72, 0.8);
+            border-color: rgba(82, 197, 147, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-theme="dark"] .trick-card:hover {
+            background: rgba(45, 55, 72, 0.95);
+            border-color: #52c593;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         .trick-card.learned {
             opacity: 0.85;
-            background: #b0b6b5;
-            border: 2px solid #9ca3af;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            background: linear-gradient(135deg, #d4f1d4 0%, #b8e8b8 100%);
+            border: 2px solid #3ea876;
+            box-shadow: 0 2px 8px rgba(62, 168, 118, 0.2), inset 0 2px 4px rgba(0,0,0,0.06);
         }
 
         .trick-card.learned:hover {
-            background: #a0a3a7;
-            transform: none;
+            background: linear-gradient(135deg, #c8edc8 0%, #acdcac 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(62, 168, 118, 0.3);
         }
 
         [data-theme="dark"] .trick-card.learned {
-            opacity: 0.6;
-            background: #374151;
-            border: 2px solid #6b7280;
+            opacity: 1;
+            background: linear-gradient(135deg, #2d5f2d 0%, #1e4a1e 100%);
+            border: 2px solid #52c593;
+            box-shadow: 0 2px 8px rgba(82, 197, 147, 0.3), inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        [data-theme="dark"] .trick-card.learned:hover {
+            background: linear-gradient(135deg, #357335 0%, #255e25 100%);
+            box-shadow: 0 4px 12px rgba(82, 197, 147, 0.4);
         }
 
         .trick-card.learned .trick-title { 
             text-decoration: line-through; 
-            color: #6b7280;
-            opacity: 0.7;
+            color: #2d5f2d;
+            opacity: 0.85;
+            font-weight: 600;
+        }
+        
+        [data-theme="dark"] .trick-card.learned .trick-title {
+            color: #a7f3d0;
+            opacity: 0.9;
         }
 
         .trick-card.learned::before {
@@ -913,8 +1058,8 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: linear-gradient(135deg, #3ea876 0%, #2d8a5f 100%);
             color: white;
             border-radius: 50%;
@@ -923,7 +1068,14 @@
             justify-content: center;
             font-weight: bold;
             font-size: 20px;
-            box-shadow: 0 2px 8px rgba(62, 168, 118, 0.3);
+            box-shadow: 0 2px 8px rgba(62, 168, 118, 0.4);
+            border: 2px solid white;
+        }
+        
+        [data-theme="dark"] .trick-card.learned::before {
+            background: linear-gradient(135deg, #52c593 0%, #3ea876 100%);
+            box-shadow: 0 2px 8px rgba(82, 197, 147, 0.5);
+            border-color: #1a202c;
         }
 
         .trick-card.hidden {
@@ -932,8 +1084,8 @@
 
         /* === TTS (Text-to-Speech) BUTTONS === */
         .tts-btn {
-            background: transparent;
-            border: 2px solid var(--border-color);
+            background: rgba(62, 168, 118, 0.1);
+            border: 2px solid rgba(62, 168, 118, 0.3);
             color: var(--text-primary);
             border-radius: 8px;
             padding: 8px 12px;
@@ -948,8 +1100,8 @@
         }
 
         .tts-btn:hover {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
+            background: var(--accent-green);
+            border-color: var(--accent-green);
             color: white;
             transform: scale(1.05);
         }
@@ -959,15 +1111,30 @@
         }
 
         .tts-btn.speaking {
-            background: var(--primary-color);
-            border-color: var(--primary-color);
+            background: var(--accent-green);
+            border-color: var(--accent-green);
             color: white;
             animation: pulse-tts 1.5s ease-in-out infinite;
+        }
+        
+        [data-theme="dark"] .tts-btn {
+            background: rgba(82, 197, 147, 0.15);
+            border-color: rgba(82, 197, 147, 0.4);
+        }
+        
+        [data-theme="dark"] .tts-btn:hover {
+            background: #52c593;
+            border-color: #52c593;
+        }
+        
+        [data-theme="dark"] .tts-btn.speaking {
+            background: #52c593;
+            border-color: #52c593;
         }
 
         @keyframes pulse-tts {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.05); }
+            50% { opacity: 0.8; transform: scale(1.05); }
         }
 
         .tts-btn-small {
@@ -975,6 +1142,7 @@
             font-size: 1rem;
             min-width: 36px;
             min-height: 36px;
+            margin-right: 16px;
         }
 
         .tts-btn-inline {
@@ -1483,6 +1651,10 @@
     </style>
 </head>
 <body>
+    <!-- Hintergrundbild - Hund mittig -->
+    <div class="background-images">
+        <img src="https://raw.githubusercontent.com/Hundetricks/hundetricks.github.io/main/bg_hund_2.jpg" alt="" loading="lazy">
+    </div>
 
     <div class="app-header" id="appHeader">
         <div class="header-content">
@@ -1527,7 +1699,7 @@
                             <span id="progressLabel">0% Komplett</span>
                         </div>
                         <button class="tts-btn tts-btn-small" 
-                                onclick="speakProgress()"
+                                onclick="speakProgress(this)"
                                 aria-label="Fortschritt vorlesen"
                                 title="Fortschritt vorlesen">
                             🔊
@@ -1561,7 +1733,7 @@
     <footer class="app-footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="https://hundetricks.github.io/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                <a href="https://github.com/Hundetricks/hundetricks.github.io/tree/main" target="_blank" rel="noopener noreferrer" class="footer-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                     </svg>
@@ -1707,7 +1879,7 @@
                 <div class="setting-group">
                     <label class="setting-label">🔗 GitHub Repository</label>
                     <p class="setting-description">Quellcode, Updates und Dokumentation</p>
-                    <a href="https://hundetricks.github.io" 
+                    <a href="https://github.com/Hundetricks/hundetricks.github.io/tree/main" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="btn btn-primary btn-full" 
@@ -1869,33 +2041,52 @@
             if (!container) {
                 container = document.createElement('div');
                 container.id = 'toast-container';
-                container.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    z-index: 10000;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    pointer-events: none;
-                `;
+                container.style.position = 'fixed';
+                container.style.top = '20px';
+                container.style.right = '20px';
+                container.style.zIndex = '10000';
+                container.style.display = 'flex';
+                container.style.flexDirection = 'column';
+                container.style.gap = '10px';
+                container.style.pointerEvents = 'none';
                 document.body.appendChild(container);
             }
             
-            // Toast-Element erstellen
+            // Toast-Element erstellen - Sanfte Pastellfarben für Firefox-Kompatibilität
             const toast = document.createElement('div');
-            toast.style.cssText = `
-                background: ${type === 'success' ? '#3ea876' : type === 'error' ? '#e53e3e' : type === 'warning' ? '#f59e0b' : '#3b82f6'};
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                font-size: 0.95rem;
-                max-width: 350px;
-                pointer-events: auto;
-                animation: slideIn 0.3s ease-out;
-                font-weight: 500;
-            `;
+            
+            // Farben direkt setzen (Firefox-sicher)
+            let bgColor, textColor, borderColor;
+            if (type === 'success') {
+                bgColor = '#d4f1d4';  // Helles Pastellgrün
+                textColor = '#2d5f2d';
+                borderColor = 'rgba(45, 95, 45, 0.2)';
+            } else if (type === 'error') {
+                bgColor = '#ffd4d4';  // Helles Pastellrot
+                textColor = '#8b0000';
+                borderColor = 'rgba(139, 0, 0, 0.2)';
+            } else if (type === 'warning') {
+                bgColor = '#fff3cd';  // Helles Pastellgelb
+                textColor = '#856404';
+                borderColor = 'rgba(133, 100, 4, 0.2)';
+            } else {
+                bgColor = '#d1ecf1';  // Helles Pastellblau
+                textColor = '#0c5460';
+                borderColor = 'rgba(12, 84, 96, 0.2)';
+            }
+            
+            // Styles einzeln setzen (Firefox-sicher)
+            toast.style.background = bgColor;
+            toast.style.color = textColor;
+            toast.style.padding = '12px 20px';
+            toast.style.borderRadius = '8px';
+            toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            toast.style.fontSize = '0.95rem';
+            toast.style.maxWidth = '350px';
+            toast.style.pointerEvents = 'auto';
+            toast.style.animation = 'slideIn 0.3s ease-out';
+            toast.style.fontWeight = '500';
+            toast.style.border = '1px solid ' + borderColor;
             toast.textContent = message;
             
             // Animation hinzufügen falls noch nicht vorhanden
@@ -2223,8 +2414,10 @@
                 console.log(`   → Rendere ${cat.list.length} Tricks für ${cat.meta.category_name}`);
                 
                 cat.list.forEach((trick, index) => {
+                    const isLearned = learnedTricks.has(trick.id);
+                    
                     const trickItem = document.createElement('div');
-                    trickItem.className = 'nav-trick-item';
+                    trickItem.className = isLearned ? 'nav-trick-item learned' : 'nav-trick-item';
                     trickItem.style.setProperty('--category-color', color);
                     
                     // Erstelle TTS-Button
@@ -2246,6 +2439,14 @@
                     titleWrapper.style.justifyContent = 'space-between';
                     titleWrapper.style.flex = '1';
                     titleWrapper.style.gap = '8px';
+                    
+                    // Grünes Häkchen für gelernte Tricks
+                    if (isLearned) {
+                        const checkmark = document.createElement('span');
+                        checkmark.className = 'nav-trick-checkmark';
+                        checkmark.textContent = '✓';
+                        titleWrapper.appendChild(checkmark);
+                    }
                     
                     const titleSpan = document.createElement('span');
                     titleSpan.className = 'nav-trick-title';
@@ -2890,7 +3091,15 @@
         }
 
         function speakTrickCard(trick, categoryName, buttonElement) {
-            let text = `${trick.name || trick.titel}. Kategorie: ${categoryName}. `;
+            const isLearned = learnedTricks.has(trick.id);
+            let text = `${trick.name || trick.titel}. `;
+            
+            // "Gelernt" hinzufügen wenn Trick gelernt wurde
+            if (isLearned) {
+                text += `Gelernt. `;
+            }
+            
+            text += `Kategorie: ${categoryName}. `;
             
             // NUR Kurztexte vorlesen (wie in der Anzeige)
             
@@ -2976,6 +3185,7 @@
                 }
                 
                 const trick = tricks[currentIndex];
+                const isLearned = learnedTricks.has(trick.id);
                 let text = '';
                 
                 // Erste Ansage
@@ -2983,8 +3193,11 @@
                     text = `Kategorie ${categoryName}. ${tricks.length} Tricks. `;
                 }
                 
-                // NUR der Trick-Name (keine Beschreibungen)
+                // NUR der Trick-Name (keine Beschreibungen) + "Gelernt" wenn zutreffend
                 text += `Trick ${currentIndex + 1}: ${trick.titel || trick.name}. `;
+                if (isLearned) {
+                    text += `Gelernt. `;
+                }
                 
                 // Vorlesen
                 const utterance = new SpeechSynthesisUtterance(text);
@@ -3050,12 +3263,12 @@
             toggleSpeech(text, buttonElement);
         }
 
-        function speakProgress() {
+        function speakProgress(buttonElement = null) {
             const learned = learnedTricks.size;
             const total = totalTricks;
             const percent = total > 0 ? Math.round((learned / total) * 100) : 0;
             const text = `Fortschritt: ${learned} von ${total} Tricks gelernt. Das sind ${percent} Prozent.`;
-            speak(text);
+            toggleSpeech(text, buttonElement);
         }
 
         // Stimmen laden (wichtig für Chrome/Edge)
@@ -3687,11 +3900,12 @@
             const descriptionDiv = document.createElement('div');
             descriptionDiv.className = 'app-description-section';
             descriptionDiv.style.cssText = `
-                background: var(--card-bg);
+                background: rgba(255, 255, 255, 0.95);
                 border-radius: var(--radius-lg);
                 padding: 24px;
                 margin-bottom: 32px;
-                box-shadow: var(--shadow-md);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+                border: 2px solid rgba(62, 168, 118, 0.6);
                 border-left: 4px solid #3ea876;
             `;
             
@@ -4017,7 +4231,7 @@
                             <span class="cat-count" style="background: ${themeColor}20; color: ${themeColor};">${cat.list.length}</span>
                         </div>
                         <button class="tts-btn tts-btn-small" 
-                                onclick="speak('Kategorie ${categoryText.replace(/'/g, "\\'")}. ${cat.list.length} Tricks.'); event.stopPropagation();"
+                                onclick="toggleSpeech('Kategorie ${categoryText.replace(/'/g, "\\'")}. ${cat.list.length} Tricks.', this); event.stopPropagation();"
                                 aria-label="Kategorie vorlesen"
                                 title="Kategorie vorlesen">
                             🔊
@@ -4218,14 +4432,53 @@
                 card.classList.remove('learned');
                 wrapper.classList.remove('active');
                 lbl.innerText = "Als gelernt markieren";
+                
+                // Navigation aktualisieren - Häkchen entfernen
+                updateNavigationItem(id, false);
             } else {
                 learnedTricks.add(id);
                 card.classList.add('learned');
                 wrapper.classList.add('active');
                 lbl.innerText = "Gelernt!";
+                
+                // Navigation aktualisieren - Häkchen hinzufügen
+                updateNavigationItem(id, true);
             }
             saveStorage();
             updateUI();
+        }
+        
+        // Hilfsfunktion um Navigation-Item zu aktualisieren ohne komplette Navigation neu zu rendern
+        function updateNavigationItem(trickId, isLearned) {
+            // Finde alle nav-trick-items in der Navigation
+            const navItems = document.querySelectorAll('.nav-trick-item');
+            navItems.forEach(item => {
+                // Prüfe ob dieses Item zum Trick gehört (durch onclick-Attribut)
+                const onclickAttr = item.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes(`scrollToTrick('${trickId}')`)) {
+                    // Aktualisiere die Klasse
+                    if (isLearned) {
+                        item.classList.add('learned');
+                        // Häkchen hinzufügen wenn noch nicht vorhanden
+                        if (!item.querySelector('.nav-trick-checkmark')) {
+                            const titleWrapper = item.querySelector('div');
+                            if (titleWrapper) {
+                                const checkmark = document.createElement('span');
+                                checkmark.className = 'nav-trick-checkmark';
+                                checkmark.textContent = '✓';
+                                titleWrapper.insertBefore(checkmark, titleWrapper.firstChild);
+                            }
+                        }
+                    } else {
+                        item.classList.remove('learned');
+                        // Häkchen entfernen
+                        const checkmark = item.querySelector('.nav-trick-checkmark');
+                        if (checkmark) {
+                            checkmark.remove();
+                        }
+                    }
+                }
+            });
         }
 
         function handleSearch(e) {

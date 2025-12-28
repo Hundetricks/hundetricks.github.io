@@ -532,94 +532,6 @@
           "trainingstipps_kurz": "Beginnen Sie mit der Leine in sehr offensichtlicher, leicht zugänglicher Position, etwa auf dem Boden direkt vor dem Hund."
         },
         {
-          "id": "098",
-          "position": "1.24",
-          "kategorie": "Anfänger",
-          "titel": "Fuß/Bei Fuß",
-          "handzeichen": "Das Handzeichen für Fuß oder Bei Fuß besteht aus einer Handbewegung entlang Ihrer linken Seite, die die gewünschte Position des Hundes markiert. Die linke Hand wird flach gehalten und in einer geraden Linie vom Oberschenkel bis zum Knie bewegt, manchmal auch mit einem leichten Klopfen auf den Oberschenkel kombiniert. Diese Geste zeigt dem Hund genau, wo er sich positionieren soll.",
-          "bewegungsablauf": "Der Hund positioniert sich an der linken Seite des Menschen, sodass seine Schulter etwa auf Höhe des menschlichen Knies ist. Er bewegt sich synchron mit dem Menschen, passt sein Tempo an und bleibt in dieser Position, unabhängig von Richtungswechseln oder Tempovariationen.",
-          "endposition": "Der Hund läuft oder steht aufmerksam an der linken Seite des Menschen, mit lockerer oder ohne Leine. Die Leine hängt in einem leichten U durch und der Hund orientiert sich kontinuierlich am Menschen.",
-          "trainingstipps": "Die Leinenführigkeit oder das Fuß-Gehen gehört zu den anspruchsvollsten Anfängerkommandos, da es kontinuierliche Aufmerksamkeit und Impulskontrolle vom Hund erfordert. Viele Hundehalter kämpfen jahrelang mit ziehenden Hunden, was Spaziergänge zur Belastung macht. Der Schlüssel zum Erfolg liegt darin, von Anfang an konsequent zu sein und niemals Ziehen zu belohnen. Ziehen wird belohnt, wenn der Hund durch das Ziehen vorankommt. Etablieren Sie daher die Grundregel, dass Sie nur dann weitergehen, wenn die Leine locker ist. Sobald die Leine sich spannt, bleiben Sie stehen oder gehen in die entgegengesetzte Richtung. Beginnen Sie das Training in einer reizarmen Umgebung wie Ihrer Einfahrt oder einem ruhigen Gehweg. Halten Sie ein Leckerli in Ihrer linken Hand auf Höhe Ihres Oberschenkels. Der Hund wird sich an Ihrer Seite positionieren, um das Leckerli zu erreichen. Gehen Sie einen Schritt, dann zwei, belohnen Sie kontinuierlich. Viele kurze Trainingseinheiten sind effektiver als lange, frustrierende Spaziergänge. Die größte Herausforderung ist die Generalisierung, der Hund muss lernen, dass die Regel überall gilt, nicht nur im Training. Seien Sie konsistent und belohnen Sie jede korrekte Position. Nutzen Sie ein spezielles Markerwort wie Ja oder Gut um zu zeigen, wann der Hund richtig läuft. Mit der Zeit wird die Position an Ihrer Seite für den Hund zur Normalität und selbstbelohnend, da sie vorwärts Bewegung ermöglicht.",
-          "steigerung": {
-            "variante_1": "Trainieren Sie zunächst auf kurzen Strecken von fünf bis zehn Metern in reizarmer Umgebung. Der Hund sollte lernen, dass die Position an Ihrer Seite der Ort ist, an dem gute Dinge passieren. Belohnen Sie häufig und machen Sie viele Pausen.",
-            "variante_2": "Erweitern Sie die Strecke auf hundert bis zweihundert Meter und führen Sie Richtungswechsel ein. Der Hund muss lernen, Ihre Bewegungen zu antizipieren und sich anzupassen. Üben Sie in leicht ablenkender Umgebung wie einem ruhigen Park. Reduzieren Sie graduell die Frequenz der Belohnungen.",
-            "variante_3": "Die Meisterschaft zeigt sich in perfekter Leinenführigkeit auch in hochgradig ablenkenden Umgebungen wie belebten Innenstädten, bei Begegnungen mit anderen Hunden oder bei interessanten Gerüchen. Der Hund läuft entspannt an lockerer Leine, unabhängig von äußeren Reizen. Dies ist das Ergebnis von Monaten konsequenten Trainings und Geduld.",
-            "variante_1_kurz": "Trainieren Sie zunächst auf kurzen Strecken von fünf bis zehn Metern in reizarmer Umgebung.",
-            "variante_2_kurz": "Erweitern Sie die Strecke auf hundert bis zweihundert Meter und führen Sie Richtungswechsel ein.",
-            "variante_3_kurz": "Die Meisterschaft zeigt sich in perfekter Leinenführigkeit auch in hochgradig ablenkenden Umgebungen wie belebten Innenstädten, bei..."
-          },
-          "bewegungsablauf_kurz": "Der Hund positioniert sich an der linken Seite des Menschen, sodass seine Schulter etwa auf Höhe des menschlichen Knies ist.",
-          "endposition_kurz": "Der Hund läuft oder steht aufmerksam an der linken Seite des Menschen, mit lockerer oder ohne Leine.",
-          "trainingstipps_kurz": "Beginnen Sie das Training in einer reizarmen Umgebung wie Ihrer Einfahrt oder einem ruhigen Gehweg.",
-          "handzeichen_kurz": "Flache Hand bewegt sich entlang der linken Seite vom Oberschenkel zum Knie, oft mit Klopfen kombiniert."
-        },
-        {
-          "id": "099",
-          "position": "1.25",
-          "kategorie": "Anfänger",
-          "titel": "Nein/Pfui",
-          "handzeichen": "Das Handzeichen für Nein oder Pfui wird durch eine klare Stop-Geste dargestellt - die flache Hand wird mit der Handfläche nach vorne vor den Körper gehalten, ähnlich einem Verkehrs-Stoppsignal. Diese universelle Geste ist eindeutig und signalisiert dem Hund sofort, dass die aktuelle Handlung unerwünscht ist. Alternativ kann ein Zeigefinger erhoben werden als Warnzeichen.",
-          "bewegungsablauf": "Der Hund unterbricht auf das Kommando Nein oder Pfui eine begonnene oder beabsichtigte unerwünschte Handlung. Die Bewegung besteht aus einem abrupten Stoppen der aktuellen Aktivität, häufig begleitet von einem Zurückweichen vom Objekt oder der Situation. Der Kopf wendet sich vom unerwünschten Gegenstand ab, und der Körper kann eine leichte Rückwärtsbewegung oder ein Einfrieren der Position zeigen. Bei gut konditionierten Hunden erfolgt diese Reaktion sofort und deutlich, selbst bei starken Versuchungen wie Futter am Boden oder interessanten Gerüchen. Die Ohren können sich nach hinten legen, was Respekt und Verständnis der Grenze signalisiert.",
-          "endposition": "Der Hund hat die unerwünschte Handlung gestoppt und ist von dem Objekt oder der Situation zurückgewichen. Er zeigt durch seine Körpersprache Verständnis der Grenze - die Ohren können nach hinten gelegt sein, der Blick ist vom unerwünschten Gegenstand abgewandt. Der Hund wartet in ruhiger Position auf weitere Anweisungen oder alternative Beschäftigungsmöglichkeiten vom Handler.",
-          "trainingstipps": "Das Abbruchsignal ist ein wichtiges Kommunikationswerkzeug, um dem Hund mitzuteilen, dass sein aktuelles Verhalten nicht erwünscht ist. Im Gegensatz zum Aus-Kommando, das sich auf Objekte bezieht, adressiert Nein generelles Verhalten. Die größte Herausforderung besteht darin, dieses Kommando effektiv einzusetzen, ohne die positive Trainingsbeziehung zu beschädigen. Nein sollte niemals geschrien oder aggressiv geäußert werden, sondern in ruhigem, bestimmtem Ton. Der Schlüssel liegt darin, dem Hund unmittelbar nach dem Nein eine positive Alternative anzubieten. Wenn der Hund beispielsweise am Tisch bettelt, sagen Sie ruhig Nein und geben dann das Kommando Platz auf seinem Platz. Belohnen Sie das alternative Verhalten. So lernt der Hund nicht nur, was er nicht tun soll, sondern auch, was stattdessen erwünscht ist. Ein häufiger Fehler ist die übermäßige Verwendung von Nein für jede Kleinigkeit, wodurch das Wort seine Bedeutung verliert und der Hund abstumpft. Reservieren Sie Nein für wirklich wichtige Situationen. Für minor Korrekturen nutzen Sie Alternativ-Kommandos oder Umleitung. Ein weiterer kritischer Punkt ist das Timing. Das Nein muss im Moment des unerwünschten Verhaltens erfolgen, nicht Sekunden später, sonst kann der Hund keine Verknüpfung herstellen. Kombinieren Sie das verbale Kommando mit Körpersprache. Hundebesitzer, die ständig Nein sagen, aber weiter freundlich lächeln, senden widersprüchliche Signale.",
-          "steigerung": {
-            "variante_1": "Etablieren Sie das Nein zunächst für einfache, klar definierte Situationen wie das Betteln am Tisch, das Hochspringen an Menschen oder das Kauen ungeeigneter Gegenstände. Der Hund sollte lernen, dass Nein eine klare Grenze markiert.",
-            "variante_2": "Wenden Sie das Kommando in komplexeren Situationen an, beispielsweise um unerwünschtes Verhalten gegenüber anderen Hunden zu unterbrechen oder um zu verhindern, dass der Hund etwas vom Boden aufnimmt. Kombinieren Sie immer mit einem positiven Alternativ-Kommando.",
-            "variante_3": "Die höchste Form ist das präventive Nein, bei dem Sie unerwünschtes Verhalten bereits in der Anbahnung unterbinden können, beispielsweise wenn der Hund beginnt, sich auf etwas zu fokussieren, das er jagen möchte. Dies erfordert, dass Sie die Körpersprache Ihres Hundes lesen können und antizipieren, was er vorhat.",
-            "variante_1_kurz": "Etablieren Sie das Nein zunächst für einfache, klar definierte Situationen wie das Betteln am Tisch, das Hochspringen an Menschen oder das...",
-            "variante_2_kurz": "Wenden Sie das Kommando in komplexeren Situationen an, beispielsweise um unerwünschtes Verhalten gegenüber anderen Hunden zu unterbrechen...",
-            "variante_3_kurz": "Die höchste Form ist das präventive Nein, bei dem Sie unerwünschtes Verhalten bereits in der Anbahnung unterbinden können, beispielsweise..."
-          },
-          "trainingstipps_kurz": "Das Abbruchsignal ist ein wichtiges Kommunikationswerkzeug, um dem Hund mitzuteilen, dass sein aktuelles Verhalten nicht erwünscht ist.",
-          "handzeichen_kurz": "Flache Hand mit Handfläche nach vorne als Stop-Signal oder erhobener warnender Zeigefinger.",
-          "bewegungsablauf_kurz": "Der Hund unterbricht auf das Kommando Nein oder Pfui eine begonnene oder beabsichtigte unerwünschte Handlung.",
-          "endposition_kurz": "Der Hund hat die unerwünschte Tätigkeit vollständig eingestellt, ist aufmerksam und wartet auf eine..."
-        },
-        {
-          "id": "111",
-          "position": "1.26",
-          "kategorie": "Anfänger",
-          "titel": "Warte/Bleib",
-          "handzeichen": "Das Handzeichen für Warte oder Bleib wird durch eine ausgestreckte flache Hand mit der Handfläche zum Hund gerichtet dargestellt, ähnlich einem Stop-Signal. Diese Geste wird etwa auf Brusthöhe gehalten und kann durch eine leicht drückende Bewegung in Richtung des Hundes verstärkt werden, ohne ihn tatsächlich zu berühren. Das Signal sollte ruhig und bestimmt sein.",
-          "bewegungsablauf": "Der Hund verharrt in seiner aktuellen Position - sei es Sitz, Platz oder Steh - und zeigt keine Bewegung, bis das Lösungs-Kommando oder ein neues Kommando gegeben wird. Die Bewegung ist paradoxerweise eine Nicht-Bewegung: Der Körper bleibt vollständig still, nur die Augen können dem Handler folgen. Bei längeren Wartezeiten kann der Hund sein Gewicht leicht verlagern, um bequem zu bleiben, aber die Grundposition wird beibehalten. Die Muskelspannung zeigt, dass der Hund aktiv die Position hält, nicht einfach nur ruht. Selbst bei Ablenkungen wie vorbeilaufenden Menschen oder Tieren bleibt der Hund in der Position, was erhebliche Impulskontrolle demonstriert.",
-          "endposition": "Der Hund verharrt in der Position, in die er gebracht wurde - sei es Sitz, Platz oder Steh - ohne jegliche Bewegung. Die Muskelspannung zeigt, dass die Position aktiv gehalten wird, nicht einfach nur passiv eingenommen ist. Der Blick kann dem Handler folgen, aber der Körper bleibt vollkommen ruhig und stabil, bis das explizite Auflösungs-Kommando gegeben wird.",
-          "trainingstipps": "Das Bleib-Kommando ist fundamental für Impulskontrolle und Sicherheit. Es unterscheidet sich vom einfachen Sitz oder Platz dadurch, dass der Fokus auf der Dauer und der Standhaftigkeit gegenüber Ablenkungen liegt. Beginnen Sie mit sehr kurzen Zeiträumen. Geben Sie Sitz, dann sofort Bleib, warten Sie zwei Sekunden und belohnen Sie, bevor der Hund sich bewegt. Der Schlüssel liegt im schrittweisen Aufbau. Viele Trainer machen den Fehler, zu schnell zu lange Zeiträume zu erwarten. Steigern Sie von zwei auf drei, dann fünf Sekunden. Erst wenn der Hund zuverlässig für zehn Sekunden bleibt, ohne dass Sie sich bewegen, führen Sie Distanz ein. Machen Sie einen Schritt zurück, kehren Sie sofort zurück und belohnen. Der Hund muss lernen, dass Ihre Bewegung nicht das Auflöse-Signal ist. Ein häufiger Fehler ist, den Hund erst zu rufen, bevor man zurückkehrt. Dies lehrt den Hund, dass Bleib nur gilt, bis Sie Komm sagen. Stattdessen kehren Sie immer zum Hund zurück, bevor Sie ihn auflösen. Nutzen Sie ein klares Auflösewort wie Okay und kombinieren Sie es mit einer freudig belohnenden Geste. So weiß der Hund genau, wann die Übung beendet ist. Üben Sie Bleib in verschiedenen Positionen Sitz-Bleib, Platz-Bleib, Steh-Bleib.",
-          "steigerung": {
-            "variante_1": "Der Hund bleibt für zehn bis zwanzig Sekunden in Position, während Sie direkt vor ihm stehen. Er lernt, dass Bleib bedeutet, absolut stillzuhalten bis zur Auflösung. Trainieren Sie mit allen drei Grundpositionen.",
-            "variante_2": "Steigern Sie die Dauer auf ein bis zwei Minuten und fügen Sie Distanz hinzu. Entfernen Sie sich graduell auf fünf, dann zehn Meter. Der Hund muss lernen, auch wenn Sie außer Sichtweite gehen, in Position zu bleiben. Führen Sie leichte Ablenkungen ein.",
-            "variante_3": "Die höchste Stufe ist das Bleib über mehrere Minuten bei starken Ablenkungen wie vorbeilaufenden Menschen, anderen Hunden oder geworfenen Bällen. Der Hund bleibt absolut zuverlässig, bis er aufgelöst wird. Dies kann in Notfallsituationen lebensrettend sein.",
-            "variante_1_kurz": "Der Hund bleibt für zehn bis zwanzig Sekunden in Position, während Sie direkt vor ihm stehen.",
-            "variante_2_kurz": "Steigern Sie die Dauer auf ein bis zwei Minuten und fügen Sie Distanz hinzu.",
-            "variante_3_kurz": "Die höchste Stufe ist das Bleib über mehrere Minuten bei starken Ablenkungen wie vorbeilaufenden Menschen, anderen Hunden oder geworfenen..."
-          },
-          "bewegungsablauf_kurz": "Der Hund verharrt in seiner aktuellen Position (sitzend, liegend oder stehend), ohne sich zu bewegen, auch wenn der Mensch sich...",
-          "trainingstipps_kurz": "Das Bleib-Kommando ist fundamental für Impulskontrolle und Sicherheit.",
-          "handzeichen_kurz": "Ausgestreckte flache Hand mit Handfläche zum Hund, wie ein Stop-Signal auf Brusthöhe.",
-          "endposition_kurz": "Der Hund bleibt exakt in der Position, in der er das Kommando erhalten hat, bis er durch ein..."
-        },
-        {
-          "id": "112",
-          "position": "1.27",
-          "kategorie": "Anfänger",
-          "titel": "Runter (von Möbeln/Menschen)",
-          "handzeichen": "Das Handzeichen für Runter besteht aus einer klaren, nach unten gerichteten Bewegung der flachen Hand oder des Zeigefingers vom erhöhten Objekt zum Boden. Die Bewegung sollte deutlich und bestimmt sein, oft begleitet von einem Zeigen zuerst auf den Hund, dann auf den Boden. Manche Trainer nutzen auch beide Hände - eine zeigt auf das Möbelstück, die andere weist nach unten zum Boden.",
-          "bewegungsablauf": "Der Hund steigt oder springt kontrolliert von einem erhöhten Objekt wie Sofa, Bett oder einer Person herunter auf den Boden. Die Bewegung beginnt mit einer Gewichtsverlagerung in Richtung der Kante des erhöhten Objekts. Bei kleinen Hunden erfolgt häufig ein vorsichtiges Herunterklettern mit den Vorderpfoten zuerst, gefolgt von den Hinterpfoten. Größere Hunde springen oft direkt herunter, wobei sie mit allen vier Pfoten gleichzeitig oder den Vorderpfoten zuerst landen. Die Landung sollte kontrolliert und sicher sein, ohne Stolpern oder Ausrutschen. Nach dem Heruntersteigen steht der Hund am Boden und wartet auf weitere Anweisungen, ohne sofort wieder hochzuspringen.",
-          "endposition": "Der Hund steht sicher auf dem Boden, nachdem er vom erhöhten Objekt heruntergestiegen oder gesprungen ist. Die Landung erfolgte kontrolliert ohne Stolpern oder Ausrutschen. Er zeigt keine Anstalten, sofort wieder hochzuspringen, sondern wartet in ruhiger Bodenhaltung auf weitere Anweisungen.",
-          "trainingstipps": "Das Runter-Kommando ist essentiell für die Etablierung von Grenzen und respektvollem Verhalten. Viele Menschen haben Probleme mit Hunden, die auf Möbel springen oder Menschen anspringen. Das Kommando muss klar vom Platz-Kommando unterschieden werden, da es verschiedene Bedeutungen hat. Beginnen Sie in Situationen, wo der Hund bereits auf einem Möbelstück ist. Sagen Sie ruhig aber bestimmt Runter, und locken Sie ihn mit einem Leckerli vom Sofa herunter. Sobald alle vier Pfoten den Boden berühren, belohnen Sie großzügig. Niemals ziehen oder schieben Sie den Hund körperlich herunter, da dies Gegenwehr erzeugen kann. Bei Hunden, die Menschen anspringen, ist das Training anders. Ignorieren Sie das Hochspringen komplett drehen Sie sich weg, verschränken Sie die Arme, vermeiden Sie Blickkontakt. Sobald der Hund alle Pfoten auf dem Boden hat, geben Sie enthusiastisch Aufmerksamkeit und Belohnung. Dies lehrt, dass Pfoten auf dem Boden Aufmerksamkeit bringen, während Hochspringen zur Ignorierung führt. Konsistenz ist absolut kritisch. Wenn Sie das Hochspringen manchmal erlauben (wenn Sie alte Kleidung tragen) und manchmal nicht (in guter Kleidung), wird der Hund verwirrt. Etablieren Sie eine klare, immer gültige Regel.",
-          "steigerung": {
-            "variante_1": "Der Hund lernt, auf das Kommando Runter sofort von Möbeln zu steigen oder das Hochspringen an Menschen zu unterlassen. Training in kontrollierten, ruhigen Situationen ohne starke emotionale Erregung.",
-            "variante_2": "Der Hund befolgt das Runter-Kommando auch in aufregenden Situationen, beispielsweise wenn Gäste kommen oder wenn er emotional erregt ist. Dies erfordert deutlich mehr Impulskontrolle und muss über längere Zeit trainiert werden.",
-            "variante_3": "Die höchste Form ist präventives Verhalten der Hund versucht gar nicht erst auf Möbel zu springen oder Menschen anzuspringen, weil er gelernt hat, dass dies nicht erwünscht ist. Er bietet automatisch alternatives Verhalten wie Sitzen an. Dies ist das Ergebnis von Monaten konsequenten Trainings.",
-            "variante_1_kurz": "Der Hund lernt, auf das Kommando Runter sofort von Möbeln zu steigen oder das Hochspringen an Menschen zu unterlassen.",
-            "variante_2_kurz": "Der Hund befolgt das Runter-Kommando auch in aufregenden Situationen, beispielsweise wenn Gäste kommen oder wenn er emotional erregt ist.",
-            "variante_3_kurz": "Die höchste Form ist präventives Verhalten der Hund versucht gar nicht erst auf Möbel zu springen oder Menschen anzuspringen, weil er..."
-          },
-          "bewegungsablauf_kurz": "Der Hund steigt von Möbelstücken herunter oder nimmt alle Pfoten vom Menschen herunter, wenn er hochgesprungen ist.",
-          "trainingstipps_kurz": "Beginnen Sie in Situationen, wo der Hund bereits auf einem Möbelstück ist.",
-          "handzeichen_kurz": "Nach unten zeigende Handbewegung, oft kombiniert mit einem Schritt auf den Hund zu, um physisch...",
-          "endposition_kurz": "Alle vier Pfoten des Hundes befinden sich auf dem Boden, der Hund steht oder sitzt in respektvollem..."
-        },
-        {
           "id": "083",
           "position": "1.28",
           "kategorie": "Anfänger",
@@ -706,8 +618,95 @@
           "endposition_kurz": "Der Hund hält stabilen Blickkontakt mit dem Menschen für die Dauer von mehreren Sekunden.",
           "trainingstipps_kurz": "Beginnen Sie damit, den Hund für jeden zufälligen Blickkontakt zu belohnen.",
           "handzeichen_kurz": "Zeigen Sie mit dem Zeigefinger auf Ihr eigenes Auge oder bilden Sie einen Rahmen um Ihr Gesicht."
+        },
+        {
+          "id": "098",
+          "position": "1.24",
+          "kategorie": "Anfänger",
+          "titel": "Fuß/Bei Fuß",
+          "handzeichen": "Das Handzeichen für Fuß oder Bei Fuß besteht aus einer Handbewegung entlang Ihrer linken Seite, die die gewünschte Position des Hundes markiert. Die linke Hand wird flach gehalten und in einer geraden Linie vom Oberschenkel bis zum Knie bewegt, manchmal auch mit einem leichten Klopfen auf den Oberschenkel kombiniert. Diese Geste zeigt dem Hund genau, wo er sich positionieren soll.",
+          "bewegungsablauf": "Der Hund positioniert sich an der linken Seite des Menschen, sodass seine Schulter etwa auf Höhe des menschlichen Knies ist. Er bewegt sich synchron mit dem Menschen, passt sein Tempo an und bleibt in dieser Position, unabhängig von Richtungswechseln oder Tempovariationen.",
+          "endposition": "Der Hund läuft oder steht aufmerksam an der linken Seite des Menschen, mit lockerer oder ohne Leine. Die Leine hängt in einem leichten U durch und der Hund orientiert sich kontinuierlich am Menschen.",
+          "trainingstipps": "Die Leinenführigkeit oder das Fuß-Gehen gehört zu den anspruchsvollsten Anfängerkommandos, da es kontinuierliche Aufmerksamkeit und Impulskontrolle vom Hund erfordert. Viele Hundehalter kämpfen jahrelang mit ziehenden Hunden, was Spaziergänge zur Belastung macht. Der Schlüssel zum Erfolg liegt darin, von Anfang an konsequent zu sein und niemals Ziehen zu belohnen. Ziehen wird belohnt, wenn der Hund durch das Ziehen vorankommt. Etablieren Sie daher die Grundregel, dass Sie nur dann weitergehen, wenn die Leine locker ist. Sobald die Leine sich spannt, bleiben Sie stehen oder gehen in die entgegengesetzte Richtung. Beginnen Sie das Training in einer reizarmen Umgebung wie Ihrer Einfahrt oder einem ruhigen Gehweg. Halten Sie ein Leckerli in Ihrer linken Hand auf Höhe Ihres Oberschenkels. Der Hund wird sich an Ihrer Seite positionieren, um das Leckerli zu erreichen. Gehen Sie einen Schritt, dann zwei, belohnen Sie kontinuierlich. Viele kurze Trainingseinheiten sind effektiver als lange, frustrierende Spaziergänge. Die größte Herausforderung ist die Generalisierung, der Hund muss lernen, dass die Regel überall gilt, nicht nur im Training. Seien Sie konsistent und belohnen Sie jede korrekte Position. Nutzen Sie ein spezielles Markerwort wie Ja oder Gut um zu zeigen, wann der Hund richtig läuft. Mit der Zeit wird die Position an Ihrer Seite für den Hund zur Normalität und selbstbelohnend, da sie vorwärts Bewegung ermöglicht.",
+          "steigerung": {
+            "variante_1": "Trainieren Sie zunächst auf kurzen Strecken von fünf bis zehn Metern in reizarmer Umgebung. Der Hund sollte lernen, dass die Position an Ihrer Seite der Ort ist, an dem gute Dinge passieren. Belohnen Sie häufig und machen Sie viele Pausen.",
+            "variante_2": "Erweitern Sie die Strecke auf hundert bis zweihundert Meter und führen Sie Richtungswechsel ein. Der Hund muss lernen, Ihre Bewegungen zu antizipieren und sich anzupassen. Üben Sie in leicht ablenkender Umgebung wie einem ruhigen Park. Reduzieren Sie graduell die Frequenz der Belohnungen.",
+            "variante_3": "Die Meisterschaft zeigt sich in perfekter Leinenführigkeit auch in hochgradig ablenkenden Umgebungen wie belebten Innenstädten, bei Begegnungen mit anderen Hunden oder bei interessanten Gerüchen. Der Hund läuft entspannt an lockerer Leine, unabhängig von äußeren Reizen. Dies ist das Ergebnis von Monaten konsequenten Trainings und Geduld.",
+            "variante_1_kurz": "Trainieren Sie zunächst auf kurzen Strecken von fünf bis zehn Metern in reizarmer Umgebung.",
+            "variante_2_kurz": "Erweitern Sie die Strecke auf hundert bis zweihundert Meter und führen Sie Richtungswechsel ein.",
+            "variante_3_kurz": "Die Meisterschaft zeigt sich in perfekter Leinenführigkeit auch in hochgradig ablenkenden Umgebungen wie belebten Innenstädten, bei..."
+          },
+          "bewegungsablauf_kurz": "Der Hund positioniert sich an der linken Seite des Menschen, sodass seine Schulter etwa auf Höhe des menschlichen Knies ist.",
+          "endposition_kurz": "Der Hund läuft oder steht aufmerksam an der linken Seite des Menschen, mit lockerer oder ohne Leine.",
+          "trainingstipps_kurz": "Beginnen Sie das Training in einer reizarmen Umgebung wie Ihrer Einfahrt oder einem ruhigen Gehweg.",
+          "handzeichen_kurz": "Flache Hand bewegt sich entlang der linken Seite vom Oberschenkel zum Knie, oft mit Klopfen kombiniert."
+        },
+        {
+          "id": "099",
+          "position": "1.25",
+          "kategorie": "Anfänger",
+          "titel": "Nein/Pfui",
+          "handzeichen": "Das Handzeichen für Nein oder Pfui wird durch eine klare Stop-Geste dargestellt - die flache Hand wird mit der Handfläche nach vorne vor den Körper gehalten, ähnlich einem Verkehrs-Stoppsignal. Diese universelle Geste ist eindeutig und signalisiert dem Hund sofort, dass die aktuelle Handlung unerwünscht ist. Alternativ kann ein Zeigefinger erhoben werden als Warnzeichen.",
+          "bewegungsablauf": "Der Hund unterbricht auf das Kommando Nein oder Pfui eine begonnene oder beabsichtigte unerwünschte Handlung. Die Bewegung besteht aus einem abrupten Stoppen der aktuellen Aktivität, häufig begleitet von einem Zurückweichen vom Objekt oder der Situation. Der Kopf wendet sich vom unerwünschten Gegenstand ab, und der Körper kann eine leichte Rückwärtsbewegung oder ein Einfrieren der Position zeigen. Bei gut konditionierten Hunden erfolgt diese Reaktion sofort und deutlich, selbst bei starken Versuchungen wie Futter am Boden oder interessanten Gerüchen. Die Ohren können sich nach hinten legen, was Respekt und Verständnis der Grenze signalisiert.",
+          "endposition": "Der Hund hat die unerwünschte Handlung gestoppt und ist von dem Objekt oder der Situation zurückgewichen. Er zeigt durch seine Körpersprache Verständnis der Grenze - die Ohren können nach hinten gelegt sein, der Blick ist vom unerwünschten Gegenstand abgewandt. Der Hund wartet in ruhiger Position auf weitere Anweisungen oder alternative Beschäftigungsmöglichkeiten vom Handler.",
+          "trainingstipps": "Das Abbruchsignal ist ein wichtiges Kommunikationswerkzeug, um dem Hund mitzuteilen, dass sein aktuelles Verhalten nicht erwünscht ist. Im Gegensatz zum Aus-Kommando, das sich auf Objekte bezieht, adressiert Nein generelles Verhalten. Die größte Herausforderung besteht darin, dieses Kommando effektiv einzusetzen, ohne die positive Trainingsbeziehung zu beschädigen. Nein sollte niemals geschrien oder aggressiv geäußert werden, sondern in ruhigem, bestimmtem Ton. Der Schlüssel liegt darin, dem Hund unmittelbar nach dem Nein eine positive Alternative anzubieten. Wenn der Hund beispielsweise am Tisch bettelt, sagen Sie ruhig Nein und geben dann das Kommando Platz auf seinem Platz. Belohnen Sie das alternative Verhalten. So lernt der Hund nicht nur, was er nicht tun soll, sondern auch, was stattdessen erwünscht ist. Ein häufiger Fehler ist die übermäßige Verwendung von Nein für jede Kleinigkeit, wodurch das Wort seine Bedeutung verliert und der Hund abstumpft. Reservieren Sie Nein für wirklich wichtige Situationen. Für minor Korrekturen nutzen Sie Alternativ-Kommandos oder Umleitung. Ein weiterer kritischer Punkt ist das Timing. Das Nein muss im Moment des unerwünschten Verhaltens erfolgen, nicht Sekunden später, sonst kann der Hund keine Verknüpfung herstellen. Kombinieren Sie das verbale Kommando mit Körpersprache. Hundebesitzer, die ständig Nein sagen, aber weiter freundlich lächeln, senden widersprüchliche Signale.",
+          "steigerung": {
+            "variante_1": "Etablieren Sie das Nein zunächst für einfache, klar definierte Situationen wie das Betteln am Tisch, das Hochspringen an Menschen oder das Kauen ungeeigneter Gegenstände. Der Hund sollte lernen, dass Nein eine klare Grenze markiert.",
+            "variante_2": "Wenden Sie das Kommando in komplexeren Situationen an, beispielsweise um unerwünschtes Verhalten gegenüber anderen Hunden zu unterbrechen oder um zu verhindern, dass der Hund etwas vom Boden aufnimmt. Kombinieren Sie immer mit einem positiven Alternativ-Kommando.",
+            "variante_3": "Die höchste Form ist das präventive Nein, bei dem Sie unerwünschtes Verhalten bereits in der Anbahnung unterbinden können, beispielsweise wenn der Hund beginnt, sich auf etwas zu fokussieren, das er jagen möchte. Dies erfordert, dass Sie die Körpersprache Ihres Hundes lesen können und antizipieren, was er vorhat.",
+            "variante_1_kurz": "Etablieren Sie das Nein zunächst für einfache, klar definierte Situationen wie das Betteln am Tisch, das Hochspringen an Menschen oder das...",
+            "variante_2_kurz": "Wenden Sie das Kommando in komplexeren Situationen an, beispielsweise um unerwünschtes Verhalten gegenüber anderen Hunden zu unterbrechen...",
+            "variante_3_kurz": "Die höchste Form ist das präventive Nein, bei dem Sie unerwünschtes Verhalten bereits in der Anbahnung unterbinden können, beispielsweise..."
+          },
+          "trainingstipps_kurz": "Das Abbruchsignal ist ein wichtiges Kommunikationswerkzeug, um dem Hund mitzuteilen, dass sein aktuelles Verhalten nicht erwünscht ist.",
+          "handzeichen_kurz": "Flache Hand mit Handfläche nach vorne als Stop-Signal oder erhobener warnender Zeigefinger.",
+          "bewegungsablauf_kurz": "Der Hund unterbricht auf das Kommando Nein oder Pfui eine begonnene oder beabsichtigte unerwünschte Handlung.",
+          "endposition_kurz": "Der Hund hat die unerwünschte Tätigkeit vollständig eingestellt, ist aufmerksam und wartet auf eine..."
+        },
+        {
+          "id": "111",
+          "position": "1.26",
+          "kategorie": "Anfänger",
+          "titel": "Warte/Bleib",
+          "handzeichen": "Das Handzeichen für Warte oder Bleib wird durch eine ausgestreckte flache Hand mit der Handfläche zum Hund gerichtet dargestellt, ähnlich einem Stop-Signal. Diese Geste wird etwa auf Brusthöhe gehalten und kann durch eine leicht drückende Bewegung in Richtung des Hundes verstärkt werden, ohne ihn tatsächlich zu berühren. Das Signal sollte ruhig und bestimmt sein.",
+          "bewegungsablauf": "Der Hund verharrt in seiner aktuellen Position - sei es Sitz, Platz oder Steh - und zeigt keine Bewegung, bis das Lösungs-Kommando oder ein neues Kommando gegeben wird. Die Bewegung ist paradoxerweise eine Nicht-Bewegung: Der Körper bleibt vollständig still, nur die Augen können dem Handler folgen. Bei längeren Wartezeiten kann der Hund sein Gewicht leicht verlagern, um bequem zu bleiben, aber die Grundposition wird beibehalten. Die Muskelspannung zeigt, dass der Hund aktiv die Position hält, nicht einfach nur ruht. Selbst bei Ablenkungen wie vorbeilaufenden Menschen oder Tieren bleibt der Hund in der Position, was erhebliche Impulskontrolle demonstriert.",
+          "endposition": "Der Hund verharrt in der Position, in die er gebracht wurde - sei es Sitz, Platz oder Steh - ohne jegliche Bewegung. Die Muskelspannung zeigt, dass die Position aktiv gehalten wird, nicht einfach nur passiv eingenommen ist. Der Blick kann dem Handler folgen, aber der Körper bleibt vollkommen ruhig und stabil, bis das explizite Auflösungs-Kommando gegeben wird.",
+          "trainingstipps": "Das Bleib-Kommando ist fundamental für Impulskontrolle und Sicherheit. Es unterscheidet sich vom einfachen Sitz oder Platz dadurch, dass der Fokus auf der Dauer und der Standhaftigkeit gegenüber Ablenkungen liegt. Beginnen Sie mit sehr kurzen Zeiträumen. Geben Sie Sitz, dann sofort Bleib, warten Sie zwei Sekunden und belohnen Sie, bevor der Hund sich bewegt. Der Schlüssel liegt im schrittweisen Aufbau. Viele Trainer machen den Fehler, zu schnell zu lange Zeiträume zu erwarten. Steigern Sie von zwei auf drei, dann fünf Sekunden. Erst wenn der Hund zuverlässig für zehn Sekunden bleibt, ohne dass Sie sich bewegen, führen Sie Distanz ein. Machen Sie einen Schritt zurück, kehren Sie sofort zurück und belohnen. Der Hund muss lernen, dass Ihre Bewegung nicht das Auflöse-Signal ist. Ein häufiger Fehler ist, den Hund erst zu rufen, bevor man zurückkehrt. Dies lehrt den Hund, dass Bleib nur gilt, bis Sie Komm sagen. Stattdessen kehren Sie immer zum Hund zurück, bevor Sie ihn auflösen. Nutzen Sie ein klares Auflösewort wie Okay und kombinieren Sie es mit einer freudig belohnenden Geste. So weiß der Hund genau, wann die Übung beendet ist. Üben Sie Bleib in verschiedenen Positionen Sitz-Bleib, Platz-Bleib, Steh-Bleib.",
+          "steigerung": {
+            "variante_1": "Der Hund bleibt für zehn bis zwanzig Sekunden in Position, während Sie direkt vor ihm stehen. Er lernt, dass Bleib bedeutet, absolut stillzuhalten bis zur Auflösung. Trainieren Sie mit allen drei Grundpositionen.",
+            "variante_2": "Steigern Sie die Dauer auf ein bis zwei Minuten und fügen Sie Distanz hinzu. Entfernen Sie sich graduell auf fünf, dann zehn Meter. Der Hund muss lernen, auch wenn Sie außer Sichtweite gehen, in Position zu bleiben. Führen Sie leichte Ablenkungen ein.",
+            "variante_3": "Die höchste Stufe ist das Bleib über mehrere Minuten bei starken Ablenkungen wie vorbeilaufenden Menschen, anderen Hunden oder geworfenen Bällen. Der Hund bleibt absolut zuverlässig, bis er aufgelöst wird. Dies kann in Notfallsituationen lebensrettend sein.",
+            "variante_1_kurz": "Der Hund bleibt für zehn bis zwanzig Sekunden in Position, während Sie direkt vor ihm stehen.",
+            "variante_2_kurz": "Steigern Sie die Dauer auf ein bis zwei Minuten und fügen Sie Distanz hinzu.",
+            "variante_3_kurz": "Die höchste Stufe ist das Bleib über mehrere Minuten bei starken Ablenkungen wie vorbeilaufenden Menschen, anderen Hunden oder geworfenen..."
+          },
+          "bewegungsablauf_kurz": "Der Hund verharrt in seiner aktuellen Position (sitzend, liegend oder stehend), ohne sich zu bewegen, auch wenn der Mensch sich...",
+          "trainingstipps_kurz": "Das Bleib-Kommando ist fundamental für Impulskontrolle und Sicherheit.",
+          "handzeichen_kurz": "Ausgestreckte flache Hand mit Handfläche zum Hund, wie ein Stop-Signal auf Brusthöhe.",
+          "endposition_kurz": "Der Hund bleibt exakt in der Position, in der er das Kommando erhalten hat, bis er durch ein..."
+        },
+        {
+          "id": "112",
+          "position": "1.27",
+          "kategorie": "Anfänger",
+          "titel": "Runter (von Möbeln/Menschen)",
+          "handzeichen": "Das Handzeichen für Runter besteht aus einer klaren, nach unten gerichteten Bewegung der flachen Hand oder des Zeigefingers vom erhöhten Objekt zum Boden. Die Bewegung sollte deutlich und bestimmt sein, oft begleitet von einem Zeigen zuerst auf den Hund, dann auf den Boden. Manche Trainer nutzen auch beide Hände - eine zeigt auf das Möbelstück, die andere weist nach unten zum Boden.",
+          "bewegungsablauf": "Der Hund steigt oder springt kontrolliert von einem erhöhten Objekt wie Sofa, Bett oder einer Person herunter auf den Boden. Die Bewegung beginnt mit einer Gewichtsverlagerung in Richtung der Kante des erhöhten Objekts. Bei kleinen Hunden erfolgt häufig ein vorsichtiges Herunterklettern mit den Vorderpfoten zuerst, gefolgt von den Hinterpfoten. Größere Hunde springen oft direkt herunter, wobei sie mit allen vier Pfoten gleichzeitig oder den Vorderpfoten zuerst landen. Die Landung sollte kontrolliert und sicher sein, ohne Stolpern oder Ausrutschen. Nach dem Heruntersteigen steht der Hund am Boden und wartet auf weitere Anweisungen, ohne sofort wieder hochzuspringen.",
+          "endposition": "Der Hund steht sicher auf dem Boden, nachdem er vom erhöhten Objekt heruntergestiegen oder gesprungen ist. Die Landung erfolgte kontrolliert ohne Stolpern oder Ausrutschen. Er zeigt keine Anstalten, sofort wieder hochzuspringen, sondern wartet in ruhiger Bodenhaltung auf weitere Anweisungen.",
+          "trainingstipps": "Das Runter-Kommando ist essentiell für die Etablierung von Grenzen und respektvollem Verhalten. Viele Menschen haben Probleme mit Hunden, die auf Möbel springen oder Menschen anspringen. Das Kommando muss klar vom Platz-Kommando unterschieden werden, da es verschiedene Bedeutungen hat. Beginnen Sie in Situationen, wo der Hund bereits auf einem Möbelstück ist. Sagen Sie ruhig aber bestimmt Runter, und locken Sie ihn mit einem Leckerli vom Sofa herunter. Sobald alle vier Pfoten den Boden berühren, belohnen Sie großzügig. Niemals ziehen oder schieben Sie den Hund körperlich herunter, da dies Gegenwehr erzeugen kann. Bei Hunden, die Menschen anspringen, ist das Training anders. Ignorieren Sie das Hochspringen komplett drehen Sie sich weg, verschränken Sie die Arme, vermeiden Sie Blickkontakt. Sobald der Hund alle Pfoten auf dem Boden hat, geben Sie enthusiastisch Aufmerksamkeit und Belohnung. Dies lehrt, dass Pfoten auf dem Boden Aufmerksamkeit bringen, während Hochspringen zur Ignorierung führt. Konsistenz ist absolut kritisch. Wenn Sie das Hochspringen manchmal erlauben (wenn Sie alte Kleidung tragen) und manchmal nicht (in guter Kleidung), wird der Hund verwirrt. Etablieren Sie eine klare, immer gültige Regel.",
+          "steigerung": {
+            "variante_1": "Der Hund lernt, auf das Kommando Runter sofort von Möbeln zu steigen oder das Hochspringen an Menschen zu unterlassen. Training in kontrollierten, ruhigen Situationen ohne starke emotionale Erregung.",
+            "variante_2": "Der Hund befolgt das Runter-Kommando auch in aufregenden Situationen, beispielsweise wenn Gäste kommen oder wenn er emotional erregt ist. Dies erfordert deutlich mehr Impulskontrolle und muss über längere Zeit trainiert werden.",
+            "variante_3": "Die höchste Form ist präventives Verhalten der Hund versucht gar nicht erst auf Möbel zu springen oder Menschen anzuspringen, weil er gelernt hat, dass dies nicht erwünscht ist. Er bietet automatisch alternatives Verhalten wie Sitzen an. Dies ist das Ergebnis von Monaten konsequenten Trainings.",
+            "variante_1_kurz": "Der Hund lernt, auf das Kommando Runter sofort von Möbeln zu steigen oder das Hochspringen an Menschen zu unterlassen.",
+            "variante_2_kurz": "Der Hund befolgt das Runter-Kommando auch in aufregenden Situationen, beispielsweise wenn Gäste kommen oder wenn er emotional erregt ist.",
+            "variante_3_kurz": "Die höchste Form ist präventives Verhalten der Hund versucht gar nicht erst auf Möbel zu springen oder Menschen anzuspringen, weil er..."
+          },
+          "bewegungsablauf_kurz": "Der Hund steigt von Möbelstücken herunter oder nimmt alle Pfoten vom Menschen herunter, wenn er hochgesprungen ist.",
+          "trainingstipps_kurz": "Beginnen Sie in Situationen, wo der Hund bereits auf einem Möbelstück ist.",
+          "handzeichen_kurz": "Nach unten zeigende Handbewegung, oft kombiniert mit einem Schritt auf den Hund zu, um physisch...",
+          "endposition_kurz": "Alle vier Pfoten des Hundes befinden sich auf dem Boden, der Hund steht oder sitzt in respektvollem..."
         }
-
       ]
     },
     "intermediate": {
@@ -740,7 +739,7 @@
             "variante_2_kurz": "Freies Männchen ohne Stütze für mehrere Sekunden.",
             "variante_3_kurz": "Männchen im Gehen oder Hüpfen (Känguru)."
           },
-          "handzeichen_kurz": "Das Handzeichen für Männchen besteht aus einer vertikalen Erhebung beider Hände über dem Kopf, als würde man den Hund",
+          "handzeichen_kurz": "Das Handzeichen für Männchen besteht aus einer vertikalen Erhebung beider Hände über dem Kopf, als würde man den Hund...",
           "bewegungsablauf_kurz": "Der Bewegungsablauf beim Männchen ist eine beeindruckende Demonstration von Balance und Körperkon trolle.",
           "endposition_kurz": "Die Endposition beim Männchen zeigt den Hund in aufrechter, quasi-menschlicher Haltung auf seinen Hinterbeinen.",
           "trainingstipps_kurz": "Leckerli über Kopf führen, Gewicht nach hinten verlagern, Vorderpfoten heben sofort belohnen, graduell Dauer steigern."
@@ -764,7 +763,7 @@
           },
           "handzeichen_kurz": "Das Handzeichen für Rolle wird durch eine kreisende Fingerbewegung dargestellt, die eine Rotationsbewegung symbolisiert.",
           "bewegungsablauf_kurz": "Der Bewegungsablauf bei der Rolle ist eine komplette 360-Grad-Rotation des Hundekörpers um die Längsachse.",
-          "endposition_kurz": "Die Endposition nach einer vollständigen Rolle ist der Hund wieder in Platz-Position, aber auf der anderen Körperseite",
+          "endposition_kurz": "Die Endposition nach einer vollständigen Rolle ist der Hund wieder in Platz-Position, aber auf der anderen Körperseite...",
           "trainingstipps_kurz": "Beginnen Sie mit dem Hund in Platz-Position auf weichem, rutschfestem Untergrund wie einem Teppich oder Gras."
         },
         {
@@ -872,7 +871,7 @@
             "variante_2_kurz": "Führen Sie wiederholte Auf-und-Ab-Bewegung ein: drei bis fünf Winkvorgänge vor Belohnung.",
             "variante_3_kurz": "Anhaltendes rhythmisches Winken über zehn bis zwanzig Sekunden."
           },
-          "handzeichen_kurz": "Das Handzeichen für Winken besteht aus einer freundlichen winkenden Bewegung der eigenen Hand auf Schulterhöhe wobei die Handfläche zum",
+          "handzeichen_kurz": "Das Handzeichen für Winken besteht aus einer freundlichen winkenden Bewegung der eigenen Hand auf Schulterhöhe wobei die Handfläche zum...",
           "bewegungsablauf_kurz": "Der Hund hebt eine Vorderpfote vom Boden ab und führt sie in wiederholter Auf-und-Ab-Bewegung vor seinem Körper aus ähnlich einer menschlichen Winkgeste.",
           "endposition_kurz": "Der Hund sitzt oder steht stabil auf drei Pfoten während eine Vorderpfote in erhobener Position winkend bewegt wird.",
           "trainingstipps_kurz": "Das Winken zählt zu den charmantesten Hundetricks und ist relativ einfach zu trainieren besonders wenn der Hund bereits Pfote-Geben beherrscht."
@@ -1045,7 +1044,7 @@
             "variante_2": "Erhöhen Sie die Höhe auf dreißig bis fünfzig Zentimeter oder verringern Sie die Breite auf zehn bis fünfzehn Zentimeter. Der Hund läuft langsam über das gesamte Objekt.",
             "variante_3": "Balancieren auf schmalen Objekten in größerer Höhe oder über längere Distanzen. Der Hund kann auch Tricks wie Sitz oder Platz auf dem Balance-Objekt ausführen, was höchste Körperkontrolle erfordert.",
             "variante_1_kurz": "Der Hund steht auf einem breiten, niedrigen Brett am Boden.",
-            "variante_2_kurz": "Erhöhen Sie die Höhe auf dreißig bis fünfzig Zentimeter oder verringern Sie die Breite auf zehn bis",
+            "variante_2_kurz": "Erhöhen Sie die Höhe auf dreißig bis fünfzig Zentimeter oder verringern Sie die Breite auf zehn bis...",
             "variante_3_kurz": "Balancieren auf schmalen Objekten in größerer Höhe oder über längere Distanzen."
           },
           "handzeichen_kurz": "Zeigen auf Balance-Objekt, horizontale Handbewegung symbolisiert Stabilität.",
@@ -1088,9 +1087,9 @@
             "variante_1": "Zwei bis drei simple Hindernisse in einfacher, linearer Sequenz - beispielsweise unter einem niedrigen Stuhl oder Tisch hindurch, dann über eine am Boden liegende niedrige Stange oder Besenstiel. Die Abstände zwischen den Hindernissen sind großzügig.",
             "variante_2": "Fünf bis sieben Hindernisse mit engeren Abständen und schnelleren Wechseln. Der Hund muss flüssiger zwischen den Aktionen wechseln und das Tempo erhöhen.",
             "variante_3": "Komplexe Agility-ähnliche Parcours mit zehn oder mehr Hindernissen, engen Wendungen und schneller Ausführung. Der Hund arbeitet teilweise auf Distanz und antizipiert die nächste Aktion.",
-            "variante_1_kurz": "Zwei bis drei Hindernisse in einfacher Sequenz - beispielsweise unter einem Stuhl durch, dann über",
+            "variante_1_kurz": "Zwei bis drei Hindernisse in einfacher Sequenz - beispielsweise unter einem Stuhl durch, dann über...",
             "variante_2_kurz": "Fünf bis sieben Hindernisse mit engeren Abständen und schnelleren Wechseln.",
-            "variante_3_kurz": "Komplexe Agility-ähnliche Parcours mit zehn oder mehr Hindernissen, engen Wendungen und schneller"
+            "variante_3_kurz": "Komplexe Agility-ähnliche Parcours mit zehn oder mehr Hindernissen, engen Wendungen und schneller..."
           },
           "handzeichen_kurz": "Zeigen unter Objekt für 'drunter', darüber für 'drüber', Hand folgt gewünschter Route.",
           "bewegungsablauf_kurz": "Hund navigiert abwechselnd unter und über Hindernisse, ducken oder springen je nach Aktion.",
@@ -1106,15 +1105,15 @@
           "bewegungsablauf": "Der Hund nähert sich einem designierten Gegenstand und legt seine Nase bewusst darauf ab, hält den Kontakt für einige Sekunden. Die Bewegung ist langsam und kontrolliert, der Druck ist sanft aber deutlich. Die Position wird gehalten, bis das Auflösungs-Kommando gegeben wird.",
           "endposition": "Die Nase ruht auf dem Objekt, der Kopf ist gesenkt, der Rest des Körpers kann stehen oder liegen. Der Hund zeigt Konzentration und hält die Position stabil.",
           "trainingstipps": "Dieses ist eine Variation des Target-Trainings. Beginnen Sie mit einem flachen Objekt wie einer Plastikscheibe am Boden. Halten Sie ein Leckerli direkt dahinter, sodass der Hund beim Schnüffeln die Nase auf das Objekt legt. Markieren und belohnen Sie sofort jeden Nasen-Kontakt. Graduell verlängern Sie die Kontakt-Dauer, bevor Sie markieren. Führen Sie ein Kommando wie 'Touch' oder 'Nase' ein. Dieses Training ist wertvoll für medizinische Kooperation (Maulkorb-Training, Untersuchungen) und Such-Arbeit.",
-          "handzeichen_kurz": "Zeigen auf Zielgegenstand, dann auf eigene Nase zur Demonstration.",
           "steigerung": {
             "variante_1": "Kurzer, initialer Nasen-Kontakt von nur ein bis zwei Sekunden mit einem großen, flachen, stabilen Objekt am Boden wie einer Plastikscheibe. Jeder Kontakt wird sofort mit Klicker und Leckerli belohnt, auch wenn die Dauer minimal ist.",
             "variante_2": "Längerer Kontakt von fünf bis zehn Sekunden, Objekt kann in verschiedenen Positionen sein (erhöht, senkrecht). Der Hund muss das Objekt suchen und gezielt berühren.",
             "variante_3": "Der Hund legt die Nase auf verschiedene Objekte auf Kommando, auch auf Distanz. Kann zwischen mehreren Objekten unterscheiden und das korrekte auf verbales Signal auswählen. Nützlich für Assistenzhunde zum Betätigen von Lichtschaltern oder Türöffnern.",
             "variante_1_kurz": "Kurzer Nasen-Kontakt von ein bis zwei Sekunden mit einem großen, flachen Objekt am Boden.",
-            "variante_2_kurz": "Längerer Kontakt von fünf bis zehn Sekunden, Objekt kann in verschiedenen Positionen sein (erhöht,",
+            "variante_2_kurz": "Längerer Kontakt von fünf bis zehn Sekunden, Objekt kann in verschiedenen Positionen sein (erhöht,...",
             "variante_3_kurz": "Der Hund legt die Nase auf verschiedene Objekte auf Kommando, auch auf Distanz."
           },
+          "handzeichen_kurz": "Zeigen auf Zielgegenstand, dann auf eigene Nase zur Demonstration.",
           "bewegungsablauf_kurz": "Hund nähert sich Objekt, legt Nase darauf ab, sanfter Druck, hält Kontakt mehrere Sekunden.",
           "endposition_kurz": "Nase ruht auf Objekt, Kopf gesenkt, Position stabil bis Auflösungs-Kommando.",
           "trainingstipps_kurz": "Target-Training mit flachem Objekt, Leckerli dahinter, jeder Nasen-Kontakt belohnen, Dauer steigern."
@@ -1472,94 +1471,6 @@
           "trainingstipps_kurz": "Mit zwei sehr unterschiedlichen Objekten beginnen."
         },
         {
-          "id": "085",
-          "position": "2.41",
-          "kategorie": "Fortgeschritten",
-          "titel": "Bring/Apportieren",
-          "handzeichen": "Ausgestreckter Arm in Richtung des zu apportierenden Objekts, gefolgt von einer Handbewegung zurück zum Körper, die das Zurückbringen symbolisiert. und demonstriert das Konzept klar.",
-          "bewegungsablauf": "Der Hund läuft zum geworfenen oder indizierten Objekt, nimmt es vorsichtig ins Maul, kehrt zum Menschen zurück und übergibt das Objekt in die Hand oder legt es vor die Füße des Menschen. und demonstriert das Konzept klar.",
-          "endposition": "Der Hund sitzt oder steht vor dem Menschen, hält das Objekt im Maul oder hat es bereits in die Hand gegeben. Er wartet auf das Aus-Kommando oder hat das Objekt bereits übergeben und wartet auf weitere Anweisungen.",
-          "trainingstipps": "Apportieren ist eine komplexe Verhaltenskette, die aus mehreren Einzelschritten besteht: Interesse am Objekt, Aufnehmen des Objekts, Festhalten während der Bewegung, Zurückkommen zum Menschen und Übergeben. Beginnen Sie mit einem Objekt, das Ihr Hund gerne im Maul trägt, beispielsweise sein Lieblingsspielzeug. Werfen Sie es nur kurze Distanzen und belohnen Sie jeden Teilschritt. Manche Hunde nehmen das Objekt auf, bringen es aber nicht zurück. Trainieren Sie in diesem Fall in einem Flur oder zwischen zwei Personen, sodass der Rückweg die einzige logische Option ist. Andere Hunde bringen das Objekt zurück, geben es aber nicht her. Hier hilft das vorher trainierte Aus-Kommando. Tauschen Sie das Apportel gegen ein Leckerli und geben Sie es dann zurück, damit das Hergeben nicht als Verlust wahrgenommen wird. Bei Hunden, die kein natürliches Interesse am Tragen zeigen, beginnen Sie mit Shaping: Belohnen Sie bereits das Anschauen des Objekts, dann das Berühren mit der Nase, dann das kurze Aufnehmen und schließlich das Tragen über kurze Strecken. Wichtig ist, das Training in sehr kurzen Einheiten durchzuführen, damit es nicht langweilig wird. Das Apportiertraining sollte immer positiv enden, bevor der Hund das Interesse verliert.",
-          "steigerung": {
-            "variante_1": "Steigern Sie die Distanz des Wurfs graduell von wenigen Metern auf zehn bis zwanzig Meter. Üben Sie das Apportieren verschiedener Objekte: Bälle, Stöcke, Apportel, Frisbees und später auch Alltagsgegenstände wie Schlüssel oder die Fernbedienung. Der Hund sollte lernen, dass das Prinzip auf alle tragbaren Objekte anwendbar ist.",
-            "variante_2": "Trainieren Sie das gerichtete Apportieren, bei dem Sie auf ein spezifisches Objekt unter mehreren zeigen und der Hund genau dieses bringen soll. Führen Sie das Apportieren über Hindernisse ein, beispielsweise über eine niedrige Hürde oder durch einen Tunnel. Üben Sie auch das Apportieren im Wasser, falls Ihr Hund schwimmfreudig ist, was eine hervorragende Übung für die Sommermonate darstellt.",
-            "variante_3": "Die höchste Stufe ist das verdeckte Apportieren, bei dem der Hund ein Objekt suchen und bringen muss, das er nicht hat fallen sehen. Dies kombiniert Nasenarbeit mit Apportieren. Trainieren Sie auch Apportieren mit empfindlichen Objekten, die der Hund sehr vorsichtig tragen muss, wie ein rohes Ei. Eine weitere Herausforderung ist das Apportieren und Ablegen an einem spezifischen Ort, nicht direkt beim Menschen.",
-            "variante_1_kurz": "Steigern Sie die Distanz des Wurfs graduell von wenigen Metern auf zehn bis zwanzig Meter.",
-            "variante_2_kurz": "Trainieren Sie das gerichtete Apportieren, bei dem Sie auf ein spezifisches Objekt unter mehreren zeigen und der Hund genau dieses bringen...",
-            "variante_3_kurz": "Die höchste Stufe ist das verdeckte Apportieren, bei dem der Hund ein Objekt suchen und bringen muss, das er nicht hat fallen sehen."
-          },
-          "bewegungsablauf_kurz": "Der Hund läuft zum geworfenen oder indizierten Objekt, nimmt es vorsichtig ins Maul, kehrt zum Menschen zurück und übergibt das...",
-          "endposition_kurz": "Der Hund sitzt oder steht vor dem Menschen, hält das Objekt im Maul oder hat es bereits in die Hand gegeben.",
-          "trainingstipps_kurz": "Beginnen Sie mit einem Objekt, das Ihr Hund gerne im Maul trägt, beispielsweise sein Lieblingsspielzeug.",
-          "handzeichen_kurz": "Ausgestreckter Arm in Richtung des zu apportierenden Objekts, gefolgt von einer Handbewegung zurück..."
-        },
-        {
-          "id": "086",
-          "position": "2.42",
-          "kategorie": "Fortgeschritten",
-          "titel": "Verbellen/Gib Laut",
-          "handzeichen": "Hand wird zur Faust geformt und vor dem Körper nach oben bewegt, als würde man eine Pumpe betätigen. Alternativ kann die Hand ans eigene Ohr geführt werden.",
-          "bewegungsablauf": "Der Hund öffnet sein Maul und gibt ein oder mehrere Belllaute von sich. Die Intensität kann von einem leisen Wuff bis zu lautem Bellen variieren, je nach Trainingsstand und Signal. und demonstriert das Konzept klar.",
-          "endposition": "Nach dem Bellen schließt der Hund sein Maul wieder und wartet auf weitere Kommandos. Idealerweise sollte er die Anzahl der Belllaute kontrollieren können und nach einem oder wenigen Bellen wieder aufhören.",
-          "trainingstipps": "Das kontrollierte Verbellen ist ein zweischneidiges Schwert im Hundetraining. Einerseits kann es nützlich sein, beispielsweise um auf Kommando Aufmerksamkeit zu erregen oder als Teil einer Trick-Routine. Andererseits kann es bei unkontrollierten Hunden zu vermehrtem Bellen führen. Daher sollte dieses Kommando nur bei Hunden trainiert werden, die nicht bereits zu übermäßigem Bellen neigen. Die einfachste Methode ist das Einfangen natürlichen Verhaltens: Beobachten Sie Situationen, in denen Ihr Hund ohnehin bellt, beispielsweise wenn jemand an der Tür klingelt oder wenn er aufgeregt ist. In dem Moment, in dem er bellt, geben Sie das Kommando Gib Laut oder Verbellen und belohnen sofort. Nach mehreren Wiederholungen wird der Hund die Verknüpfung herstellen. Eine alternative Methode ist die Frustrationsmethode: Halten Sie ein Leckerli in Ihrer Faust und warten Sie. Viele Hunde werden aus Frustration bellen, wenn sie das Leckerli nicht bekommen. Benennen Sie dieses Bellen und belohnen Sie. Wichtig ist, dass Sie zeitgleich das Ruhig- oder Aus-Kommando trainieren, damit Sie das Bellen auch wieder beenden können. Ein häufiger Fehler ist es, das Bellen zu stark zu belohnen, wodurch der Hund lernt, dass Bellen generell erwünscht ist.",
-          "steigerung": {
-            "variante_1": "Trainieren Sie zunächst ein einzelnes, kontrolliertes Bellen auf Kommando. Der Hund sollte ein einziges Wuff geben und dann wieder ruhig werden. Dies erfordert Selbstkontrolle und präzises Timing bei der Belohnung.",
-            "variante_2": "Steigern Sie auf mehrfaches Bellen, wobei Sie die Anzahl durch verschiedene Handzeichen oder verbale Signale steuern. Beispielsweise könnte ein einzelnes Handzeichen ein Bellen bedeuten, während ein wiederholtes Pumpen mehrfaches Bellen auslöst. Trainieren Sie auch verschiedene Lautstärken: leises Bellen für Drinnen und lautes Bellen für Außenbereiche.",
-            "variante_3": "Die fortgeschrittenste Form ist das situative Bellen, bei dem der Hund auf bestimmte Situationen mit Bellen reagiert, beispielsweise wenn jemand Fremdes das Grundstück betritt, aber nicht bei Familienangehörigen. Dies erfordert sehr differenziertes Training und exzellente Impulskontrolle. Eine weitere Herausforderung ist das Bellen auf Distanz oder als Antwort auf eine gestellte Frage, was oft in Trick-Routinen verwendet wird.",
-            "variante_1_kurz": "Trainieren Sie zunächst ein einzelnes, kontrolliertes Bellen auf Kommando.",
-            "variante_2_kurz": "Steigern Sie auf mehrfaches Bellen, wobei Sie die Anzahl durch verschiedene Handzeichen oder verbale Signale steuern.",
-            "variante_3_kurz": "Die fortgeschrittenste Form ist das situative Bellen, bei dem der Hund auf bestimmte Situationen mit Bellen reagiert, beispielsweise wenn..."
-          },
-          "handzeichen_kurz": "Hand wird zur Faust geformt und vor dem Körper nach oben bewegt, als würde man eine Pumpe betätigen.",
-          "bewegungsablauf_kurz": "Der Hund öffnet sein Maul und gibt ein oder mehrere Belllaute von sich.",
-          "endposition_kurz": "Nach dem Bellen schließt der Hund sein Maul wieder und wartet auf weitere Kommandos.",
-          "trainingstipps_kurz": "Das kontrollierte Verbellen ist ein zweischneidiges Schwert im Hundetraining."
-        },
-        {
-          "id": "087",
-          "position": "2.43",
-          "kategorie": "Fortgeschritten",
-          "titel": "Rückwärts durch die Beine",
-          "handzeichen": "Der Mensch steht in Schrittstellung und zeigt mit der Hand zwischen den eigenen Beinen hindurch nach hinten, um die gewünschte Bewegungsrichtung anzuzeigen.",
-          "bewegungsablauf": "Der Hund bewegt sich rückwärts gehend durch die gespreizten Beine des Menschen hindurch. Die Bewegung sollte kontrolliert und in gerader Linie erfolgen, wobei der Hund den Blickkontakt zum Menschen behält.",
-          "endposition": "Der Hund hat die Beine des Menschen vollständig passiert und befindet sich auf der anderen Seite, immer noch in Rückwärtsbewegung oder in einer Halteposition, je nach weiterem Signal.",
-          "trainingstipps": "Dieser Trick kombiniert mehrere bereits erlernte Fähigkeiten: das Rückwärtsgehen und die Orientierung am Menschen. Beginnen Sie damit, dass Ihr Hund das Rückwärtsgehen sicher beherrscht. Stellen Sie sich dann in eine weite Schrittstellung, sodass ausreichend Platz zwischen Ihren Beinen ist. Locken Sie den Hund mit einem Leckerli vorwärts zwischen Ihre Beine und positionieren Sie ihn so, dass sein Kopf vor Ihren Beinen ist. Geben Sie dann das Rückwärts-Kommando und führen Sie ihn mit dem Leckerli zurück durch Ihre Beine. Belohnen Sie, sobald er vollständig durchgegangen ist. Anfangs werden Sie sich möglicherweise stark bücken müssen, um den Hund zu führen. Mit der Zeit können Sie sich aufrichten und die Bewegung nur noch mit Handzeichen steuern. Ein häufiger Fehler ist eine zu enge Beinstellung, die den Hund verunsichert oder ihm nicht genug Raum lässt. Beginnen Sie mit weiter Stellung und verringern Sie diese graduell, wenn der Hund sicherer wird. Manche Hunde finden es anfangs unangenehm, zwischen den Beinen des Menschen hindurchzugehen. In diesem Fall üben Sie zunächst das Vorwärtsgehen durch die Beine, um das Vertrauen aufzubauen.",
-          "steigerung": {
-            "variante_1": "Üben Sie den Trick zunächst mit sehr weiter Beinstellung und reduzieren Sie den Abstand graduell, bis eine normale Schrittstellung erreicht ist. Der Hund sollte lernen, auch bei engeren Verhältnissen sicher durch die Beine zu gehen.",
-            "variante_2": "Kombinieren Sie den Trick mit Bewegung: Gehen Sie langsam vorwärts, während der Hund rückwärts durch Ihre Beine geht und mit Ihren Schritten synchronisiert bleibt. Dies erfordert erhebliche Koordination von beiden Beteiligten und sieht sehr beeindruckend aus.",
-            "variante_3": "Die höchste Stufe ist die Integration in eine Fußarbeit-Routine, bei der der Hund abwechselnd vorwärts und rückwärts durch die Beine geht, während Sie sich bewegen. Dies kann zu einer fließenden Choreographie erweitert werden, die in Dogdance-Routinen verwendet wird.",
-            "variante_1_kurz": "Üben Sie den Trick zunächst mit sehr weiter Beinstellung und reduzieren Sie den Abstand graduell, bis eine normale Schrittstellung erreicht...",
-            "variante_2_kurz": "Kombinieren Sie den Trick mit Bewegung: Gehen Sie langsam vorwärts, während der Hund rückwärts durch Ihre Beine geht und mit Ihren...",
-            "variante_3_kurz": "Die höchste Stufe ist die Integration in eine Fußarbeit-Routine, bei der der Hund abwechselnd vorwärts und rückwärts durch die Beine geht,..."
-          },
-          "handzeichen_kurz": "Der Mensch steht in Schrittstellung und zeigt mit der Hand zwischen den eigenen Beinen hindurch nach hinten, um die...",
-          "bewegungsablauf_kurz": "Der Hund bewegt sich rückwärts gehend durch die gespreizten Beine des Menschen hindurch.",
-          "endposition_kurz": "Der Hund hat die Beine des Menschen vollständig passiert und befindet sich auf der anderen Seite, immer noch in...",
-          "trainingstipps_kurz": "Beginnen Sie damit, dass Ihr Hund das Rückwärtsgehen sicher beherrscht."
-        },
-        {
-          "id": "100",
-          "position": "2.44",
-          "kategorie": "Fortgeschritten",
-          "titel": "Über Hindernis springen",
-          "handzeichen": "Ausgestreckte Hand zeigt in Richtung des Hindernisses, gefolgt von einer aufwärts gerichteten Bewegung, die den Sprung symbolisiert. und demonstriert das Konzept klar.",
-          "bewegungsablauf": "Der Hund läuft auf das Hindernis zu, berechnet den Absprungpunkt, springt mit beiden Hinterbeinen gleichzeitig ab, überquert das Hindernis in einem Bogen und landet sicher auf allen vier Pfoten auf der anderen Seite.",
-          "endposition": "Der Hund hat das Hindernis sauber übersprungen ohne es zu berühren, ist sicher gelandet und wendet sich zum Menschen für weitere Anweisungen. und demonstriert das Konzept klar.",
-          "trainingstipps": "Das Springen über Hindernisse ist nicht nur ein beeindruckender Trick, sondern auch eine hervorragende physische Übung, die Kraft, Koordination und Selbstvertrauen aufbaut. Wichtig ist, dass Sie die physischen Voraussetzungen Ihres Hundes berücksichtigen. Hunde mit Gelenkproblemen, Rückenbeschwerden oder rassetypischen Einschränkungen wie Dackellähme sollten nicht zum Springen ermutigt werden. Auch junge Hunde in der Wachstumsphase sollten nur sehr niedrige Hindernisse bewältigen, um Schäden an Wachstumsfugen zu vermeiden. Beginnen Sie mit einem extrem niedrigen Hindernis, beispielsweise einem auf dem Boden liegenden Besenstiel. Locken Sie den Hund mit einem Leckerli darüber hinweg zu steigen. Die meisten Hunde werden zunächst einfach darüber laufen. Das ist perfekt als Einstieg. Erhöhen Sie die Höhe graduell auf wenige Zentimeter. Nutzen Sie das Kommando Hopp oder Über wenn der Hund über das Hindernis geht. Mit zunehmender Höhe wird der Hund automatisch von Steigen zu Springen übergehen. Achten Sie auf einen sicheren Untergrund, der nicht rutscht. Gras oder Gummimatten sind ideal. Vermeiden Sie Asphalt oder Fliesen. Die Höhe des Hindernisses sollte niemals die Schulterhöhe des Hundes überschreiten. Für die meisten Hunde ist halbe Schulterhöhe optimal. Beginnen und enden Sie jede Trainingseinheit mit niedrigen Sprüngen als Aufwärmen und Cool-Down.",
-          "steigerung": {
-            "variante_1": "Trainieren Sie mit einem sehr niedrigen, breiten Hindernis wie einem Besenstiel auf Ziegelsteinen. Der Hund sollte zunächst lernen, Hindernisse überhaupt zu überwinden, auch wenn er anfangs nur darüber steigt. Erhöhen Sie graduell auf zehn bis zwanzig Zentimeter.",
-            "variante_2": "Steigern Sie die Höhe auf etwa ein Drittel bis zur Hälfte der Schulterhöhe Ihres Hundes und führen Sie verschiedene Hindernisarten ein: Hürden, Reifen, breite Sprünge. Der Hund sollte lernen, sich auf unterschiedliche Herausforderungen einzustellen und seine Sprungtechnik anzupassen.",
-            "variante_3": "Die höchste Stufe umfasst Kombinationen mehrerer Hindernisse in Sequenz, ähnlich einem Agility-Parcours. Der Hund muss lernen, fließend von einem Sprung zum nächsten überzugehen und dabei Geschwindigkeit und Kontrolle zu balancieren. Dies erfordert exzellente Fitness und Körperbeherrschung.",
-            "variante_1_kurz": "Trainieren Sie mit einem sehr niedrigen, breiten Hindernis wie einem Besenstiel auf Ziegelsteinen.",
-            "variante_2_kurz": "Steigern Sie die Höhe auf etwa ein Drittel bis zur Hälfte der Schulterhöhe Ihres Hundes und führen Sie verschiedene Hindernisarten ein:...",
-            "variante_3_kurz": "Die höchste Stufe umfasst Kombinationen mehrerer Hindernisse in Sequenz, ähnlich einem Agility-Parcours."
-          },
-          "bewegungsablauf_kurz": "Der Hund läuft auf das Hindernis zu, berechnet den Absprungpunkt, springt mit beiden Hinterbeinen gleichzeitig ab, überquert das...",
-          "trainingstipps_kurz": "Beginnen Sie mit einem extrem niedrigen Hindernis, beispielsweise einem auf dem Boden liegenden Besenstiel.",
-          "handzeichen_kurz": "Ausgestreckte Hand zeigt in Richtung des Hindernisses, gefolgt von einer aufwärts gerichteten...",
-          "endposition_kurz": "Der Hund hat das Hindernis sauber übersprungen ohne es zu berühren, ist sicher gelandet und wendet..."
-        },
-        {
           "id": "101",
           "position": "2.35",
           "kategorie": "Fortgeschritten",
@@ -1690,7 +1601,96 @@
           "handzeichen_kurz": "Hochgehaltene Finger zeigen die gewünschte Anzahl der Belllaute an, oder ein wiederholtes Pumpen...",
           "bewegungsablauf_kurz": "Der Hund gibt eine präzise Anzahl von Belllauten von sich, entsprechend der visuellen oder verbalen Vorgabe, und stoppt...",
           "endposition_kurz": "Nach der korrekten Anzahl von Belllauten schließt der Hund sein Maul und wartet ruhig auf Belohnung..."
+        },
+        {
+          "id": "085",
+          "position": "2.41",
+          "kategorie": "Fortgeschritten",
+          "titel": "Bring/Apportieren",
+          "handzeichen": "Ausgestreckter Arm in Richtung des zu apportierenden Objekts, gefolgt von einer Handbewegung zurück zum Körper, die das Zurückbringen symbolisiert. und demonstriert das Konzept klar.",
+          "bewegungsablauf": "Der Hund läuft zum geworfenen oder indizierten Objekt, nimmt es vorsichtig ins Maul, kehrt zum Menschen zurück und übergibt das Objekt in die Hand oder legt es vor die Füße des Menschen. und demonstriert das Konzept klar.",
+          "endposition": "Der Hund sitzt oder steht vor dem Menschen, hält das Objekt im Maul oder hat es bereits in die Hand gegeben. Er wartet auf das Aus-Kommando oder hat das Objekt bereits übergeben und wartet auf weitere Anweisungen.",
+          "trainingstipps": "Apportieren ist eine komplexe Verhaltenskette, die aus mehreren Einzelschritten besteht: Interesse am Objekt, Aufnehmen des Objekts, Festhalten während der Bewegung, Zurückkommen zum Menschen und Übergeben. Beginnen Sie mit einem Objekt, das Ihr Hund gerne im Maul trägt, beispielsweise sein Lieblingsspielzeug. Werfen Sie es nur kurze Distanzen und belohnen Sie jeden Teilschritt. Manche Hunde nehmen das Objekt auf, bringen es aber nicht zurück. Trainieren Sie in diesem Fall in einem Flur oder zwischen zwei Personen, sodass der Rückweg die einzige logische Option ist. Andere Hunde bringen das Objekt zurück, geben es aber nicht her. Hier hilft das vorher trainierte Aus-Kommando. Tauschen Sie das Apportel gegen ein Leckerli und geben Sie es dann zurück, damit das Hergeben nicht als Verlust wahrgenommen wird. Bei Hunden, die kein natürliches Interesse am Tragen zeigen, beginnen Sie mit Shaping: Belohnen Sie bereits das Anschauen des Objekts, dann das Berühren mit der Nase, dann das kurze Aufnehmen und schließlich das Tragen über kurze Strecken. Wichtig ist, das Training in sehr kurzen Einheiten durchzuführen, damit es nicht langweilig wird. Das Apportiertraining sollte immer positiv enden, bevor der Hund das Interesse verliert.",
+          "steigerung": {
+            "variante_1": "Steigern Sie die Distanz des Wurfs graduell von wenigen Metern auf zehn bis zwanzig Meter. Üben Sie das Apportieren verschiedener Objekte: Bälle, Stöcke, Apportel, Frisbees und später auch Alltagsgegenstände wie Schlüssel oder die Fernbedienung. Der Hund sollte lernen, dass das Prinzip auf alle tragbaren Objekte anwendbar ist.",
+            "variante_2": "Trainieren Sie das gerichtete Apportieren, bei dem Sie auf ein spezifisches Objekt unter mehreren zeigen und der Hund genau dieses bringen soll. Führen Sie das Apportieren über Hindernisse ein, beispielsweise über eine niedrige Hürde oder durch einen Tunnel. Üben Sie auch das Apportieren im Wasser, falls Ihr Hund schwimmfreudig ist, was eine hervorragende Übung für die Sommermonate darstellt.",
+            "variante_3": "Die höchste Stufe ist das verdeckte Apportieren, bei dem der Hund ein Objekt suchen und bringen muss, das er nicht hat fallen sehen. Dies kombiniert Nasenarbeit mit Apportieren. Trainieren Sie auch Apportieren mit empfindlichen Objekten, die der Hund sehr vorsichtig tragen muss, wie ein rohes Ei. Eine weitere Herausforderung ist das Apportieren und Ablegen an einem spezifischen Ort, nicht direkt beim Menschen.",
+            "variante_1_kurz": "Steigern Sie die Distanz des Wurfs graduell von wenigen Metern auf zehn bis zwanzig Meter.",
+            "variante_2_kurz": "Trainieren Sie das gerichtete Apportieren, bei dem Sie auf ein spezifisches Objekt unter mehreren zeigen und der Hund genau dieses bringen...",
+            "variante_3_kurz": "Die höchste Stufe ist das verdeckte Apportieren, bei dem der Hund ein Objekt suchen und bringen muss, das er nicht hat fallen sehen."
+          },
+          "bewegungsablauf_kurz": "Der Hund läuft zum geworfenen oder indizierten Objekt, nimmt es vorsichtig ins Maul, kehrt zum Menschen zurück und übergibt das...",
+          "endposition_kurz": "Der Hund sitzt oder steht vor dem Menschen, hält das Objekt im Maul oder hat es bereits in die Hand gegeben.",
+          "trainingstipps_kurz": "Beginnen Sie mit einem Objekt, das Ihr Hund gerne im Maul trägt, beispielsweise sein Lieblingsspielzeug.",
+          "handzeichen_kurz": "Ausgestreckter Arm in Richtung des zu apportierenden Objekts, gefolgt von einer Handbewegung zurück..."
+        },
+        {
+          "id": "086",
+          "position": "2.42",
+          "kategorie": "Fortgeschritten",
+          "titel": "Verbellen/Gib Laut",
+          "handzeichen": "Hand wird zur Faust geformt und vor dem Körper nach oben bewegt, als würde man eine Pumpe betätigen. Alternativ kann die Hand ans eigene Ohr geführt werden.",
+          "bewegungsablauf": "Der Hund öffnet sein Maul und gibt ein oder mehrere Belllaute von sich. Die Intensität kann von einem leisen Wuff bis zu lautem Bellen variieren, je nach Trainingsstand und Signal. und demonstriert das Konzept klar.",
+          "endposition": "Nach dem Bellen schließt der Hund sein Maul wieder und wartet auf weitere Kommandos. Idealerweise sollte er die Anzahl der Belllaute kontrollieren können und nach einem oder wenigen Bellen wieder aufhören.",
+          "trainingstipps": "Das kontrollierte Verbellen ist ein zweischneidiges Schwert im Hundetraining. Einerseits kann es nützlich sein, beispielsweise um auf Kommando Aufmerksamkeit zu erregen oder als Teil einer Trick-Routine. Andererseits kann es bei unkontrollierten Hunden zu vermehrtem Bellen führen. Daher sollte dieses Kommando nur bei Hunden trainiert werden, die nicht bereits zu übermäßigem Bellen neigen. Die einfachste Methode ist das Einfangen natürlichen Verhaltens: Beobachten Sie Situationen, in denen Ihr Hund ohnehin bellt, beispielsweise wenn jemand an der Tür klingelt oder wenn er aufgeregt ist. In dem Moment, in dem er bellt, geben Sie das Kommando Gib Laut oder Verbellen und belohnen sofort. Nach mehreren Wiederholungen wird der Hund die Verknüpfung herstellen. Eine alternative Methode ist die Frustrationsmethode: Halten Sie ein Leckerli in Ihrer Faust und warten Sie. Viele Hunde werden aus Frustration bellen, wenn sie das Leckerli nicht bekommen. Benennen Sie dieses Bellen und belohnen Sie. Wichtig ist, dass Sie zeitgleich das Ruhig- oder Aus-Kommando trainieren, damit Sie das Bellen auch wieder beenden können. Ein häufiger Fehler ist es, das Bellen zu stark zu belohnen, wodurch der Hund lernt, dass Bellen generell erwünscht ist.",
+          "steigerung": {
+            "variante_1": "Trainieren Sie zunächst ein einzelnes, kontrolliertes Bellen auf Kommando. Der Hund sollte ein einziges Wuff geben und dann wieder ruhig werden. Dies erfordert Selbstkontrolle und präzises Timing bei der Belohnung.",
+            "variante_2": "Steigern Sie auf mehrfaches Bellen, wobei Sie die Anzahl durch verschiedene Handzeichen oder verbale Signale steuern. Beispielsweise könnte ein einzelnes Handzeichen ein Bellen bedeuten, während ein wiederholtes Pumpen mehrfaches Bellen auslöst. Trainieren Sie auch verschiedene Lautstärken: leises Bellen für Drinnen und lautes Bellen für Außenbereiche.",
+            "variante_3": "Die fortgeschrittenste Form ist das situative Bellen, bei dem der Hund auf bestimmte Situationen mit Bellen reagiert, beispielsweise wenn jemand Fremdes das Grundstück betritt, aber nicht bei Familienangehörigen. Dies erfordert sehr differenziertes Training und exzellente Impulskontrolle. Eine weitere Herausforderung ist das Bellen auf Distanz oder als Antwort auf eine gestellte Frage, was oft in Trick-Routinen verwendet wird.",
+            "variante_1_kurz": "Trainieren Sie zunächst ein einzelnes, kontrolliertes Bellen auf Kommando.",
+            "variante_2_kurz": "Steigern Sie auf mehrfaches Bellen, wobei Sie die Anzahl durch verschiedene Handzeichen oder verbale Signale steuern.",
+            "variante_3_kurz": "Die fortgeschrittenste Form ist das situative Bellen, bei dem der Hund auf bestimmte Situationen mit Bellen reagiert, beispielsweise wenn..."
+          },
+          "handzeichen_kurz": "Hand wird zur Faust geformt und vor dem Körper nach oben bewegt, als würde man eine Pumpe betätigen.",
+          "bewegungsablauf_kurz": "Der Hund öffnet sein Maul und gibt ein oder mehrere Belllaute von sich.",
+          "endposition_kurz": "Nach dem Bellen schließt der Hund sein Maul wieder und wartet auf weitere Kommandos.",
+          "trainingstipps_kurz": "Das kontrollierte Verbellen ist ein zweischneidiges Schwert im Hundetraining."
+        },
+        {
+          "id": "087",
+          "position": "2.43",
+          "kategorie": "Fortgeschritten",
+          "titel": "Rückwärts durch die Beine",
+          "handzeichen": "Der Mensch steht in Schrittstellung und zeigt mit der Hand zwischen den eigenen Beinen hindurch nach hinten, um die gewünschte Bewegungsrichtung anzuzeigen.",
+          "bewegungsablauf": "Der Hund bewegt sich rückwärts gehend durch die gespreizten Beine des Menschen hindurch. Die Bewegung sollte kontrolliert und in gerader Linie erfolgen, wobei der Hund den Blickkontakt zum Menschen behält.",
+          "endposition": "Der Hund hat die Beine des Menschen vollständig passiert und befindet sich auf der anderen Seite, immer noch in Rückwärtsbewegung oder in einer Halteposition, je nach weiterem Signal.",
+          "trainingstipps": "Dieser Trick kombiniert mehrere bereits erlernte Fähigkeiten: das Rückwärtsgehen und die Orientierung am Menschen. Beginnen Sie damit, dass Ihr Hund das Rückwärtsgehen sicher beherrscht. Stellen Sie sich dann in eine weite Schrittstellung, sodass ausreichend Platz zwischen Ihren Beinen ist. Locken Sie den Hund mit einem Leckerli vorwärts zwischen Ihre Beine und positionieren Sie ihn so, dass sein Kopf vor Ihren Beinen ist. Geben Sie dann das Rückwärts-Kommando und führen Sie ihn mit dem Leckerli zurück durch Ihre Beine. Belohnen Sie, sobald er vollständig durchgegangen ist. Anfangs werden Sie sich möglicherweise stark bücken müssen, um den Hund zu führen. Mit der Zeit können Sie sich aufrichten und die Bewegung nur noch mit Handzeichen steuern. Ein häufiger Fehler ist eine zu enge Beinstellung, die den Hund verunsichert oder ihm nicht genug Raum lässt. Beginnen Sie mit weiter Stellung und verringern Sie diese graduell, wenn der Hund sicherer wird. Manche Hunde finden es anfangs unangenehm, zwischen den Beinen des Menschen hindurchzugehen. In diesem Fall üben Sie zunächst das Vorwärtsgehen durch die Beine, um das Vertrauen aufzubauen.",
+          "steigerung": {
+            "variante_1": "Üben Sie den Trick zunächst mit sehr weiter Beinstellung und reduzieren Sie den Abstand graduell, bis eine normale Schrittstellung erreicht ist. Der Hund sollte lernen, auch bei engeren Verhältnissen sicher durch die Beine zu gehen.",
+            "variante_2": "Kombinieren Sie den Trick mit Bewegung: Gehen Sie langsam vorwärts, während der Hund rückwärts durch Ihre Beine geht und mit Ihren Schritten synchronisiert bleibt. Dies erfordert erhebliche Koordination von beiden Beteiligten und sieht sehr beeindruckend aus.",
+            "variante_3": "Die höchste Stufe ist die Integration in eine Fußarbeit-Routine, bei der der Hund abwechselnd vorwärts und rückwärts durch die Beine geht, während Sie sich bewegen. Dies kann zu einer fließenden Choreographie erweitert werden, die in Dogdance-Routinen verwendet wird.",
+            "variante_1_kurz": "Üben Sie den Trick zunächst mit sehr weiter Beinstellung und reduzieren Sie den Abstand graduell, bis eine normale Schrittstellung erreicht...",
+            "variante_2_kurz": "Kombinieren Sie den Trick mit Bewegung: Gehen Sie langsam vorwärts, während der Hund rückwärts durch Ihre Beine geht und mit Ihren...",
+            "variante_3_kurz": "Die höchste Stufe ist die Integration in eine Fußarbeit-Routine, bei der der Hund abwechselnd vorwärts und rückwärts durch die Beine geht,..."
+          },
+          "handzeichen_kurz": "Der Mensch steht in Schrittstellung und zeigt mit der Hand zwischen den eigenen Beinen hindurch nach hinten, um die...",
+          "bewegungsablauf_kurz": "Der Hund bewegt sich rückwärts gehend durch die gespreizten Beine des Menschen hindurch.",
+          "endposition_kurz": "Der Hund hat die Beine des Menschen vollständig passiert und befindet sich auf der anderen Seite, immer noch in...",
+          "trainingstipps_kurz": "Beginnen Sie damit, dass Ihr Hund das Rückwärtsgehen sicher beherrscht."
+        },
+        {
+          "id": "100",
+          "position": "2.44",
+          "kategorie": "Fortgeschritten",
+          "titel": "Über Hindernis springen",
+          "handzeichen": "Ausgestreckte Hand zeigt in Richtung des Hindernisses, gefolgt von einer aufwärts gerichteten Bewegung, die den Sprung symbolisiert. und demonstriert das Konzept klar.",
+          "bewegungsablauf": "Der Hund läuft auf das Hindernis zu, berechnet den Absprungpunkt, springt mit beiden Hinterbeinen gleichzeitig ab, überquert das Hindernis in einem Bogen und landet sicher auf allen vier Pfoten auf der anderen Seite.",
+          "endposition": "Der Hund hat das Hindernis sauber übersprungen ohne es zu berühren, ist sicher gelandet und wendet sich zum Menschen für weitere Anweisungen. und demonstriert das Konzept klar.",
+          "trainingstipps": "Das Springen über Hindernisse ist nicht nur ein beeindruckender Trick, sondern auch eine hervorragende physische Übung, die Kraft, Koordination und Selbstvertrauen aufbaut. Wichtig ist, dass Sie die physischen Voraussetzungen Ihres Hundes berücksichtigen. Hunde mit Gelenkproblemen, Rückenbeschwerden oder rassetypischen Einschränkungen wie Dackellähme sollten nicht zum Springen ermutigt werden. Auch junge Hunde in der Wachstumsphase sollten nur sehr niedrige Hindernisse bewältigen, um Schäden an Wachstumsfugen zu vermeiden. Beginnen Sie mit einem extrem niedrigen Hindernis, beispielsweise einem auf dem Boden liegenden Besenstiel. Locken Sie den Hund mit einem Leckerli darüber hinweg zu steigen. Die meisten Hunde werden zunächst einfach darüber laufen. Das ist perfekt als Einstieg. Erhöhen Sie die Höhe graduell auf wenige Zentimeter. Nutzen Sie das Kommando Hopp oder Über wenn der Hund über das Hindernis geht. Mit zunehmender Höhe wird der Hund automatisch von Steigen zu Springen übergehen. Achten Sie auf einen sicheren Untergrund, der nicht rutscht. Gras oder Gummimatten sind ideal. Vermeiden Sie Asphalt oder Fliesen. Die Höhe des Hindernisses sollte niemals die Schulterhöhe des Hundes überschreiten. Für die meisten Hunde ist halbe Schulterhöhe optimal. Beginnen und enden Sie jede Trainingseinheit mit niedrigen Sprüngen als Aufwärmen und Cool-Down.",
+          "steigerung": {
+            "variante_1": "Trainieren Sie mit einem sehr niedrigen, breiten Hindernis wie einem Besenstiel auf Ziegelsteinen. Der Hund sollte zunächst lernen, Hindernisse überhaupt zu überwinden, auch wenn er anfangs nur darüber steigt. Erhöhen Sie graduell auf zehn bis zwanzig Zentimeter.",
+            "variante_2": "Steigern Sie die Höhe auf etwa ein Drittel bis zur Hälfte der Schulterhöhe Ihres Hundes und führen Sie verschiedene Hindernisarten ein: Hürden, Reifen, breite Sprünge. Der Hund sollte lernen, sich auf unterschiedliche Herausforderungen einzustellen und seine Sprungtechnik anzupassen.",
+            "variante_3": "Die höchste Stufe umfasst Kombinationen mehrerer Hindernisse in Sequenz, ähnlich einem Agility-Parcours. Der Hund muss lernen, fließend von einem Sprung zum nächsten überzugehen und dabei Geschwindigkeit und Kontrolle zu balancieren. Dies erfordert exzellente Fitness und Körperbeherrschung.",
+            "variante_1_kurz": "Trainieren Sie mit einem sehr niedrigen, breiten Hindernis wie einem Besenstiel auf Ziegelsteinen.",
+            "variante_2_kurz": "Steigern Sie die Höhe auf etwa ein Drittel bis zur Hälfte der Schulterhöhe Ihres Hundes und führen Sie verschiedene Hindernisarten ein:...",
+            "variante_3_kurz": "Die höchste Stufe umfasst Kombinationen mehrerer Hindernisse in Sequenz, ähnlich einem Agility-Parcours."
+          },
+          "bewegungsablauf_kurz": "Der Hund läuft auf das Hindernis zu, berechnet den Absprungpunkt, springt mit beiden Hinterbeinen gleichzeitig ab, überquert das...",
+          "trainingstipps_kurz": "Beginnen Sie mit einem extrem niedrigen Hindernis, beispielsweise einem auf dem Boden liegenden Besenstiel.",
+          "handzeichen_kurz": "Ausgestreckte Hand zeigt in Richtung des Hindernisses, gefolgt von einer aufwärts gerichteten...",
+          "endposition_kurz": "Der Hund hat das Hindernis sauber übersprungen ohne es zu berühren, ist sicher gelandet und wendet..."
         }
+
       ]
     },
     "advanced": {
