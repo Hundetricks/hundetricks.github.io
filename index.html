@@ -1824,11 +1824,11 @@
                     <div style="background:var(--bg-main); padding:12px; border-radius:8px;">
                         <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
                             <input type="checkbox" id="autoLoadLocalSetting"
-                                   onchange="localStorage.setItem(AUTO_LOAD_LOCAL_JSON_KEY, this.checked); console.log('Auto-Load Local:', this.checked);">
+                                   onchange="localStorage.setItem(AUTO_LOAD_LOCAL_JSON_KEY, this.checked); console.log('Auto-Load Local:', this.checked); showToast(this.checked ? '📡 Offline-Modus aktiviert - App wird beim nächsten Laden nur lokale Daten verwenden' : '🌐 Online-Modus aktiviert - App wird beim nächsten Laden Daten von GitHub laden', 'info');">
                             <span style="font-size:0.9rem;">Lokale JSON bevorzugen (Offline-Modus)</span>
                         </label>
                         <p style="margin:8px 0 0 24px; font-size:0.75rem; color:var(--text-secondary);">
-                            Wenn aktiviert: Datei-Auswahl-Dialog wird beim Start gezeigt
+                            Wenn aktiviert: Nur gespeicherte lokale Daten werden verwendet (kein Internet nötig)
                         </p>
                     </div>
                 </div>
@@ -2538,7 +2538,25 @@
         // === MODAL FUNCTIONS ===
         function openSettings() {
             document.getElementById('settingsModal').classList.add('show');
-            initTTSSettings(); // Lade TTS-Einstellungen
+            
+            // TTS-Einstellungen laden
+            initTTSSettings();
+            
+            // Backup-Einstellungen laden
+            const autoLoadBackup = localStorage.getItem(AUTO_LOAD_BACKUP_KEY) === 'true';
+            const autoLoadBackupCheckbox = document.getElementById('autoLoadBackupSetting');
+            if (autoLoadBackupCheckbox) {
+                autoLoadBackupCheckbox.checked = autoLoadBackup;
+            }
+            
+            // Offline-Modus Einstellung laden
+            const autoLoadLocal = localStorage.getItem(AUTO_LOAD_LOCAL_JSON_KEY) === 'true';
+            const autoLoadLocalCheckbox = document.getElementById('autoLoadLocalSetting');
+            if (autoLoadLocalCheckbox) {
+                autoLoadLocalCheckbox.checked = autoLoadLocal;
+            }
+            
+            console.log('⚙️ Settings geladen:', { autoLoadBackup, autoLoadLocal });
         }
 
         function closeSettings() {
@@ -5230,6 +5248,85 @@
                 volumeValue.textContent = Math.round(settings.volume * 100);
             }
         }
+        
+        // ============================================================
+        // AUTOMATISCHE INITIALISIERUNG BEIM APP-START
+        // ============================================================
+        
+        async function initializeApp() {
+            console.log('🚀🚀🚀 APP-INITIALISIERUNG GESTARTET 🚀🚀🚀');
+            
+            // Prüfe Offline-Modus Einstellung
+            const offlineModeEnabled = localStorage.getItem(AUTO_LOAD_LOCAL_JSON_KEY) === 'true';
+            
+            if (offlineModeEnabled) {
+                console.log('📡 OFFLINE-MODUS AKTIVIERT - Lade nur lokale Daten');
+                
+                // Versuche lokale gecachte Daten zu laden
+                const cachedData = localStorage.getItem(FULL_DATA_KEY);
+                if (cachedData) {
+                    try {
+                        const data = JSON.parse(cachedData);
+                        if (data && data.trick_database) {
+                            console.log('✅ Lokale Daten erfolgreich geladen');
+                            currentData = data;
+                            mergeCustomTricks();
+                            renderApp(currentData);
+                            showToast('📡 Offline-Modus - Lokale Daten geladen', 'info');
+                            return;
+                        }
+                    } catch (e) {
+                        console.error('❌ Fehler beim Laden lokaler Daten:', e);
+                    }
+                }
+                
+                // Keine lokalen Daten vorhanden
+                console.warn('⚠️ Keine lokalen Daten vorhanden');
+                showToast('⚠️ Offline-Modus aktiv, aber keine Daten verfügbar. Bitte online gehen und neu laden.', 'warning');
+                
+            } else {
+                console.log('🌐 ONLINE-MODUS - Lade Daten von GitHub');
+                
+                // Automatisch JSON von GitHub laden
+                try {
+                    await loadJSON();
+                    console.log('✅ App erfolgreich initialisiert mit Online-Daten');
+                } catch (error) {
+                    console.error('❌ Fehler beim automatischen Laden:', error);
+                    
+                    // Fallback: Versuche lokale gecachte Daten
+                    const cachedData = localStorage.getItem(FULL_DATA_KEY);
+                    if (cachedData) {
+                        try {
+                            const data = JSON.parse(cachedData);
+                            if (data && data.trick_database) {
+                                console.log('✅ Fallback: Lokale gecachte Daten geladen');
+                                currentData = data;
+                                mergeCustomTricks();
+                                renderApp(currentData);
+                                showToast('📡 Offline - Gecachte Daten verwendet', 'warning');
+                                return;
+                            }
+                        } catch (e) {
+                            console.error('❌ Auch gecachte Daten fehlgeschlagen:', e);
+                        }
+                    }
+                    
+                    // Letzter Versuch fehlgeschlagen
+                    showToast('❌ Fehler beim Laden der Daten. Bitte Internetverbindung prüfen.', 'error');
+                }
+            }
+        }
+        
+        // APP AUTOMATISCH BEIM LADEN STARTEN
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            // DOM ist bereits geladen, sofort initialisieren
+            initializeApp();
+        }
+        
+        console.log('✅ Initialisierungs-Listener registriert');
     </script>
     
     <!-- ============================================================ -->
